@@ -3,6 +3,8 @@ session_start();
 include("get_test_details.php");
 
 $test_id = $_GET['biddingtest'];
+$id_first = $_GET['id_first'];
+$id_second = $_GET['id_second'];
 
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
@@ -47,7 +49,7 @@ if (!isset($_SESSION['is_logged'])) {
                 <td id="W" class="bidding_desk_column" style="padding: 3px; width: 150px;">W</td>
 
             </table>
-            <div id="bidding_string"><?php get_right_bidding($test_id); ?></div>
+            <div id="bidding_string"><?php get_player_bidding($test_id, $id_first, $id_second); ?></div>
         </div>
 
         <div id="biddingbox" style="display: none;">

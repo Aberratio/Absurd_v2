@@ -1,4 +1,5 @@
 <?php
+include("get_test_details.php");
 $con = mysqli_connect("sql8.netmark.pl", "filipmar_asia", "asia123", "filipmar_asia") or die("Connection was not established");
 
 function get_ranking_table()
@@ -48,7 +49,7 @@ function get_ranking_test_table($test_id)
 {
     global $con;
 
-    $get_ranking_query = 'SELECT * FROM `player_bidding_tests` WHERE `id_test` = ' . $test_id . ' ORDER BY `points` DESC LIMIT 50';
+    $get_ranking_query = 'SELECT * FROM `player_bidding_tests` WHERE `id_test` = ' . $test_id . ' AND `completed_test` = 1 ORDER BY `points` DESC LIMIT 50';
 
     $run_biddingtest = mysqli_query($con, $get_ranking_query);
 
@@ -83,7 +84,8 @@ function get_ranking_test_table($test_id)
                 <img class="profile_picture" style="width:40px; height: 40px; 
                 border: 1px solid black; border-radius: 75%;" src="' . $first['profile_picture'] . '">
             ' . $first['user'] . ' </td> 
-            <td>' . $points . '</td>
+                <td><a target="bidding" href="player_bidding_pop.php?biddingtest=' . $test_id . '&id_first=' . $first_user_id . '&id_second=' . $second_user_id . '">
+                ' . $points . '</a></td>
         </tr>
         <tr>
             <td style="color: rgb(179, 255, 144);"></td>
@@ -93,7 +95,6 @@ function get_ranking_test_table($test_id)
             ' . $second['user'] . ' </td> 
             <td></td>
         </tr>
-
         ';
 
         $place = $place + 1;
