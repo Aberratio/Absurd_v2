@@ -12,19 +12,13 @@ if (!isset($_SESSION['is_logged'])) {
 <html lang="pl">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatile" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-  <title>Absurd - platforma licytacyjna</title>
-  <meta name="description" content="Strona do nauki gry w brydża">
-  <meta name="keywords" content="brydż, licytacja, rozgrywka, bridge, absurd">
-  <meta name="author" content="Joanna Kokot">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Absurd - Bridge Platform</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -34,7 +28,7 @@ if (!isset($_SESSION['is_logged'])) {
 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="menu.php">
       <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
       <h3 class="d-inline align-middle">Absurd</h3>
       <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />

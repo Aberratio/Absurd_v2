@@ -23,7 +23,7 @@ if (!isset($_SESSION['is_logged'])) {
 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="menu.php">
             <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
             <h3 class="d-inline align-middle">Absurd</h3>
             <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
