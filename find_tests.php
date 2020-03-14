@@ -39,33 +39,67 @@ function search_test($set, $friend)
 			}
 
 			echo "
-				<div class='col-sm-4'>
-					<img class='profile_picture' src='$src''>
+			<div class='card mb-4'>
+			<div class='row no-gutters mt-2'>
+				<div class='col-auto'>
 						";
 			if ($completed) {
 				echo " 
 							<form method='get' action='points_table.php'>
+								<input type='image' class='profile_picture' name='view_points_table' src='$src''>
 								<input type=hidden name='biddingtest' value='$biddingtest'/>
 								<input type=hidden name='test_main_id' value='$test_main_id'/>
 								<input type=hidden name='friend' value='$friend'/>
 								<input type=hidden name='type' value='0'/>
 								<input type=hidden name='test_number' value='$test_number'/>
-								<p><button class='profile_view_button' name='view_points_table'>Punktacja " . $test_number . "</button></p>
-								<p>Punkty: $points </p>
+								<input type=hidden name='friend' value='$friend'/>
+							</form>
+						</div>
+						<div class='col ml-1'>
+							<div class='card-block px-2'>
+								<h4
+									class='card-title font-weight-bold text-capitalize'
+								>
+									Test " . $test_number . "
+								</h4>
+								<p class='card-text'>
+									Points $points/MAX <br />
+									7 Comments <br />
+									Ranking  
+								</p>
+							</div>
+                   	   </div>
+
 							";
 			} else {
 				echo "
 							<form method='get' action='bidding_page.php'>
+							<input type='image' class='profile_picture' name='add' src='$src''>
 								<input type=hidden name='biddingtest' value='$biddingtest'/>
 								<input type=hidden name='friend' value='$friend'/>
 								<input type=hidden name='type' value='0'/>
 								<input type=hidden name='test_number' value='$test_number'/>
-								<p><button class='profile_view_button' name='add'>Rozwiąż " . $test_number . "</button></p>
+								</form>
+						</div>
+						<div class='col ml-1'>
+                        <div class='card-block px-2'>
+                          <h4
+                            class='card-title font-weight-bold text-capitalize'
+                          >
+                            Test " . $test_number . "
+                          </h4>
+                          <p class='card-text'>
+                              Ile par skończyło? <br />
+                              Ostatnia odzywka -data 
+                              Comments
+                          </p>
+                        </div>
+                      </div>
 							";
 			}
 			echo "
-						<input type=hidden name='friend' value='$friend'/>
-					</form>
+						
+				</div>
 				</div>
 				";
 
