@@ -1,126 +1,301 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 body {
-    background-color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  background: black;
+  color: #666;
 }
 
-main {
-    color: lightgray;
-    font-size: 24px;
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  color: #3c217a;
+  margin: 20px;
 }
 
-#bridge_table {
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+/* NAVBAR */
+
+.navbar {
+  min-height: 57px;
 }
 
-#cards {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    min-height: 60px;
+.bg-absurd-col-light {
+  background-color: #5dbaf89c !important;
 }
 
-#bidding {
-    float: left;
-    width: 600px;
-    margin-right: 100px;
-    text-align: center;
-    min-height: 280px;
+.bg-absurd-col-dark {
+  background-color: #5dbaf89c !important;
 }
 
-#biddingbox {
-    float: left;
-    width: 450px;
-    text-align: center;
-    min-height: 280px;
+/*MENU*/
+.menu_view_container {
+  text-align: center;
+  color: rgb(253, 197, 124);
+  font-size: 18px;
 }
 
-.bid {
-    width: 70px;
-    height: 50px;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
-    border: 3px solid gray;
-    color: lightgray;
-    font-size: 24px;
-    background-color: black;
-    float: left;
-    cursor: pointer;
-    border-radius: 15%;
+.menu_view_container-box {
+  background-color: rgb(247, 109, 109);
+  border: 3px solid rgb(92, 47, 47);
+  border-radius: 15%;
+  padding: 30px;
 }
 
-.bid:hover {
-    background-color: #222222;
-    color: white;
-}
-
-#biddingbox_bottom input{
-    width: 60px;
-    height: 50px;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
-    border: 3px solid gray;
-    color: lightgray;
-    font-size: 24px;
-    background-color: black;
-    float: left;
-    cursor: pointer;
-    border-radius: 15%;
-}
-
-.biddingbox_bottom:after {
-    clear: both;
-}
-
-.biddingbox_bottom_button {
-    float: left; 
-    width: 97px;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
-    border: 3px solid gray;
-    color: lightgray;
-    font-size: 24px;
-    background-color: black;
-    float: left;
-    cursor: pointer;
-    border-radius: 15%;
-}
-
-.biddingbox_bottom_button_back {
-    width: 70px;
-}
-
-.biddingbox_bottom_button_send {
-    width: 340px;
-}
-
-.biddingbox_bottom_button:hover {
-    background-color: #222222;
-    color: white;
-}
-
-.bidding_desk_column {
-    width: 20px;
+.menu_view_container-box:hover {
+  background-color: rgb(177, 80, 80);
+  border: 3px solid rgb(134, 84, 84);
 }
 
 .card {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
+}
+
+#cards {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  min-height: 60px;
+}
+
+main {
+  color: lightgray;
+  font-size: 24px;
+}
+
+#bridge_table {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#bidding {
+  float: left;
+  width: 600px;
+  margin-right: 100px;
+  text-align: center;
+  min-height: 280px;
+}
+
+#biddingbox {
+  float: left;
+  width: 450px;
+  text-align: center;
+  min-height: 280px;
+}
+
+.bid {
+  width: 70px;
+  height: 50px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid gray;
+  color: lightgray;
+  font-size: 24px;
+  background-color: black;
+  float: left;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.bid:hover {
+  background-color: #222222;
+  color: white;
+}
+
+#biddingbox_bottom input {
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid gray;
+  color: lightgray;
+  font-size: 24px;
+  background-color: black;
+  float: left;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.biddingbox_bottom:after {
+  clear: both;
+}
+
+.biddingbox_bottom_button {
+  float: left;
+  width: 97px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid gray;
+  color: lightgray;
+  font-size: 24px;
+  background-color: black;
+  float: left;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.biddingbox_bottom_button_back {
+  width: 70px;
+}
+
+.biddingbox_bottom_button_send {
+  width: 340px;
+}
+
+.biddingbox_bottom_button:hover {
+  background-color: #222222;
+  color: white;
+}
+
+.bidding_desk_column {
+  width: 20px;
 }
 
 .player_turn {
-    text-align: left;
-    font-size: 24px;
-    color: rgb(255, 145, 0);
+  text-align: left;
+  font-size: 24px;
+  color: rgb(255, 145, 0);
 }
 
 .card_table_view {
-    font-size: 28px;
-    margin-left: 300px;
+  font-size: 28px;
+  margin-left: 300px;
 }
 
 .hand {
-    margin-left: 300px;
+  margin-left: 300px;
+}
+
+/*  LOGIN */
+.login-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.login-form {
+  max-width: 100%;
+  width: 370px;
+  padding: 15px;
+  margin: auto;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: #666;
+}
+
+.login-form a:hover {
+  color: #723dbe;
+}
+
+.form-control {
+  font-size: 15px;
+  min-height: 48px;
+  font-weight: 500;
+}
+
+.form-control:focus {
+  border-color: #723dbe;
+  box-shadow: 0 0 0 0.2rem rgba(114, 61, 190, 0.25);
+}
+
+.forgot-link label {
+  margin-bottom: 0;
+}
+
+.btn-custom {
+  background: #723dbe;
+  border-color: #723dbe;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 48px;
+}
+
+.btn-custom:focus,
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom:active:focus {
+  background: #54229d;
+  border-color: #54229d;
+  color: #fff;
+}
+
+.btn-custom:focus {
+  box-shadow: 0 0 0 0.2rem rgba(114, 61, 190, 0.25);
+}
+
+/* SEARCH VIEW */
+
+.profile_picture {
+  border: 3px solid rgb(247, 109, 109);
+  border-radius: 15%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.profile_view_button {
+  width: 200px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid rgb(253, 197, 124);
+  color: rgb(179, 255, 144);
+  font-size: 24px;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.search_input {
+  width: 400px;
+  float: left;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid rgb(247, 109, 109);
+  color: rgb(253, 197, 124);
+  font-size: 24px;
+  background-color: black;
+  border-radius: 15%;
+}
+
+.search_input::placeholder {
+  color: rgb(253, 197, 124);
+}
+
+.search_button {
+  width: 200px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid gray;
+  color: lightgray;
+  font-size: 24px;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.settings_form {
+  color: rgb(253, 197, 124);
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.update_button {
+  width: 200px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: 3px solid rgb(247, 109, 109);
+  color: rgb(179, 255, 144);
+  font-size: 24px;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 15%;
 }
