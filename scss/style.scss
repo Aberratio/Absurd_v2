@@ -1,0 +1,105 @@
+//General Styles
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.site-container {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Gelasio", serif;
+  line-height: 1.6;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+body {
+  background: #263f31;
+  color: #000;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+// Form
+
+.main-form {
+  max-width: 600px;
+  min-width: 250px;
+
+  .form-control {
+    border: 1px solid #ced4da;
+  }
+
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #263f31;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(38, 63, 49, 0.5); //#67151562;
+  }
+}
+
+//Navbar
+// .navbar {
+//   box-shadow: 2px 2px 5px #263f31;
+//   opacity: 0.1;
+//   background: #000;
+
+//   .nav-item {
+//     font-size: 1.4rem;
+//     padding-right: 5;
+//   }
+// }
+
+// Menu
+
+.menu-option-img {
+  max-width: 150px;
+}
+
+// Footer
+
+#main-footer {
+  background: #000;
+  color: #fff;
+  height: 2.7rem;
+
+  .copyright a {
+    text-decoration: none;
+    color: rgb(124, 47, 98);
+  }
+
+  .footer-container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  @media (max-width: 500px) {
+    visibility: hidden;
+  }
+
+  @media (max-height: 600px) {
+    visibility: hidden;
+  }
+}
