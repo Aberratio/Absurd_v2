@@ -30,6 +30,12 @@ body {
   height: 100px;
   width: 100px; }
 
+.profile_picture_nav {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 75%; }
+
 .main-form {
   max-width: 600px;
   min-width: 250px; }
@@ -41,17 +47,6 @@ body {
     border-color: #263f31;
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgba(38, 63, 49, 0.5); }
-
-.navbar .nav-item {
-  font-size: 1rem;
-  padding-right: 15px;
-  display: block;
-  padding: 0.5rem 1rem; }
-.navbar .profile_picture_nav {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 75%; }
 
 .menu-option-img {
   max-width: 150px; }

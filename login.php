@@ -36,6 +36,7 @@
                     $_SESSION['cezar'] = $db_row['cezar'];
                     $_SESSION['profile_picture'] = $db_row['profile_picture'];
                     $_SESSION['role'] = $db_row['role'];
+                    $_SESSION['player_points'] = $db_row['player_points'];
 
                     unset($_SESSION['error_login']);
                     $sql_query_result->free_result();
@@ -53,4 +54,3 @@
 
         $db_connection->close();
     }
-?>

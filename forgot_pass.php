@@ -6,60 +6,78 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatile" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-    <title>Absurd - platforma licytacyjna</title>
-    <meta name="description" content="Strona do nauki gry w brydża">
-    <meta name="keywords" content="brydż, licytacja, rozgrywka, bridge, absurd">
-    <meta name="author" content="Joanna Kokot">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Absurd - Bridge Platform</title>
 </head>
 
 <body>
+    <div class="site-container">
+        <div class="container mt-5">
+            <div class="card main-form p-5 m-auto">
+                <!-- LOGO -->
+                <div class="row align-items-center justify-content-center mb-3">
+                    <img class="col-5 col-sm-3 col-md-3 logo mr-sm-3" src="img/logo_Asia.png" alt="Absurd - logo" class="logo" />
+                    <h1 class="col-12 col-sm-5 text-center">Absurd</h1>
+                    <img class="col-5 col-sm-3 col-md-3 logo mr-sm-3" src="img/logo_Domi.png" alt="Absurd - logo" class="logo" />
+                </div>
 
-    <main>
-        <div class="signin-form">
-            <form action="" method="post">
-                <div class="form-header">
-                    <h2>Resetowanie hasła</h2>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="someone@site.com" name="email" autocomplete="off" required="required">
-                </div>
-                <div class="form-group">
-                    <label>Cezar</label>
-                    <input type="text" class="form-control" placeholder="cezar" name="cezar" autocomplete="off" required="required">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit">Wyślij</button>
-                </div>
-            </form>
-            <div class="text-center small" style='color:#67428B;'>Powrót do <a href="index.php">logowania</a></div>
+                <!-- REGISTER FORM -->
+
+                <form>
+                    <!-- TEXT FIELD GROUPS -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text "><i class="fas fa-user"></i></span>
+                        </div>
+                        <input class="form-control" type="text" id="nickname" placeholder="Nickname" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text "><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input class="form-control" type="email" id="email" placeholder="Email" />
+                    </div>
+
+                    <button class="btn btn-secondary btn-block" type="submit">
+                        Reset password
+                    </button>
+                    <div class="mb-4 mt-4">
+                        <p class="text-center">OR</p>
+                    </div>
+                    <a class="btn btn-primary btn-block" href="index.php">
+                        However I remember my password</a>
+                </form>
+            </div>
         </div>
-    </main>
 
-    <footer>
+        <!-- FOOTER -->
 
-    </footer>
+        <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
+            <div class="footer-container">
+                <p class="copyright">
+                    Copyright &copy; 2020 by
+                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
 <?php
 session_start();
 

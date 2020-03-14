@@ -59,16 +59,21 @@ body {
 }
 
 //Navbar
-// .navbar {
-//   box-shadow: 2px 2px 5px #263f31;
-//   opacity: 0.1;
-//   background: #000;
+.navbar {
+  .nav-item {
+    font-size: 1rem;
+    padding-right: 15px;
+    display: block;
+    padding: 0.5rem 1rem;
+  }
 
-//   .nav-item {
-//     font-size: 1.4rem;
-//     padding-right: 5;
-//   }
-// }
+  .profile_picture_nav {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 75%;
+  }
+}
 
 // Menu
 
