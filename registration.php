@@ -63,7 +63,7 @@ if (isset($_POST['user'])) {
     try {
         $db_connection = new mysqli($host, $db_user, $db_password, $db_name);
         if ($db_connection->connect_errno != 0) {
-            throw new Exception(mysql_connect_errno());
+            throw new Exception(mysqli_connect_errno());
         } else {
             //checking email in data base
             $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE email='$email'");
@@ -135,36 +135,6 @@ if (isset($_POST['user'])) {
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-dark bg-absurd-col-light navbar-expand-md">
-            <a class="navbar-brand" href="index.php">
-                <img src="img/logo.png" widht="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">
-                Absurd
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="mainmenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Zaloguj</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="registration.php">Zarejestruj</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="info.php">O stronie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Kontakt</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
     <main>
 
         <!--  Okno rejestracji -->

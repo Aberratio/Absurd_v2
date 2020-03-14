@@ -53,12 +53,6 @@ if ($_SESSION['role'] == 3) {
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="info.php">O stronie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Kontakt</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="logout.php">
                             &nbsp;&nbsp;<img class='profile_picture' style='width:30px; height: 30px; border: 1px solid black; border-radius: 75%;' src='<?php echo $_SESSION['profile_picture']; ?>'>&nbsp;&nbsp;&nbsp;(<i><?php echo $_SESSION['user']; ?></i>) <b>Wyloguj<b></a>
                     </li>
