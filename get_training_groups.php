@@ -19,10 +19,10 @@ function get_group_table() {
                 <p> Gracz II -  <b style="color: rgb(179, 255, 144);">'.mysqli_fetch_array(mysqli_query($con, "SELECT * from bridgeplayers where id=".$second_player.""))["user"].' </b></p>
                 <form method="get"> 
                     <input type="text" class="form-control" placeholder="Nazwa zestawu" name="set-name" /> 
-                    <button class="profile_view_button" style="margin-top: 30px;" name="add_btn");">Dodaj zestaw dla pary </button>
+                    <button class="profile_view_button" style="margin-top: 30px;" name="add_btn'.$first_player.''.$second_player.'");">Dodaj zestaw dla pary </button>
                 </form>    
                     ';
-                    if(isset($_GET['add_btn'])){
+                    if(isset($_GET['add_btn'.$first_player.''.$second_player.''])){
                         $id_set = mysqli_fetch_array(mysqli_query($con, "SELECT * from bidding_sets where set_name = '".htmlentities($_GET['set-name'])."'"))["id_set"];
                         add_set($first_player, $second_player, $id_set);  
                     }
@@ -63,6 +63,3 @@ function add_set($first_player, $second_player, $set_id) {
 
     echo "Dodano zestaw dla podanej pary!";
 }
-
-?>
-

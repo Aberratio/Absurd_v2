@@ -125,14 +125,24 @@ function get_player_bidding($test, $id_first, $id_second)
 {
     global $con;
 
-    $get_good_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
+    $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
+        WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
+
+    $run_biddingtest = mysqli_query($con, $get_test_query);
+
+    while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
+
+        $id_test = $row_biddingtest['id_test'];
+
+        $get_good_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
 			WHERE (bidding_tests.id_test = ' . $test . ') and (((first_player = ' . $id_first . ') and (second_player = ' . $id_second . '))  or ((first_player = ' . $id_second . ') and (second_player = ' . $id_first . '))) and completed_test = 1';
 
-    $run_good_biddingtest = mysqli_query($con, $get_good_test_query);
+        $run_good_biddingtest = mysqli_query($con, $get_good_test_query);
 
-    while ($row_good_biddingtest = mysqli_fetch_array($run_good_biddingtest)) {
-        $bidding_string = $row_good_biddingtest['bidding_string'];
-        echo $bidding_string;
+        while ($row_good_biddingtest = mysqli_fetch_array($run_good_biddingtest)) {
+            $bidding_string = $row_good_biddingtest['bidding_string'];
+            echo $bidding_string;
+        }
     }
 }
 

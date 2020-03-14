@@ -20,10 +20,12 @@ if (!isset($_SESSION['is_logged'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <title>Absurd - platforma licytacyjna</title>
+    <title>Absurd - Bridge Platform</title>
     <meta name="description" content="Strona do nauki gry w brydża">
     <meta name="keywords" content="brydż, licytacja, rozgrywka, bridge, absurd">
     <meta name="author" content="Joanna Kokot">
+
+    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
