@@ -21,9 +21,10 @@ function search_set($friend_id, $type)
 		$setname = $row_biddingset['set_name'];
 
 		echo "
-			<div class='col-sm-4'>
-                <img class='profile_picture' src='img/lvl1.png''>
-				<form method='get' action=' 
+			<div class='card mb-4'>
+			<div class='row no-gutters mt-2'>
+				<div class='col-auto'>
+				<form class='d-inline' method='get' action=' 
 				";
 		if ($type == 0) {
 			echo "choose_bidding_test.php";
@@ -35,10 +36,26 @@ function search_set($friend_id, $type)
 					<input type=hidden name='set' value='$biddingset'/>
 					<input type=hidden name='type' value='$type'/>
 					<input type=hidden name='friend' value='$friend_id'/>
-					<p><button class='profile_view_button' name='add2'>Rozwiąż <i>$setname</i></button></p>
-					<p><a href='ranking_set.php?id_set=" . $set_id . "'>Ranking</a></p>
+					<input type='image' class='profile_picture' name='add' src='img/lvl1.png'>
 				</form>
-			</div><br><br>
+			</div>
+			
+				
+				<div class='col ml-1'>
+					<div class='card-block px-2'>
+						<h4
+							class='card-title font-weight-bold text-capitalize' name='add2'
+						>
+						$setname
+						</h4>
+						<p class='card-text'>
+							Completed tests 23/40 <br />
+							Your turn? YES <br />
+							4 new comments  
+						</p>
+					</div>
+				</div>
+			</div></div><br><br>
 			";
 
 		if (isset($_GET['add2'])) {

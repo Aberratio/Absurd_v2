@@ -20,11 +20,11 @@ function search_user($user_name, $type)
 			<div class='card mb-4'>
 			<div class='row no-gutters mt-2'>
 				<div class='col-auto'>
-				<form method='get' action='choose_bidding_set.php'>
-					<input type='image' class='profile_picture' name='add' src='$profile_picture'>
-					<input type='hidden' name='friend' value='$user_id'/>
-					<input type='hidden' name='type' value='$type'/>
-				</form>
+					<form method='get' action='choose_bidding_set.php'>
+						<input type='image' class='profile_picture' name='add' src='$profile_picture'>
+						<input type='hidden' name='friend' value='$user_id'/>
+						<input type='hidden' name='type' value='$type'/>
+					</form>
 				</div>
 				<div class='col ml-1'>
 					<div class='card-block px-2'>
