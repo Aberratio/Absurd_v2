@@ -81,6 +81,15 @@ body {
   max-width: 150px;
 }
 
+//Pictures
+.profile_picture {
+  border: 2px solid #000;
+  border-radius: 5%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
 // Footer
 
 #main-footer {

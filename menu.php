@@ -66,7 +66,7 @@ if (!isset($_SESSION['is_logged'])) {
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
                                         <div class="col-auto">
-                                            <a href="choose_partner_bidding.php" class="d-block">
+                                            <a href="choose_partner_bidding.php?type=0" class="d-block">
                                                 <i class="fas fa-box fa-6x m-3"></i>
                                             </a>
                                         </div>

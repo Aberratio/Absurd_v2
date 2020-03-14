@@ -17,15 +17,30 @@ function search_user($user_name, $type)
 
 		if ($user != $user_name) {
 			echo "
-				<div class='col-sm-4'>
-					<img class='profile_picture' src='$profile_picture''>
-					<form method='get' action='choose_bidding_set.php'>
-						<input type='hidden' name='friend' value='$user_id'/>
-						<input type='hidden' name='type' value='$type'/>
-						<p><button class='profile_view_button' name='add'>Trenuj z $user</button></p>
-					</form>
+			<div class='card mb-4'>
+			<div class='row no-gutters mt-2'>
+				<div class='col-auto'>
+				<form method='get' action='choose_bidding_set.php'>
+					<input type='image' class='profile_picture' name='add' src='$profile_picture'>
+					<input type='hidden' name='friend' value='$user_id'/>
+					<input type='hidden' name='type' value='$type'/>
+				</form>
 				</div>
-				";
+				<div class='col ml-1'>
+					<div class='card-block px-2'>
+						<h4 class='card-title font-weight-bold text-capitalize'>
+							$user
+						</h4>
+						<p class='card-text'>
+							Completed sets 7/11 <br />
+							Points 123/200 <br />
+							Your turn? YES 
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		";
 
 			if (isset($_GET['add'])) {
 				$update_query = 'SELECT DISTINCT bidding_sets.id_set from bidding_sets left join player_bidding_sets on bidding_sets.id_set = player_bidding_sets.id_set 
@@ -49,15 +64,30 @@ function search_user($user_name, $type)
 
 		if ($user != $user_name) {
 			echo "
-				<div class='col-sm-4'>
-					<img class='profile_picture' src='$profile_picture''>
-					<form method='get' action='choose_bidding_set.php'>
-						<input type='hidden' name='friend' value='$user_id'/>
-						<input type='hidden' name='type' value='$type'/>
-						<p><button class='profile_view_button' name='add'>Trenuj z $user</button></p>
-					</form>
+			<div class='card mb-4'>
+			<div class='row no-gutters mt-2'>
+				<div class='col-auto'>
+				<form method='get' action='choose_bidding_set.php'>
+					<input type='image' class='profile_picture' name='add' src='$profile_picture'>
+					<input type='hidden' name='friend' value='$user_id'/>
+					<input type='hidden' name='type' value='$type'/>
+				</form>
 				</div>
-				";
+				<div class='col ml-1'>
+					<div class='card-block px-2'>
+						<h4 class='card-title font-weight-bold text-capitalize'>
+							$user
+						</h4>
+						<p class='card-text'>
+							Completed sets 7/11 <br />
+							Points 123/200 <br />
+							Your turn? YES 
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		";
 
 			if (isset($_GET['add'])) {
 				$update_query = 'SELECT DISTINCT bidding_sets.id_set from bidding_sets left join player_bidding_sets on bidding_sets.id_set = player_bidding_sets.id_set 
