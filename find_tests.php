@@ -4,7 +4,6 @@ $con = mysqli_connect("sql8.netmark.pl", "filipmar_asia", "asia123", "filipmar_a
 function search_test($set, $friend)
 {
 	if ($set != 0) {
-		$user = $_SESSION['id'];
 		global $con;
 
 		$get_tests = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
