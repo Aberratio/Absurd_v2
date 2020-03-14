@@ -27,29 +27,36 @@ if (!isset($_SESSION['is_logged'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
+            <h3 class="d-inline align-middle">Absurd</h3>
+            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                </li>
+                <li class="nav-item">
+                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
+                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                </li>
+                <li class="nav-item">
+                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
+                </li>
+        </div>
+    </div>
+</nav>
+
 <body>
-
-    <header>
-        <nav class="navbar navbar-dark bg-absurd-col-light navbar-expand-md">
-            <a class="navbar-brand" href="menu.php">
-                <img src="img/logo.png" widht="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">
-                Absurd
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="mainmenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
-                            &nbsp;&nbsp;<img class='profile_picture' style='width:30px; height: 30px; border: 1px solid black; border-radius: 75%;' src='<?php echo $_SESSION['profile_picture']; ?>'>&nbsp;&nbsp;&nbsp;(<i><?php echo $_SESSION['user']; ?></i>) <b>Wyloguj<b></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
 
     <main>
