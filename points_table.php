@@ -68,7 +68,7 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Points - <?php echo $test_number; ?>
+                            Points - Test <?php echo $test_number; ?>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">

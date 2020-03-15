@@ -76,10 +76,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Bidding quiz
                                                 </h4>
                                                 <p class="card-text">
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                                                    elit. Impedit soluta, sunt facilis voluptatum
-                                                    expedita maxime! Veritatis aspernatur praesentium
-                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                    Do you have a problem with finding a convenient date for bidding training with your partner? Now that's not a problem! Try asynchronous bidding quizzes.
                                                 </p>
                                             </div>
                                         </div>
@@ -100,10 +97,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Ranking
                                                 </h4>
                                                 <p class="card-text">
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                                                    elit. Impedit soluta, sunt facilis voluptatum
-                                                    expedita maxime! Veritatis aspernatur praesentium
-                                                    harum illo hic earum corrupti saepe quos nihil.
+
+                                                    Check your achievements. How do you compare with other players? Are you in the TOP 50?
                                                 </p>
                                             </div>
                                         </div>
@@ -124,10 +119,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Settings
                                                 </h4>
                                                 <p class="card-text">
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                                                    elit. Impedit soluta, sunt facilis voluptatum
-                                                    expedita maxime! Veritatis aspernatur praesentium
-                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                    Here you can change your profile picture, password, set a different e-mail address or edit information about yourself.
                                                 </p>
                                             </div>
                                         </div>
@@ -184,10 +176,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Add tests
                                                 </h4>
                                                 <p class='card-text'>
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                                                    elit. Impedit soluta, sunt facilis voluptatum
-                                                    expedita maxime! Veritatis aspernatur praesentium
-                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                    Create a new set and add your own tests to it. 
+                                                    You can also edit old sets ...
                                                 </p>
                                             </div>
                                         </div>
@@ -213,10 +203,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Training groups
                                                 </h4>
                                                 <p class='card-text'>
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                                                    elit. Impedit soluta, sunt facilis voluptatum
-                                                    expedita maxime! Veritatis aspernatur praesentium
-                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                    Add your pairs, challenge them in the form of new bidding sets and monitor their progress. 
+                                                    A good trainer must be up to date!
                                                 </p>
                                             </div>
                                         </div>

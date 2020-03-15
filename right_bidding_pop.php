@@ -38,7 +38,7 @@ if (!isset($_SESSION['is_logged'])) {
     <main>
 
         <div id="brigde_table">
-            <p>Proponowana licytacja</p>
+            <p>Proposed bidding</p>
             <table id="bidding_desk">
                 <td id="N" class="bidding_desk_column" style="padding: 3px; width: 150px;">N</td>
                 <td id="E" class="bidding_desk_column" style="padding: 3px; width: 150px;">E</td>

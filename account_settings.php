@@ -52,93 +52,119 @@ if (!isset($_SESSION['is_logged'])) {
     </div>
   </div>
 </nav>
+<!-- MENU -->
 
 <body>
+  <div class="site-container">
+    <div class="row mb-5 mt-5">
+      <!-- PLAYER PANEL-->
+      <div class="col-sm-10 col-lg-6 mx-auto">
+        <div class="container mt-5">
+          <div class="card">
+            <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
+              Settings
+            </h4>
+            <div class="option_container mx-3 mt-2">
+              <div class="option">
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <?php
+                  $user = $_SESSION['email'];
+                  $get_user = "select * from bridgeplayers where email='$user'";
+                  $run_user = mysqli_query($con, $get_user);
+                  $row = mysqli_fetch_array($run_user);
 
-  <div class="row">
-    <div class="col-sm-2">
+                  $user_name = $row['user'];
+                  $user_pass = $row['pass'];
+                  $user_email = $row['email'];
+                  $profile_picture = $row['profile_picture'];
+                  ?>
+                  <div class="col-sm-8">
+                    <form action="" method="post" class="settings_form pt-3" enctype="multipart/form-data">
+                      <table class="mb-4">
+                        <tr>
+                          <td class="mr-3" style="font-weight: bold; margin-right: 20px;">
+                            Rename</td>
+                          <td>
+                            <input class="form-control" type="text" name="u_name" required="required" value="<?php echo $user_name; ?>" />
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <img class='profile_picture' src="<?php echo $profile_picture; ?>">
+                          </td>
+
+                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="upload.php"><i class="fa fa-user mr-2" aria-hidden="true"></i>Change your profile photo</a></td>
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: bold;">Change email</td>
+                          <td>
+                            <input class="form-control" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>"></td>
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: bold;"></td>
+
+                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="change_password.php"><i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i>Password change</a></td>
+                        </tr>
+
+                        <tr>
+                          <td colspan="6">
+                            <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                    <?php
+
+                    if (isset($_POST['update'])) {
+
+                      $user_name = htmlentities($_POST['u_name']);
+                      $email = htmlentities($_POST['u_email']);
+
+                      $update = "update bridgeplayers set user='$user_name', email='$email' where email='$user'";
+
+                      $run = mysqli_query($con, $update);
+
+                      if ($run) {
+                        echo "<script>window.open('account_settings.php','_self')</script>";
+                      }
+                    }
+
+                    ?>
+                  </div>
+                  <div class="col-sm-2">
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    <?php
-    $user = $_SESSION['email'];
-    $get_user = "select * from bridgeplayers where email='$user'";
-    $run_user = mysqli_query($con, $get_user);
-    $row = mysqli_fetch_array($run_user);
 
-    $user_name = $row['user'];
-    $user_pass = $row['pass'];
-    $user_email = $row['email'];
-    $profile_picture = $row['profile_picture'];
-    ?>
-    <div class="col-sm-8">
-      <h2 style="color: rgb(247, 109, 109); margin-top: 20px; margin-left: 70px;">Ustawienia profilu</h2>
-      <form action="" method="post" class="settings_form" enctype="multipart/form-data">
-        <table>
-          <tr>
-            <td style="font-weight: bold; margin-right: 20px;">Zmień nazwę</td>
-            <td>
-              <input class="form-control" type="text" name="u_name" required="required" value="<?php echo $user_name; ?>" />
-            </td>
-          </tr>
+    <!-- FOOTER -->
 
-          <tr>
-            <td>
-              <img class='profile_picture' src="<?php echo $profile_picture; ?>">
-            </td>
-
-            <td><a class="btn btn-default" style="text-decoration: none;font-size: 15px; color: #5dbaf89c;" href="upload.php"><i class="fa fa-user" aria-hidden="true"></i>Zmień zdjęcie profilowe</a></td>
-          </tr>
-
-          <tr>
-            <td style="font-weight: bold;">Zmień email</td>
-            <td>
-              <input class="form-control" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>"></td>
-          </tr>
-
-          <tr>
-            <td style="font-weight: bold;"></td>
-
-            <td><a class="btn btn-default" style="text-decoration: none;font-size: 15px; color: #5dbaf89c;" href="change_password.php"><i class="fa fa-key fa-fw" aria-hidden="true"></i>Zmiana hasła</a></td>
-          </tr>
-
-          <tr style="align:center;">
-            <td colspan="6">
-              <input class="update_button" type="submit" name="update" value="Zaktualizuj" />
-            </td>
-          </tr>
-        </table>
-      </form>
-      <?php
-
-      if (isset($_POST['update'])) {
-
-        $user_name = htmlentities($_POST['u_name']);
-        $email = htmlentities($_POST['u_email']);
-
-        $update = "update bridgeplayers set user='$user_name', email='$email' where email='$user'";
-
-        $run = mysqli_query($con, $update);
-
-        if ($run) {
-          echo "<script>window.open('account_settings.php','_self')</script>";
-        }
-      }
-
-      ?>
-    </div>
-    <div class="col-sm-2">
+    <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
+      <div class="footer-container">
+        <p class="copyright">
+          Copyright &copy; 2020 by
+          <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+        </p>
+      </div>
     </div>
   </div>
 
-  </main>
-
-  <footer>
-
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 
 </html>
