@@ -27,14 +27,12 @@ function search_user($user_name, $type)
 					</form>
 				</div>
 				<div class='col ml-1'>
-					<div class='card-block px-2'>
+					<div class='card-block card-desc px-2'>
 						<h4 class='card-title font-weight-bold text-capitalize'>
 							$user
 						</h4>
 						<p class='card-text'>
 							Completed sets 7/11 <br />
-							Points 123/200 <br />
-							Your turn? YES 
 						</p>
 					</div>
 				</div>
@@ -74,14 +72,12 @@ function search_user($user_name, $type)
 				</form>
 				</div>
 				<div class='col ml-1'>
-					<div class='card-block px-2'>
+					<div class='card-block card-desc px-2'>
 						<h4 class='card-title font-weight-bold text-capitalize'>
 							$user
 						</h4>
 						<p class='card-text'>
-							Completed sets 7/11 <br />
-							Points 123/200 <br />
-							Your turn? YES 
+							Completed sets 7/11 
 						</p>
 					</div>
 				</div>

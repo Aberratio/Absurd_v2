@@ -18,6 +18,7 @@ function search_test($set, $friend)
 			$completed = $row_biddingtest['completed_test'];
 			$turn = $row_biddingtest['bidding_person'];
 			$points = $row_biddingtest['points'];
+			$point_string = $row_biddingtest['point_string'];
 			$bidding_string = $row_biddingtest['bidding_string'];
 			$test_number = $row_biddingtest['test_number'];
 
@@ -44,6 +45,10 @@ function search_test($set, $friend)
 				<div class='col-auto'>
 						";
 			if ($completed) {
+
+				$c = explode("=", $point_string);
+				$d = explode(";", $c[1]);
+
 				echo " 
 							<form method='get' action='points_table.php'>
 								<input type='image' class='profile_picture' name='view_points_table' src='$src''>
@@ -56,16 +61,14 @@ function search_test($set, $friend)
 							</form>
 						</div>
 						<div class='col ml-1'>
-							<div class='card-block px-2'>
+							<div class='card-block card-desc px-2'>
 								<h4
 									class='card-title font-weight-bold text-capitalize'
 								>
 									Test " . $test_number . "
 								</h4>
 								<p class='card-text'>
-									Points $points/MAX <br />
-									7 Comments <br />
-									Ranking  
+									Points $points/$d[0] 
 								</p>
 							</div>
                    	   </div>
@@ -82,7 +85,7 @@ function search_test($set, $friend)
 								</form>
 						</div>
 						<div class='col ml-1'>
-                        <div class='card-block px-2'>
+                        <div class='card-block card-desc px-2'>
                           <h4
                             class='card-title font-weight-bold text-capitalize'
                           >
@@ -91,7 +94,6 @@ function search_test($set, $friend)
                           <p class='card-text'>
                               Ile par skończyło? <br />
                               Ostatnia odzywka -data 
-                              Comments
                           </p>
                         </div>
                       </div>

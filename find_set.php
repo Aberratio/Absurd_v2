@@ -20,6 +20,15 @@ function search_set($friend_id, $type)
 		$turn = $row_biddingset['turn'];
 		$setname = $row_biddingset['set_name'];
 
+		$get_tests = "SELECT COUNT(*) FROM `bidding_tests` JOIN bidding_sets ON bidding_tests.id_set = bidding_sets.id_set WHERE bidding_sets.id_set = $set_id";
+		$test_counter = mysqli_query($con, $get_tests);
+		$zzz = mysqli_fetch_array($test_counter);
+
+		$get_completed_tests = "SELECT COUNT(*) FROM player_bidding_tests JOIN player_bidding_sets ON player_bidding_tests.id_player_set = player_bidding_sets.id_player_sets WHERE player_bidding_sets.id_player_sets = $biddingset AND player_bidding_tests.completed_test = 1;";
+		$completed_test_counter = mysqli_query($con, $get_completed_tests);
+		$yyy =  mysqli_fetch_array($completed_test_counter);
+
+
 		echo "
 			<div class='card mb-4'>
 			<div class='row no-gutters mt-2'>
@@ -42,16 +51,14 @@ function search_set($friend_id, $type)
 			
 				
 				<div class='col ml-1'>
-					<div class='card-block px-2'>
+					<div class='card-block card-desc px-2'>
 						<h4
 							class='card-title font-weight-bold text-capitalize' name='add2'
 						>
 						$setname
 						</h4>
 						<p class='card-text'>
-							Completed tests 23/40 <br />
-							Your turn? YES <br />
-							4 new comments  
+							Completed tests: $yyy[0]/$zzz[0] <br />
 						</p>
 					</div>
 				</div>
@@ -86,6 +93,14 @@ function search_pairs_set($first_player_id, $second_player_id, $type)
 		$turn = $row_biddingset['turn'];
 		$setname = $row_biddingset['set_name'];
 
+		$get_tests = "SELECT COUNT(*) FROM `bidding_tests` JOIN bidding_sets ON bidding_tests.id_set = bidding_sets.id_set WHERE bidding_sets.id_set = $set_id";
+		$test_counter = mysqli_query($con, $get_tests);
+		$zzz = mysqli_fetch_array($test_counter);
+
+		$get_completed_tests = "SELECT COUNT(*) FROM player_bidding_tests JOIN player_bidding_sets ON player_bidding_tests.id_player_set = player_bidding_sets.id_player_sets WHERE player_bidding_sets.id_player_sets = $biddingset AND player_bidding_tests.completed_test = 1;";
+		$completed_test_counter = mysqli_query($con, $get_completed_tests);
+		$yyy =  mysqli_fetch_array($completed_test_counter);
+
 		echo "
 			<div class='card mb-4'>
 			<div class='row no-gutters mt-2'>
@@ -108,16 +123,14 @@ function search_pairs_set($first_player_id, $second_player_id, $type)
 			
 				
 				<div class='col ml-1'>
-					<div class='card-block px-2'>
+					<div class='card-block card-desc px-2'>
 						<h4
 							class='card-title font-weight-bold text-capitalize' name='add2'
 						>
 						$setname
 						</h4>
 						<p class='card-text'>
-							Completed tests 23/40 <br />
-							Your turn? YES <br />
-							4 new comments  
+							Completed tests: $yyy[0]/$zzz[0] <br />
 						</p>
 					</div>
 				</div>

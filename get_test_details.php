@@ -37,13 +37,17 @@ function get_both_hands($test)
     $run_biddingtest = mysqli_query($con, $get_test_query);
 
     while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
-        $first = $row_biddingtest['first_player'];
+        $first_user = $row_biddingtest['first_player'];
+        $second_user = $row_biddingtest['second_player'];
+
+        $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $first_user . '"'));
+        $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $second_user . '"'));
         echo '<b"><div class="hand m-auto" id="hand">';
 
-        echo 'N';
+        echo 'N (' . $second['user'] . ')';
         get_cards_on_hand($row_biddingtest['S_hand']);
 
-        echo 'S';
+        echo 'S (' . $first['user'] . ')';
         get_cards_on_hand($row_biddingtest['N_hand']);
         echo '</div></b>';
     }
@@ -253,6 +257,9 @@ function update_bidding($test)
 
             $insert = 'UPDATE player_bidding_tests SET bidding_string = "' . $bidding_string . '", completed_test = ' . $completed_flag . ', bidding_person = ' . $last_person . ', points = ' . $points . ' WHERE (id_player_test = ' . $test . ') ';
             mysqli_query($con, $insert);
+
+
+
 
             echo "<script>window.location.href = 'choose_bidding_test.php?set=" . $_GET['set'] . "&friend=" . $friend . "&type=0';</script>";
         }

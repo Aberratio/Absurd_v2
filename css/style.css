@@ -70,6 +70,12 @@ body {
   height: 150px;
   object-fit: cover; }
 
+@media (max-width: 400px) {
+  .option .col-auto {
+    width: 100%;
+    padding-left: 70px; }
+  .option .col .card-desc {
+    padding-left: 70px !important; } }
 #bidding {
   float: left;
   width: 600px;

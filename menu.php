@@ -66,7 +66,7 @@ if (!isset($_SESSION['is_logged'])) {
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
                                         <div class="col-auto">
-                                            <a href="choose_partner_bidding.php?type=0" class="d-block">
+                                            <a href="choose_partner_bidding.php?type=0" class="d-block p-auto">
                                                 <i class="fas fa-box fa-6x m-3"></i>
                                             </a>
                                         </div>
@@ -76,7 +76,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Bidding quiz
                                                 </h4>
                                                 <p class="card-text">
-                                                    Do you have a problem with finding a convenient date for bidding training with your partner? Now that's not a problem! Try asynchronous bidding quizzes.
+                                                    Have you ever struggled finding a convenient date for your bidding training with your partner? Now that's not a problem! Try asynchronous bidding quizzes.
                                                 </p>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                 </h4>
                                                 <p class="card-text">
 
-                                                    Check your achievements. How do you compare with other players? Are you in the TOP 50?
+                                                    Check your achievements. How do you compare to other players? Are you in the TOP 50?
                                                 </p>
                                             </div>
                                         </div>
@@ -176,8 +176,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                     Add tests
                                                 </h4>
                                                 <p class='card-text'>
-                                                    Create a new set and add your own tests to it. 
-                                                    You can also edit old sets ...
+                                                    Create a new set and add your own tests. 
+                                                    You can also edit old sets.
                                                 </p>
                                             </div>
                                         </div>
