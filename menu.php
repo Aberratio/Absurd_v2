@@ -167,27 +167,64 @@ if (!isset($_SESSION['is_logged'])) {
             </div>";
                                 }
                                 ?>
-
+                                <!-- ADD TESTS-->
                                 <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
                                     echo "
-            <div class='col-sm-4'>
-                <figure>
-                    <a href='admin_panel.php'><img src='img/archiwum.png' class='img-fluid menu_view_container-box' alt='licytacja'></a>
-                    <figcaption>Dodaj testy</figcaption>
-                </figure>
-            </div>";
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='admin_panel.php' class='d-block'>
+                                                <i class='fas fa-plus-square fa-6x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                    Add tests
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
+                                                    elit. Impedit soluta, sunt facilis voluptatum
+                                                    expedita maxime! Veritatis aspernatur praesentium
+                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
                                 }
                                 ?>
-                                <?php if ($_SESSION['role'] == 2) {
+
+                                <!-- TRAINING GROUPS-->
+                                <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
                                     echo "
-          <div class='col-sm-4'>
-              <figure>
-                  <a href='training_groups.php'><img src='img/archiwum.png' class='img-fluid menu_view_container-box' alt='licytacja'></a>
-                  <figcaption>Grupy treningowe</figcaption>
-              </figure>
-          </div>";
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='training_groups.php' class='d-block'>
+                                                <i class='fas fa-users fa-4x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                    Training groups
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
+                                                    elit. Impedit soluta, sunt facilis voluptatum
+                                                    expedita maxime! Veritatis aspernatur praesentium
+                                                    harum illo hic earum corrupti saepe quos nihil.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
                                 }
                                 ?>
+
 
                                 <!-- <?php
                                         if ($_SESSION['role'] == 1) {

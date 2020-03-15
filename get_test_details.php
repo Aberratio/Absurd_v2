@@ -12,7 +12,7 @@ function get_hand($test)
 
     while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
         $first = $row_biddingtest['first_player'];
-        echo '<b style="color: rgb(251, 255, 0);"><div class="hand" id="hand">';
+        echo '<b><div class="hand m-auto" id="hand" style="display: table;">';
 
         if ($first == $_SESSION['id']) {
             echo 'N';
@@ -38,15 +38,14 @@ function get_both_hands($test)
 
     while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
         $first = $row_biddingtest['first_player'];
-        echo '<b style="color: rgb(251, 255, 0);"><div class="hand" id="hand">';
-
-        echo '</div></b>';
+        echo '<b"><div class="hand m-auto" id="hand">';
 
         echo 'N';
         get_cards_on_hand($row_biddingtest['S_hand']);
 
         echo 'S';
         get_cards_on_hand($row_biddingtest['N_hand']);
+        echo '</div></b>';
     }
 }
 
@@ -55,7 +54,7 @@ function get_cards_on_hand($cards_view)
     $card_div = explode(";", $cards_view);
 
     echo '
-            <div class="card_table_view">
+            <div class="card_table_view m-auto" style="display: table;">
                 <table>
                 <tr>
                     <td style="color:blue">&spades;</td>

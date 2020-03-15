@@ -18,11 +18,13 @@ function get_group_table()
                 <p style="color: #5dbaf89c"> ' . $group_name . ' </p>
                 <p> Gracz I -  <b style="color: rgb(179, 255, 144);">' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $first_player . ""))["user"] . '</b></p>
                 <p> Gracz II -  <b style="color: rgb(179, 255, 144);">' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </b></p>
-                <form method="get"> 
-                    <input type="text" class="form-control" placeholder="Nazwa zestawu" name="set-name" /> 
-                    <button class="profile_view_button" style="margin-top: 30px;" name="add_btn' . $first_player . '' . $second_player . '");">Dodaj zestaw dla pary</button>
-                </form>    
-                <a class="btn profile_view_button" style="margin-top: 30px;" href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">Postępy</a>
+               ';
+        //    <form method="get"> 
+        //         <input type="text" class="form-control" placeholder="Nazwa zestawu" name="set-name" /> 
+        //         <button class="profile_view_button" style="margin-top: 30px;" name="add_btn' . $first_player . '' . $second_player . '");">Dodaj zestaw dla pary</button>
+        //     </form>  
+        echo '
+                <a class="btn profile_view_button" style="margin-top: 30px; color: yellow;" href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">Postępy</a>
                     ';
         if (isset($_GET['add_btn' . $first_player . '' . $second_player . ''])) {
             $id_set = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bidding_sets WHERE set_name = '" . htmlentities($_GET['set-name']) . "'"))["id_set"];
