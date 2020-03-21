@@ -100,8 +100,35 @@ function declare(bid_index) {
     document.getElementById("turn").innerText ==
     document.getElementById("hand").innerText
   ) {
-    bidding_string_value = bidding_string_value + ";" + bid_index;
-    document.getElementById("new_bidding_string").value = bidding_string_value;
+    document.getElementById("undo_button").style.background = "#313131";
+    document.getElementById("undo_button").style.cursor = "default";
+    if (bid_index != 38) {
+      bidding_string_value = bidding_string_value + ";" + bid_index;
+      document.getElementById(
+        "new_bidding_string"
+      ).value = bidding_string_value;
+
+      write_bid(bid_index);
+      myButton = document.getElementById("send_button");
+      myButton.type = "submit";
+
+      if (document.getElementById("turn").innerText == "N") {
+        document.getElementById("turn").innerHTML = "S";
+      } else {
+        document.getElementById("turn").innerHTML = "N";
+      }
+    }
+  } else if (
+    bid_index == 38 &&
+    document.getElementById("undo_button").style.cursor != "default" &&
+    bidding_string_value.length > 2
+  ) {
+    document.getElementById(
+      "new_bidding_string"
+    ).value = bidding_string_value.slice(
+      0,
+      bidding_string_value.lastIndexOf(";")
+    );
 
     write_bid(bid_index);
     myButton = document.getElementById("send_button");
@@ -112,8 +139,6 @@ function declare(bid_index) {
     } else {
       document.getElementById("turn").innerHTML = "N";
     }
-  } else {
-    //alert("nierowne!" + document.getElementById("turn").innerText + "nierowne!" + document.getElementById("hand").innerText + "nierowne!");
   }
 }
 
