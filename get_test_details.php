@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("sql8.netmark.pl", "filipmar_asia", "asia123", "filipmar_asia") or die("Connection was not established");
+$con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
 
 function get_hand($test)
 {
@@ -259,9 +259,76 @@ function update_bidding($test)
             mysqli_query($con, $insert);
 
 
+            if ($completed_flag == 0) {
+                echo "<script>window.location.href = 'bidding_page.php';</script>";
+            } else {
+                echo "<script>window.location.href = 'points_table.php';</script>";
+            }
+        }
+    }
+}
+function update_player_bidding($test, $friend)
+{
+    global $con;
 
+    $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
+        WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
 
-            echo "<script>window.location.href = 'choose_bidding_test.php?set=" . $_GET['set'] . "&friend=" . $friend . "&type=0';</script>";
+    $run_biddingtest = mysqli_query($con, $get_test_query);
+
+    while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
+        $player_set = $row_biddingtest['id_player_set'];
+        $last_person = $row_biddingtest['bidding_person'];
+        $point_string = $row_biddingtest['point_string'];
+        $first_player = $row_biddingtest['first_player'];
+        $second_player = $row_biddingtest['second_player'];
+        $test_number = $row_biddingtest['test_number'];
+        $test_main_id = $row_biddingtest['id_test'];
+
+        echo "
+        <form id='send_bidding' method='get'>
+            <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' />
+            <input type='hidden' name='set' value='$player_set' />
+            <input type='hidden' name='friend' value='$friend' />
+            <input type='hidden' name='type' value='0' />
+            <input type='hidden' name='biddingtest' value='$test' />
+            <input type='hidden' name='test_number' value='$test_number' />
+            <input type='hidden' name='new_bidding_string' id='new_bidding_string' value='' />
+        </form>
+		";
+
+        if (isset($_GET['send_button'])) {
+            $bidding_string = $_GET['new_bidding_string'];
+            $bids = explode(";", $bidding_string);
+            $completed_flag = "false";
+            $points = 0;
+
+            if (($bids[count($bids) - 1] == "36") and (count($bids) > 2)) {
+                $completed_flag = "true";
+                $points = count_points($point_string, $bids[count($bids) - 2], $first_player, $second_player);
+            }
+
+            if ($last_person == 1) {
+                $last_person = 2;
+            } else {
+                $last_person = 1;
+            }
+
+            $friend = 0;
+            if ($first_player == $_SESSION['id']) {
+                $friend = $second_player;
+            } else {
+                $friend = $first_player;
+            }
+
+            $insert = 'UPDATE player_bidding_tests SET bidding_string = "' . $bidding_string . '", completed_test = ' . $completed_flag . ', bidding_person = ' . $last_person . ', points = ' . $points . ' WHERE (id_player_test = ' . $test . ') ';
+            mysqli_query($con, $insert);
+
+            if (strcasecmp($completed_flag, "false") == 0) {
+                echo "<script>window.location.href = 'bidding_page.php?biddingtest=" . $test . "&test_number=" . $test_number . "&friend=" . $friend . "&type=0';</script>";
+            } else {
+                echo "<script>window.location.href = 'points_table.php?test_main_id=" . $test_main_id . "&biddingtest=" . $test . "&friend=" . $friend . "&type=0&test_number=" . $test_number . "';</script>";
+            }
         }
     }
 }

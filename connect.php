@@ -1,8 +1,7 @@
 <?php
-    $host = "sql8.netmark.pl";
-    $db_user = "filipmar_asia";
-    $db_password = "asia123";
-    $db_name = "filipmar_asia";
+$host = "localhost";
+$db_user = "bridgeab_absurd";
+$db_password = "Absurd-49";
+$db_name = "bridgeab_absurd";
 
-    $con = mysqli_connect($host, $db_user, $db_password, $db_name) or die("Connection was not established");
-?>
+$con = mysqli_connect($host, $db_user, $db_password, $db_name) or die("Connection was not established");

@@ -1,10 +1,12 @@
 <?php
 session_start();
 include("get_test_details.php");
+include("get_next_bidding_page.php");
 
 $test_id = $_GET['biddingtest'];
 $test_main_id = $_GET['test_main_id'];
 $test_number = $_GET['test_number'];
+$friend = $_GET['friend'];
 
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
@@ -68,7 +70,11 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Points - Test <?php echo $test_number; ?>
+                            <ul class="pagination pagination-sm justify-content-between mb-0">
+                                <?php get_previous_bidding_page($test_number, $test_id, $friend); ?>
+                                <li>Points - Problem <?php echo $test_number; ?></li>
+                                <?php get_next_bidding_page($test_number, $test_id, $friend); ?>
+                            </ul>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
@@ -120,7 +126,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                         <button type=" submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(38)">&#128584;</button>
 
                                                 </div>
-                                                <?php update_bidding($test_id); ?>
+                                                <?php update_player_bidding($test_id, $friend); ?>
                                             </div>
                                             <div style="clear: both;"> </div>
                                         </div>

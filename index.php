@@ -53,7 +53,7 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <input class="form-control" type="password" id="password" name="password" placeholder="Password" required="required" />
                     </div>
                     <button class="btn btn-secondary btn-block" type="submit">
-                        Let's train!
+                        Practice!
                     </button>
                     <?php
                     if (isset($_SESSION['error_login'])) {
