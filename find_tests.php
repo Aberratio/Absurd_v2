@@ -53,11 +53,11 @@ function search_test($set, $friend)
 							<form method='get' action='points_table.php'>
 								<input type='image' class='profile_picture' name='view_points_table' src='$src''>
 								<input type=hidden name='biddingtest' value='$biddingtest'/>
+								<input type=hidden name='biddingset' value='$set'/>
 								<input type=hidden name='test_main_id' value='$test_main_id'/>
 								<input type=hidden name='friend' value='$friend'/>
 								<input type=hidden name='type' value='0'/>
 								<input type=hidden name='test_number' value='$test_number'/>
-								<input type=hidden name='friend' value='$friend'/>
 							</form>
 						</div>
 						<div class='col ml-1'>
@@ -80,6 +80,7 @@ function search_test($set, $friend)
 							<input type='image' class='profile_picture' name='add' src='$src''>
 								<input type=hidden name='biddingtest' value='$biddingtest'/>
 								<input type=hidden name='friend' value='$friend'/>
+								<input type=hidden name='biddingset' value='$set'/>
 								<input type=hidden name='type' value='0'/>
 								<input type=hidden name='test_number' value='$test_number'/>
 								</form>

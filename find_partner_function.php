@@ -32,7 +32,7 @@ function search_user($user_name, $type)
 							$user
 						</h4>
 						<p class='card-text'>
-							Completed sets 7/11 <br />
+							
 						</p>
 					</div>
 				</div>
@@ -77,7 +77,7 @@ function search_user($user_name, $type)
 							$user
 						</h4>
 						<p class='card-text'>
-							Completed sets 7/11 
+							
 						</p>
 					</div>
 				</div>

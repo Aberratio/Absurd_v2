@@ -4,6 +4,7 @@ include("get_test_details.php");
 include("get_next_bidding_page.php");
 
 $test_id = $_GET['biddingtest'];
+$set_id = $_GET['biddingset'];
 $test_main_id = $_GET['test_main_id'];
 $test_number = $_GET['test_number'];
 $friend = $_GET['friend'];
@@ -13,7 +14,6 @@ if (!isset($_SESSION['is_logged'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE HTML>
 <html lang="pl">
 
@@ -72,7 +72,7 @@ if (!isset($_SESSION['is_logged'])) {
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
                             <ul class="pagination pagination-sm justify-content-between mb-0">
                                 <?php get_previous_bidding_page($test_number, $test_id, $friend); ?>
-                                <li>Points - Problem <?php echo $test_number; ?></li>
+                                <li>Problem <?php echo $test_number; ?></li>
                                 <?php get_next_bidding_page($test_number, $test_id, $friend); ?>
                             </ul>
                         </h4>
@@ -82,20 +82,27 @@ if (!isset($_SESSION['is_logged'])) {
                                 <!-- POINTS PAGE <div class='col-auto'> -->
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
-                                        <div class='col ml-1'>
-                                            <div class='card-block px-2' style="display: table;">
-                                                <h4>
-                                                    <a href="ranking_test.php?test_id=<?php echo $test_main_id ?>"> Ranking </a>
-                                                </h4>
-                                                <p class='card-text'>
-                                                    <?php get_both_hands($test_id); ?>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div id="points_table" style="float: left; margin-left: 30px;">
-                                            <?php get_points_table($test_id); ?>
-                                        </div>
+                                        <a href='choose_bidding_test.php?type=0&set=<?php echo $set_id; ?>&friend=<?php echo $friend ?>' class='text-decoration-none ml-2 mr-3 mb-2'>
+                                            <i class="fas fa-long-arrow-alt-left mr-2"></i> Back
+                                        </a>
+                                        <h3 class="ml-5">
+                                            <a href="ranking_test.php?test_id=<?php echo $test_main_id ?>" class="text-capitalize text-decoration-none"><i class="fas fa-medal mr-2 text-warning"></i> Ranking </a>
+                                        </h3>
+                                        <div style='width: 100%;' class="mt-2">
+                                            <div class='col ml-1 p-auto ml-md-5 ml-sm-2 ml-1'>
+                                                <div class='card-block px-2' style="display: table;">
+                                                    <p class='card-text'>
+                                                        <?php get_both_hands($test_id); ?>
+                                                    </p>
 
+                                                    <div id="points_table" style="float: left;">
+                                                        <?php get_points_table($test_id); ?>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
                                         <div style="clear: both;"> </div>
 
                                         <div id="bidding" style="float:left; margin-top: 50px;">
@@ -123,7 +130,7 @@ if (!isset($_SESSION['is_logged'])) {
                                                     <button type="submit" class="biddingbox_bottom_button"">&#10060;</button>
                                                         <button type=" submit" class="biddingbox_bottom_button" onclick="declare(36)">PASS</button>
                                                     <button type="submit" class="biddingbox_bottom_button"">&#10060;&#10060;</button> <!-- blue XX--> 
-                                                        <button type=" submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(37)">&#128584;</button>
+                                                        <button type=" submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(38)">&#128584;</button>
 
                                                 </div>
                                                 <?php update_player_bidding($test_id, $friend); ?>
