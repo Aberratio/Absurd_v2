@@ -1,73 +1,76 @@
-* {
-  margin: 0;
-  padding: 0; }
+/*
+Error: Undefined variable: "$main-color".
+        on line 112 of D:\absurd_v2\scss\style.scss
 
-.site-container {
-  overflow: hidden; }
+107:   &-step {
+108:     position: absolute;
+109:     top: 0;
+110:     right: 0;
+111:     font-size: 28px;
+112:     background: $main-color;
+113:     color: set-text-color($main-color);
+114:     border-radius: 50%;
+115:     height: 15px;
+116:     width: 15px;
+117:     line-height: 15px;
 
-body {
-  font-family: "Gelasio", serif;
-  line-height: 1.6;
-  background: #fff; }
-
-a {
-  text-decoration: none;
-  color: #000; }
-
-ul {
-  list-style: none; }
-
-h2,
-h3,
-h4 {
-  text-transform: uppercase; }
-
-body {
-  background: #263f31;
-  color: #000; }
-
-.logo {
-  height: 100px;
-  width: 100px; }
-
-.profile_picture_nav {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 75%; }
-
-.main-form {
-  max-width: 600px;
-  min-width: 250px; }
-  .main-form .form-control {
-    border: 1px solid #ced4da; }
-  .main-form .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #263f31;
-    outline: 0;
-    box-shadow: 0 0 0 0.1rem rgba(38, 63, 49, 0.5); }
-
-.menu-option-img {
-  max-width: 150px; }
-
-#main-footer {
-  background: #000;
-  color: #fff;
-  height: 2.7rem; }
-  #main-footer .copyright a {
-    text-decoration: none;
-    color: #7c2f62; }
-  #main-footer .footer-container {
-    max-width: 100%;
-    padding: 0 1.5rem;
-    margin: auto;
-    overflow: hidden; }
-  @media (max-width: 500px) {
-    #main-footer {
-      visibility: hidden; } }
-  @media (max-height: 600px) {
-    #main-footer {
-      visibility: hidden; } }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+D:\absurd_v2\scss\style.scss:112
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:161:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
+D:/Programy/Koala/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
+D:/Programy/Koala/bin/sass:22:in `load'
+D:/Programy/Koala/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$main-color\".\A         on line 112 of D:\absurd_v2\scss\style.scss\A \A 107:   &-step {\A 108:     position: absolute;\A 109:     top: 0;\A 110:     right: 0;\A 111:     font-size: 28px;\A 112:     background: $main-color;\A 113:     color: set-text-color($main-color);\A 114:     border-radius: 50%;\A 115:     height: 15px;\A 116:     width: 15px;\A 117:     line-height: 15px;"; }

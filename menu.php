@@ -5,6 +5,9 @@ if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
+
+$steps = 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -249,37 +252,89 @@ if (!isset($_SESSION['is_logged'])) {
             <!-- NEWS -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="container mt-5">
-                    <div class="card">
-                        <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            News
-                        </h4>
+                    <div class="card process text-center py-2">
+                        <h3 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
+                            What you have to do?
+                        </h3>
                         <hr class="hr-dark py-3" />
 
-                        <div class="card mx-auto mb-3 border-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-danger">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
+                        <?php if ($_SESSION['profile_picture'] == "img/profil.png") {
+
+                            echo "<div class='mx-auto mb-3' style='max-width: 18rem;'>
+                                <a class='text-decoration-none d-block' href='upload.php'>
+                                    <i class='fas fa-camera fa-4x process-icon'>
+                                        <div class='process-step'>" . ++$steps . "</div>
+                                    </i>
+                                    <h4>Change your profile picture</h4>
+                                    <p>
+                                        It will be more convenient and pleasant to use this application</p>
+                                </a>
+                            </div>";
+                        }
+                        ?>
+
+                        <?php
+
+
+                        $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
+                        global $con;
+
+                        $get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_second_player WHERE id_first_player = ' . $_SESSION["id"] . ' or id_second_player = ' . $_SESSION["id"] . '';
+
+                        $run_user = mysqli_query($con, $get_user);
+
+
+                        $partners = 0;
+
+                        while ($row_user = mysqli_fetch_array($run_user)) {
+                            $partners++;
+                        }
+
+
+                        if ($partners == 0) {
+                            echo "<div class='mx-auto mb-3' style='max-width: 18rem;'>
+                            <a class='text-decoration-none d-block' href='#'>
+                                <i class='fas fa-mail-bulk fa-4x process-icon my-2'>
+                                    <div class='process-step'>" . ++$steps . "</div>
+                                </i>
+                                <h4>Send nicknames</h4>
+                                <p>
+                                    Send yours and your partners name to one of our treners and wait for sets from him.
                                 </p>
+                            </a>
+                        </div>";
+                        }
+                        ?>
+
+                        <div class="mx-auto mb-3" style="max-width: 18rem;">
+                            <a class="text-decoration-none d-block" href="ranking.php">
+                                <i class="fas fa-medal fa-4x process-icon my-2">
+                                    <div class="process-step"><?php echo ++$steps; ?></div>
+                                </i>
+                                <h4>Bid and check your score in ranking</h4>
+                                <p>You can check your progress both in the overall ranking, as in separate rankings at each problem</p>
+                            </a>
+                        </div>
+
+                        <div class="mx-auto mb-3" style="max-width: 18rem;">
+                            <a class="text-decoration-none d-block" href="choose_partner_bidding.php?type=0">
+                                <i class="fas fa-people-carry fa-4x process-icon my-2">
+                                    <div class="process-step"><?php echo ++$steps; ?></div>
+                                </i>
+                                <h4>Analyse tests with your partner</h4>
+                                <p>Did you finish the test? Congratulations! However, remember that this is only half the battle. To improve your skills, you should discuss each hand with your partner.</p>
+                            </a>
+                        </div>
+
+                        <div class="mx-auto mb-3" style="max-width: 18rem;">
+                            <div>
+                                <i class="fas fa-grin-wink fa-4x process-icon my-2">
+                                    <div class="process-step"><?php echo ++$steps; ?></div>
+                                </i>
+                                <h4>Good luck and have fun! ♥ ♥ ♥</h4>
                             </div>
                         </div>
 
-                        <div class="card mx-auto mb-3 border-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-warning">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card mx-auto mb-3 border-info mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-info">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
