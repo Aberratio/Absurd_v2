@@ -74,39 +74,46 @@ if (!isset($_SESSION['is_logged'])) {
 
             <!-- NEWS -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
-                <div class="container mt-5">
-                    <div class="card">
-                        <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            News
-                        </h4>
-                        <hr class="hr-dark py-3" />
+                <div class="container mt-5 card">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-panel">
+                                <div class="timeline-body">
+                                    <p>Do you have a problem and need help?</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-panel">
+                                <div class="timeline-body">
+                                    <p>Maybe you have some interesting bridge tests?</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-panel">
+                                <div class="timeline-body">
+                                    <p>Or have you ever wondered if you could join the trainers?</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-panel">
+                                <div class="timeline-body">
+                                    <p> Have you found a bug?</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-panel">
+                                <div class="timeline-body">
+                                    <p>Would you like to work with me on the development of Absurd?</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="btn btn-secondary mt-3 btn-block mb-3 mt-1" href="https://www.facebook.com/joanna.kokot.37" target="_blank"> Write me a message </a>
 
-                        <div class="card mx-auto mb-3 border-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-danger">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card mx-auto mb-3 border-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-warning">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card mx-auto mb-3 border-info mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-info">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
