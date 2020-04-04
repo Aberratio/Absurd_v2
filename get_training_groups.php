@@ -14,30 +14,29 @@ function get_group_table()
         $first_player = $row_biddingtest['id_first_player'];
         $second_player = $row_biddingtest['id_second_player'];
         echo '
-            <div>
-                <p style="color: #5dbaf89c"> ' . $group_name . ' </p>
-                <p> Gracz I -  <b style="color: rgb(179, 255, 144);">' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $first_player . ""))["user"] . '</b></p>
-                <p> Gracz II -  <b style="color: rgb(179, 255, 144);">' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </b></p>
-               
-            <form method="get"> 
-             <input type="text" class="form-control" placeholder="Nazwa zestawu" name="set-name" /> 
-                <button class="profile_view_button" style="margin-top: 30px;" name="add_btn' . $first_player . '' . $second_player . '");">Dodaj zestaw dla pary</button>
-             </form>  
-        
-                <a class="btn profile_view_button" style="margin-top: 30px; color: yellow;" href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">Postępy</a>
-                    ';
+        <tr>
+            <th>
+                <h4 class="text-capitalize"> ' . $group_name . ' </h4>
+                <p> Player I -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $first_player . ""))["user"] . '</i></p>
+                <p> Player II -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </i></p>
+            </th>
+            <th>
+                <form method="get"> 
+                <input type="text" class="form-control" placeholder="Set name" name="set-name" /> 
+                    <button class="btn btn-secondary mt-3 btn-block mt-2" name="add_btn' . $first_player . '' . $second_player . '");">Add set</button>
+                </form>  
+            </th>
+            <th>
+                <a class="btn btn-primary mt-3 btn-block"
+                href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">Show</a>
+            </th>  
+        </tr>';
+
         if (isset($_GET['add_btn' . $first_player . '' . $second_player . ''])) {
             $id_set = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bidding_sets WHERE set_name = '" . htmlentities($_GET['set-name']) . "'"))["id_set"];
             add_set($first_player, $second_player, $id_set);
         }
-
-        echo '
-        <hr style="height: 5px; background: rgb(247, 109, 109); border: 0px;">
-            </div>     
-        ';
     }
-
-    echo '</table></div>';
 }
 
 function add_set($first_player, $second_player, $set_id)
@@ -67,5 +66,5 @@ function add_set($first_player, $second_player, $set_id)
         $helper = !$helper;
     }
 
-    echo "Dodano zestaw dla podanej pary!";
+    echo "Set added!";
 }

@@ -70,58 +70,69 @@ if ($_SESSION['role'] != 2) {
                             My groups
                         </h4>
                         <div class="option_container mx-3 mt-2">
-                            <div id="group_table" style="margin: auto;">
-                                <?php get_group_table(); ?>
-                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Group</th>
+                                        <th scope="col">Add sets</th>
+                                        <th scope="col">Progress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php get_group_table(); ?>
+                                </tbody>
+                            </table>
+
                         </div>
-
-
                     </div>
+
+
                 </div>
+            </div>
 
 
-                <!-- Trener panel -->
-                <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
-                    <div class="container mt-5">
-                        <div class="card">
-                            <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                                Trener Panel
-                            </h4>
-                            <hr class="hr-dark py-3" />
-                            <form method="get" class="mx-3">
-                                <input type="text" class="form-control" placeholder="Nazwa grupy" name="group_name" style="margin-bottom: 20px;" />
-                                <input type="text" class="form-control" placeholder="Pierwszy gracz" name="first_player" style="margin-bottom: 20px;" />
-                                <input type="text" class="form-control" placeholder="Drugi gracz" name="second_player" style="margin-bottom: 20px;" />
-                                <p><button class="btn btn-secondary mt-3 btn-block" name='add_group'>Add</button></p>
-                                <?php
-                                if (isset($_GET['add_group'])) {
-                                    $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
-                                    $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
+            <!-- Trener panel -->
+            <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
+                <div class="container mt-5">
+                    <div class="card">
+                        <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
+                            Add new group
+                        </h4>
+                        <hr class="hr-dark py-3" />
+                        <form method="get" class="mx-3">
+                            <input type="text" class="form-control mb-2" placeholder="Group name" name="group_name" />
+                            <input type="text" class="form-control mb-2" placeholder="First player" name="first_player" />
+                            <input type="text" class="form-control mb-2" placeholder="Second player" name="second_player" />
+                            <p><button class="btn btn-secondary mt-3 btn-block" name='add_group'>Add</button></p>
+                            <?php
+                            if (isset($_GET['add_group'])) {
+                                $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
+                                $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
 
-                                    mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
+                                mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
                                                     VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
-                                    echo "Group Added!";
-                                }
-                                ?>
-                            </form>
-                        </div>
+                                echo "Group Added!";
+                            }
+                            ?>
+                        </form>
                     </div>
                 </div>
-
             </div>
 
         </div>
 
-        <!-- FOOTER -->
+    </div>
 
-        <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
-            <div class="footer-container">
-                <p class="copyright">
-                    Copyright &copy; 2020 by
-                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
-                </p>
-            </div>
+    <!-- FOOTER -->
+
+    <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
+        <div class="footer-container">
+            <p class="copyright">
+                Copyright &copy; 2020 by
+                <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+            </p>
         </div>
+    </div>
     </div>
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
