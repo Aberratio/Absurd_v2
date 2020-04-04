@@ -283,6 +283,11 @@ body {
     border-right-width: 14px;
     left: -14px;
     right: auto; } }
+.comments_text_area {
+  color: #263f31;
+  border: 0.5px solid #263f31;
+  box-shadow: 0 0.5px 0 0 #263f31; }
+
 .profile_picture {
   border: 2px solid #000;
   border-radius: 5%;

@@ -60,52 +60,73 @@ if ($_SESSION['role'] != 2) {
 </nav>
 
 <body>
-    <main>
-        <section>
+    <div class="site-container">
+        <div class="row mb-5 mt-5">
+            <!-- PLAYER PANEL-->
+            <div class="col-sm-10 col-lg-6 mx-auto">
+                <div class="container mt-5">
+                    <div class="card">
+                        <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
+                            My groups
+                        </h4>
+                        <div class="option_container mx-3 mt-2">
+                            <div id="group_table" style="margin: auto;">
+                                <?php get_group_table(); ?>
+                            </div>
+                        </div>
 
-            <div style="margin-top: 50px; width: 500px; margin: auto; font-size:24px;">
 
-                <div>
-                    <p style="font-size: 32px; color: rgb(247, 109, 109);  margin-top: 20px; margin-bottom: 20px; text-align:center;">Dodaj grupę</p>
-                    <form method="get">
-                        <input type="text" class="form-control" placeholder="Nazwa grupy" name="group_name" style="margin-bottom: 20px;" />
-                        <input type="text" class="form-control" placeholder="Pierwszy gracz" name="first_player" style="margin-bottom: 20px;" />
-                        <input type="text" class="form-control" placeholder="Drugi gracz" name="second_player" style="margin-bottom: 20px;" />
-                        <p><button class='profile_view_button' name='add_group'>Dodaj grupę</button></p>
-                        <?php
-                        if (isset($_GET['add_group'])) {
-                            $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
-                            $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
-
-                            mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
-                                                    VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
-                            echo "Dodano grupę!";
-                        }
-                        ?>
-                    </form>
-                </div>
-
-                <div style="margin-top: 50px;">
-                    <p style="font-size: 32px; color: rgb(253, 197, 124); margin-top: 20px; margin-bottom: 20px; text-align:center;">Moje grupy treningowe</p>
-
-                    <div id="group_table" style="margin: auto;">
-                        <?php get_group_table(); ?>
                     </div>
                 </div>
+
+
+                <!-- Trener panel -->
+                <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
+                    <div class="container mt-5">
+                        <div class="card">
+                            <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
+                                Trener Panel
+                            </h4>
+                            <hr class="hr-dark py-3" />
+                            <form method="get" class="mx-3">
+                                <input type="text" class="form-control" placeholder="Nazwa grupy" name="group_name" style="margin-bottom: 20px;" />
+                                <input type="text" class="form-control" placeholder="Pierwszy gracz" name="first_player" style="margin-bottom: 20px;" />
+                                <input type="text" class="form-control" placeholder="Drugi gracz" name="second_player" style="margin-bottom: 20px;" />
+                                <p><button class="btn btn-secondary mt-3 btn-block" name='add_group'>Add</button></p>
+                                <?php
+                                if (isset($_GET['add_group'])) {
+                                    $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
+                                    $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
+
+                                    mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
+                                                    VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
+                                    echo "Group Added!";
+                                }
+                                ?>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </section>
 
+        </div>
 
-    </main>
+        <!-- FOOTER -->
 
-    <footer>
+        <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
+            <div class="footer-container">
+                <p class="copyright">
+                    Copyright &copy; 2020 by
+                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
 
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 
 </html>
