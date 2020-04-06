@@ -219,11 +219,13 @@ function update_bidding($test)
         $first_player = $row_biddingtest['first_player'];
         $second_player = $row_biddingtest['second_player'];
         $test_number = $row_biddingtest['test_number'];
+        $test_main_id = $row_biddingtest['id_test'];
+
 
         echo "
         <form id='send_bidding' method='get'>
             <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' />
-            <input type='hidden' name='set' value='$player_set' />
+            <input type='hidden' name='biddingset' value='$player_set' />
             <input type='hidden' name='type' value='0' />
             <input type='hidden' name='biddingtest' value='$test' />
             <input type='hidden' name='test_number' value='$test_number' />
@@ -260,9 +262,9 @@ function update_bidding($test)
 
 
             if ($completed_flag == 0) {
-                echo "<script>window.location.href = 'bidding_page.php';</script>";
+                echo "<script>window.location.href = 'bidding_page.php?biddingtest=" . $test . "&test_number=" . $test_number . "&biddingset=" . $player_set . "&friend=" . $friend . "&type=0';</script>";
             } else {
-                echo "<script>window.location.href = 'points_table.php';</script>";
+                echo "<script>window.location.href = 'points_table.php?test_main_id=" . $test_main_id . "&biddingtest=" . $test . "&biddingset=" . $player_set . "&friend=" . $friend . "&type=0&test_number=" . $test_number . "';</script>";
             }
         }
     }
@@ -284,11 +286,12 @@ function update_player_bidding($test, $friend)
         $second_player = $row_biddingtest['second_player'];
         $test_number = $row_biddingtest['test_number'];
         $test_main_id = $row_biddingtest['id_test'];
+        $set_id = $row_biddingtest['id_set'];
 
         echo "
         <form id='send_bidding' method='get'>
             <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' />
-            <input type='hidden' name='set' value='$player_set' />
+            <input type='hidden' name='biddingset' value='$player_set' />
             <input type='hidden' name='friend' value='$friend' />
             <input type='hidden' name='type' value='0' />
             <input type='hidden' name='biddingtest' value='$test' />
@@ -325,9 +328,9 @@ function update_player_bidding($test, $friend)
             mysqli_query($con, $insert);
 
             if (strcasecmp($completed_flag, "false") == 0) {
-                echo "<script>window.location.href = 'bidding_page.php?biddingtest=" . $test . "&test_number=" . $test_number . "&friend=" . $friend . "&type=0';</script>";
+                echo "<script>window.location.href = 'bidding_page.php?biddingtest=" . $test . "&test_number=" . $test_number . "&biddingset=" . $player_set . "&friend=" . $friend . "&type=0';</script>";
             } else {
-                echo "<script>window.location.href = 'points_table.php?test_main_id=" . $test_main_id . "&biddingtest=" . $test . "&friend=" . $friend . "&type=0&test_number=" . $test_number . "';</script>";
+                echo "<script>window.location.href = 'points_table.php?test_main_id=" . $test_main_id . "&biddingtest=" . $test . "&biddingset=" . $player_set . "&friend=" . $friend . "&type=0&test_number=" . $test_number . "';</script>";
             }
         }
     }

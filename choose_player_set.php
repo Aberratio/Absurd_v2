@@ -75,37 +75,40 @@ if (!isset($_SESSION['is_logged'])) {
                 </div>
             </div>
 
-            <!-- NEWS -->
+            <!-- LEVEL DESCRIPTION -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            News
+                            Description of levels
                         </h4>
                         <hr class="hr-dark py-3" />
 
-                        <div class="card mx-auto mb-3 border-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-danger">
+                        <div class="card mx-auto mb-3 border-success mb-3" style="max-width: 18rem;">
+                            <div class="card-body text-success">
+                                <h4 class="card-title">Level I</h4>
+                                <hr />
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
+                                    Beginner sets. The dealer is not important. There are no difficult hands to bid.
                                 </p>
                             </div>
                         </div>
 
                         <div class="card mx-auto mb-3 border-warning mb-3" style="max-width: 18rem;">
                             <div class="card-body text-warning">
+                                <h4 class="card-title">Level II</h4>
+                                <hr />
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
+                                    Intermediate sets. There are more difficult hands but the dealer is still not important.
                                 </p>
                             </div>
                         </div>
-                        <div class="card mx-auto mb-3 border-info mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-info">
+                        <div class="card mx-auto mb-3 border-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-body text-danger">
+                                <h4 class="card-title">Level III</h4>
+                                <hr />
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
+                                    This is for experts. You can find here interesting hands and you don't become points, if there is the wrong declarer.
                                 </p>
                             </div>
                         </div>

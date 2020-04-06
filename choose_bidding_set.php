@@ -75,7 +75,7 @@ if (!isset($_SESSION['is_logged'])) {
                 </div>
             </div>
 
-            <!-- NEWS -->
+            <!-- LEVEL DESCRIPTION -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="container mt-5">
                     <div class="card">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("get_test_details.php");
+include("get_comments.php");
 include("get_next_bidding_page.php");
 
 $test_id = $_GET['biddingtest'];
@@ -144,48 +145,57 @@ if (!isset($_SESSION['is_logged'])) {
             <!-- BIDDING BOX END -->
 
 
-            <!-- NEWS 
-            <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
+            <!-- Comments -->
+            <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
                 <div class="container mt-5">
-                    <div class="card">
-                        <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            News
+                    <div class="card mt-2">
+                        <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
+                            Comments
                         </h4>
+                        <div class='card mb-4 ml-3 mr-3'>
+                            <div class='row no-gutters mt-2'>
+                                <div class="option">
+                                    <div class='col-auto'>
+                                        <img class="profile_picture mb-2" src="<?php echo $_SESSION['profile_picture'] ?>">
+                                    </div>
+                                </div>
+                                <div class='col ml-1'>
+                                    <div class='card-block card-desc px-2'>
+                                        <form method="post" name="add_comment">
+                                            <div class="form-group">
+                                                <textarea class="comments_text_area form-control" rows="3" name="comment"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class='btn btn-secondary text-decoration-none text-white btn-block' type="submit" value="Submit" name="add_comment">Send comment</button>
+                                            </div>
+                                            <?php
+
+                                            $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
+
+                                            if (isset($_POST['add_comment'])) {
+                                                mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
+                                                VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
+
+
+                                                // header('Location: points_table.php?biddingtest=' . $test_id . '&
+                                                // biddingset=' . $set_id . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '');
+                                            }
+                                            ?>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <hr class="hr-dark py-3" />
 
-                        <div class="card mx-auto mb-3 border-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-danger">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card mx-auto mb-3 border-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-warning">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card mx-auto mb-3 border-info mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-info">
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make
-                                    up the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
+                        <!-- Previous comments -->
+                        <?php get_comments($test_id); ?>
                     </div>
                 </div>
             </div>
-            News END -->
-
-
-
         </div>
+
 
         <!-- FOOTER -->
 

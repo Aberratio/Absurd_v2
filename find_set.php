@@ -45,7 +45,7 @@ function search_set($friend_id, $type)
 					<input type=hidden name='set' value='$biddingset'/>
 					<input type=hidden name='type' value='$type'/>
 					<input type=hidden name='friend' value='$friend_id'/>
-					<input type='image' class='profile_picture' name='add' src='img/lvl1.png'>
+					<input type='image' class='profile_picture' name='add' src='img/lvl2.png'>
 				</form>
 			</div>
 			
@@ -117,7 +117,7 @@ function search_pairs_set($first_player_id, $second_player_id, $type)
 					<input type=hidden name='set' value='$biddingset'/>
 					<input type=hidden name='type' value='$type'/>
 					<input type=hidden name='friend' value='$first_player_id'/>
-					<input type='image' class='profile_picture' name='add' src='img/lvl1.png'>
+					<input type='image' class='profile_picture' name='add' src='img/lvl2.png'>
 				</form>
 			</div>
 			

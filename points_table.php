@@ -183,8 +183,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                 VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
 
 
-                                                header('Location: points_table.php?biddingtest=' . $test_id . '&
-                                                biddingset=' . $set_id . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '');
+                                                // header('Location: points_table.php?biddingtest=' . $test_id . '&
+                                                // biddingset=' . $set_id . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '');
                                             }
                                             ?>
                                         </form>
