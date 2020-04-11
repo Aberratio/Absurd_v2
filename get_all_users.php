@@ -1,5 +1,6 @@
 <?php
-$con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
+
+include("connect.php");
 
 function get_user_table()
 {

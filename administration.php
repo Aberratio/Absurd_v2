@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("get_all_users.php");
+include("connect.php");
 
 
 if (!isset($_SESSION['is_logged'])) {

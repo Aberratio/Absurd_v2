@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("get_training_groups.php");
+include("connect.php");
 
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
