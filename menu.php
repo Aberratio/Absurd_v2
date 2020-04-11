@@ -67,6 +67,35 @@ $steps = 0;
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
+
+                                <!-- TOURNAMENT GENERATOR-->
+                                <?php if ($_SESSION['role'] == 1) {
+                                    echo "
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='folder_view.php' class='d-block'>
+                                                <i class='fas fa-plus-square fa-6x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                Tournament generator
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Create a new set and add your own tests. 
+                                                    You can also edit old sets.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
+                                }
+                                ?>
+
+
                                 <!-- BIDDING QUIZ-->
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
@@ -131,39 +160,87 @@ $steps = 0;
                                     </div>
                                 </div>
 
-
+                                <!-- TESTY NA ZGODNOŚĆ W PARZE -->
                                 <?php if ($_SESSION['role'] == 1) {
                                     echo "
-            <div class='col-sm-4'>
-                <figure>
-                    <a href='choose_partner_bidding.php?type=1'><img src='img/testy.png' class='img-fluid menu_view_container-box' alt='licytacja'></a>
-                    <figcaption>Testy na zgodność w parze</figcaption>
-                </figure>
-            </div>";
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='choose_partner_bidding.php?type=1' class='d-block'>
+                                                <i class='fas fa-plus-square fa-6x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                Testy na zgodność w parze
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Create a new set and add your own tests. 
+                                                    You can also edit old sets.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
                                 }
                                 ?>
 
-                                <?php if ($_SESSION['role'] == 0) {
-                                    echo "
-            <div class='col-sm-4'>
-                <figure>
-                    <a href='admin_panel.php'><img src='img/archiwum.png' class='img-fluid menu_view_container-box' alt='licytacja'></a>
-                    <figcaption>Archiwum</figcaption>
-                </figure>
-            </div>";
-                                }
-                                ?>
-
+                                <!-- ARCHIWUM -->
                                 <?php if ($_SESSION['role'] == 1) {
                                     echo "
-            <div class='col-sm-4'>
-                <figure>
-                    <a href='administration.php'><img src='img/archiwum.png' class='img-fluid menu_view_container-box' alt='licytacja'></a>
-                    <figcaption>Panel Administratora</figcaption>
-                </figure>
-            </div>";
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='#' class='d-block'>
+                                                <i class='fas fa-plus-square fa-6x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                    Archiwum
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Create a new set and add your own tests. 
+                                                    You can also edit old sets.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
                                 }
                                 ?>
+
+                                <!-- ADMIN PANEL-->
+                                <?php if ($_SESSION['role'] == 1) {
+                                    echo "
+
+                                    <div class='card mb-4'>
+                                    <div class='row no-gutters mt-2'>
+                                        <div class='col-auto'>
+                                            <a href='administration.php' class='d-block'>
+                                                <i class='fas fa-plus-square fa-6x m-3'></i>
+                                            </a>
+                                        </div>
+                                        <div class='col ml-1'>
+                                            <div class='card-block px-2'>
+                                                <h4 class='card-title font-weight-bold text-capitalize'>
+                                                    Admin Panel
+                                                </h4>
+                                                <p class='card-text'>
+                                                    Create a new set and add your own tests. 
+                                                    You can also edit old sets.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
+                                }
+                                ?>
+
                                 <!-- ADD TESTS-->
                                 <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
                                     echo "

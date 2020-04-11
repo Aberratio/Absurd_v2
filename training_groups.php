@@ -7,7 +7,7 @@ if (!isset($_SESSION['is_logged'])) {
     exit();
 }
 
-if ($_SESSION['role'] != 2) {
+if ($_SESSION['role'] == 3) {
     header('Location: menu.php');
     exit();
 }
