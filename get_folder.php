@@ -17,10 +17,12 @@ function get_folder_table()
         echo '
         <tr>
             <th>
-            <h4 class="card-title font-weight-bold text-capitalize mr-2"> Turniej na rozpoczęcie sezonu  <small style="color: gray;">24 boards / Level 1</small></h4> 
-                <p class="font-weight-normal">
-                    jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis
-                </p>
+                <a href="tournament_creator.php">
+                    <h4 class="card-title font-weight-bold text-capitalize mr-2"> Turniej na rozpoczęcie sezonu  <small style="color: gray;">24 boards / Level 1</small></h4> 
+                        <p class="font-weight-normal">
+                            jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis
+                        </p>
+                </a>
             </th>
             <th>
                 <i class="fas fa-trash-alt ml-2 btn-block"></i>

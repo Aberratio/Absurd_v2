@@ -242,7 +242,7 @@ $steps = 0;
                                 ?>
 
                                 <!-- ADD TESTS-->
-                                <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
+                                <?php if ($_SESSION['role'] == 1) {
                                     echo "
 
                                     <div class='card mb-4'>

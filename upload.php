@@ -87,7 +87,6 @@ if (!isset($_SESSION['is_logged'])) {
                                                     <img class='profile_picture' src='<?php echo $user_profile; ?>'>
 
                                                     <form method='post' enctype='multipart/form-data' class="mt-2">
-
                                                         <div id='update_profile'>
                                                             <input type='file' name='u_image' size='60' />
                                                         </div>
