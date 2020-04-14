@@ -157,6 +157,7 @@ if ($_SESSION['role'] == 3) {
                 </div>
             </div>
 
+            <!-- End Pleyer Panel -->
 
             <!-- Add new folder -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">

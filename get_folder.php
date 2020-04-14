@@ -34,6 +34,39 @@ function get_folder_table()
     }
 }
 
+function get_quiz_folder_table($id_folder)
+{
+    global $con;
+
+    $get_training_groups_query = 'SELECT * FROM folders JOIN bidding_sets ON folders.id_folder = bidding_sets.id_folder WHERE folders.id_folder = ' . $id_folder . ';';
+
+    $run_groups = mysqli_query($con, $get_training_groups_query);
+
+    while ($row_biddingtest = mysqli_fetch_array($run_groups)) {
+        $group_name = $row_biddingtest['group_name'];
+        $first_player = $row_biddingtest['id_first_player'];
+        $second_player = $row_biddingtest['id_second_player'];
+        echo '
+        <tr>
+            <th>
+                <a href="tournament_creator.php">
+                    <h4 class="card-title font-weight-bold text-capitalize mr-2"> Turniej na rozpoczęcie sezonu  <small style="color: gray;">24 boards / Level 1</small></h4> 
+                        <p class="font-weight-normal">
+                            jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis jakis opis
+                        </p>
+                </a>
+            </th>
+            <th>
+                <i class="fas fa-trash-alt ml-2 btn-block"></i>
+                <i class="fas fa-edit ml-2 btn-block"></i>
+                <i class="fas fa-download ml-2 btn-block">LIN</i>
+                <i class="fas fa-download ml-2 btn-block">PBN</i>
+            </th>
+        </tr>';
+    }
+}
+
+
 function add_set($first_player, $second_player, $set_id)
 {
     global $con;

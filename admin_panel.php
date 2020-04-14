@@ -119,9 +119,9 @@ if ($_SESSION['role'] == 3) {
         <div id="view-panel" style="float: left">
             <?php
             echo '
-            <form name="add">
-            <select id="sets" name="sets">
-                ';
+                    <form name="add">
+                    <select id="sets" name="sets">
+                        ';
             $get_set_query = 'SELECT * from bidding_sets';
 
             $run_sets = mysqli_query($con, $get_set_query);
@@ -131,13 +131,13 @@ if ($_SESSION['role'] == 3) {
                 $set_id = $row_comparetest['id_set'];
 
                 echo '
-                    <option value="' . $set_id . '" set_name="' . $set_id . '">' . $set_name . '</option>';
+                            <option value="' . $set_id . '" set_name="' . $set_id . '">' . $set_name . '</option>';
             }
             echo '    
-            </select>
-            <input type="hidden" id="name" name="name" value=""/>
-            </form>
-        ';
+                    </select>
+                    <input type="hidden" id="name" name="name" value=""/>
+                    </form>
+                ';
             ?>
 
             <div>

@@ -1,0 +1,241 @@
+[11-Apr-2020 09:27:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/admin_panel.php on line 159
+[11-Apr-2020 09:30:32 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/admin_panel.php on line 159
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 162
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 14
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 95
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:18:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:24:17 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:26:47 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:28:20 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:29:54 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:34:50 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:35:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 14
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 19
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 21
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 29
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 32
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 38
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 41
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 54
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 59
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 61
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 69
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_next_bidding_page.php on line 72
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: completed in /home2/bridgeab/public_html/get_next_bidding_page.php on line 78
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: previous_test in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Notice:  Undefined variable: set_player_id in /home2/bridgeab/public_html/get_next_bidding_page.php on line 81
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:35:26 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:36:33 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:37:00 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:39:30 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:40:38 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:41:10 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:41:51 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 16:42:25 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_test_details.php on line 282
+[11-Apr-2020 19:28:09 Europe/Warsaw] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/bridgeab/public_html/get_comments.php on line 14
+[13-Apr-2020 14:36:14 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[13-Apr-2020 14:36:14 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[13-Apr-2020 14:36:14 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[13-Apr-2020 14:36:14 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[13-Apr-2020 17:18:26 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[13-Apr-2020 17:18:26 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[13-Apr-2020 17:18:26 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[13-Apr-2020 17:18:26 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11
+[13-Apr-2020 17:21:11 Europe/Warsaw] PHP Notice:  Undefined index: biddingtest in /home2/bridgeab/public_html/tournament_creator.php on line 8
+[13-Apr-2020 17:21:11 Europe/Warsaw] PHP Notice:  Undefined index: biddingset in /home2/bridgeab/public_html/tournament_creator.php on line 9
+[13-Apr-2020 17:21:11 Europe/Warsaw] PHP Notice:  Undefined index: test_number in /home2/bridgeab/public_html/tournament_creator.php on line 10
+[13-Apr-2020 17:21:11 Europe/Warsaw] PHP Notice:  Undefined index: friend in /home2/bridgeab/public_html/tournament_creator.php on line 11

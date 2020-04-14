@@ -82,7 +82,6 @@ if ($_SESSION['role'] == 3) {
                                     <?php get_group_table(); ?>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
 

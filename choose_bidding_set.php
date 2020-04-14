@@ -59,6 +59,7 @@ if (!isset($_SESSION['is_logged'])) {
 <body>
     <div class="site-container">
         <div class="row mb-5 mt-5">
+
             <!-- PLAYER PANEL-->
             <div class="col-sm-10 col-lg-6 mx-auto">
                 <div class="container mt-5">
@@ -67,13 +68,25 @@ if (!isset($_SESSION['is_logged'])) {
                             Find bidding set
                         </h4>
                         <div class="option_container mx-3 mt-2">
-                            <div class="option">
-                                <?php search_set($_GET['friend'], $_GET['type']); ?>
+                            <div class="page">
+
+                                <div class="accordion-option">
+                                    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <?php search_for_folders($_GET['friend'], $_GET['type'], $_SESSION['id']); ?>
+                                </div>
                             </div>
+
                         </div>
                     </div>
+
+
                 </div>
             </div>
+            <!-- END PLAYER PANEL-->
+
 
             <!-- LEVEL DESCRIPTION -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">

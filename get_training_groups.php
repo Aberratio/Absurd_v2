@@ -22,9 +22,14 @@ function get_group_table()
                 <p> Player II -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </i></p>
             </th>
             <th>
-                <form method="get"> 
-                <input type="text" class="form-control" placeholder="Set name" name="set-name" /> 
-                    <button class="btn btn-secondary mt-3 btn-block mt-2" name="add_btn' . $first_player . '' . $second_player . '");">Add set</button>
+                <form method="get">
+                <div class="form-group">
+                    <select class="form-control" id="sel1" name="folder_id">
+                        ' . get_folders_list() . '
+                    </select>
+                </div>
+
+                <button class="btn btn-secondary mt-3 btn-block mt-2" name="add_btn' . $first_player . '' . $second_player . '");">Add folder</button>
                 </form>  
             </th>
             <th>
@@ -34,8 +39,29 @@ function get_group_table()
         </tr>';
 
         if (isset($_GET['add_btn' . $first_player . '' . $second_player . ''])) {
-            $id_set = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bidding_sets WHERE set_name = '" . htmlentities($_GET['set-name']) . "'"))["id_set"];
-            add_set($first_player, $second_player, $id_set);
+
+            $get_sets_amount_in_folder = "SELECT COUNT(*) FROM `folders` JOIN player_folders ON folders.id_folder = player_folders.id_folder LEFT JOIN bidding_sets ON bidding_sets.id_folder = player_folders.id_folder WHERE folders.id_folder = " . $_GET['folder_id'] . " AND 
+            ((id_first_player = $first_player OR id_first_player = $second_player) AND (id_second_player = $first_player OR id_second_player = $second_player))";
+
+            $player_folder_counter = mysqli_query($con, $get_sets_amount_in_folder);
+            $counter = mysqli_fetch_array($player_folder_counter);
+
+            if ($counter[0] == 0) {
+
+                $get_sets_in_folder = "SELECT * FROM `folders` LEFT JOIN bidding_sets ON bidding_sets.id_folder = folders.id_folder WHERE folders.id_folder = " . $_GET['folder_id'] . "";
+
+                $run_sets = mysqli_query($con, $get_sets_in_folder);
+
+                while ($row_biddingset = mysqli_fetch_array($run_sets)) {
+                    $id_set = $row_biddingset['id_set'];
+
+                    add_set($first_player, $second_player, $id_set);
+                }
+
+                add_folder($first_player, $second_player, $_GET['folder_id']);
+            } else {
+                echo 'Player already have this folder!';
+            }
         }
     }
 }
@@ -66,6 +92,31 @@ function add_set($first_player, $second_player, $set_id)
         mysqli_query($con, $add_player_test);
         $helper = !$helper;
     }
+}
 
-    echo "Set added!";
+
+function add_folder($first_player, $second_player, $folder_id)
+{
+    global $con;
+    $add_player_set = "INSERT INTO `player_folders`(`id_player_folder`, `id_folder`, `id_first_player`, `id_second_player`) VALUES (0," . $folder_id . "," . $first_player . "," . $second_player . ")";
+    mysqli_query($con, $add_player_set);
+
+    echo "Folder added!";
+}
+
+function get_folders_list()
+{
+    $option_string = "";
+
+    global $con;
+    $get_folders = "SELECT * FROM folders";
+    $run_folders = mysqli_query($con, $get_folders);
+    while ($row_folders = mysqli_fetch_array($run_folders)) {
+        $id_folder = $row_folders['id_folder'];
+        $name = $row_folders['name'];
+
+        $option_string = $option_string . "<option value='" . $id_folder . "'>" . $name . "</option>";
+    }
+
+    return $option_string;
 }
