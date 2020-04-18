@@ -89,7 +89,6 @@ if ($_SESSION['role'] == 3) {
                 </div>
             </div>
 
-
             <!-- Trener panel -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="container mt-5">
@@ -108,9 +107,14 @@ if ($_SESSION['role'] == 3) {
                                 $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
                                 $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
 
-                                mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
-                                                    VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
-                                echo "Group Added!";
+                                $counter =  mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM training_groups WHERE id_trainer = " . $_SESSION['id'] . " AND (id_first_player = " . $first['id'] . " OR id_second_player = " . $first['id'] . ") AND (id_first_player = " . $second['id'] . " OR id_second_player = " . $second['id'] . ") "));
+
+                                if ($counter[0] == 0) {
+                                    mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
+                                    VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
+
+                                    echo "Group Added!";
+                                }
                             }
                             ?>
                         </form>

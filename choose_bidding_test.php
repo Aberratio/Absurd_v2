@@ -25,6 +25,10 @@ if (!isset($_SESSION['is_logged'])) {
     <script type="text/javascript" src="js/biddingbox.js">
 
     </script>
+
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <!-- NAVBAR -->
@@ -71,21 +75,40 @@ echo $x['set_name']; ?></div>
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Find test
+                            Find problem
                         </h4>
                         <div class="option_container mx-3 mt-2">
-                            <div class="option">
-                                <?php if ($_GET['type'] == 0) {
-                                    search_test($_GET['set'], $_GET['friend']);
-                                } else if ($_GET['type'] == 1) {
-                                    get_test($_GET['set'], $_GET['friend']);
-                                }
-                                ?>
-                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Turn</th>
+                                        <th scope="col">Comments</th>
+                                        <th scope="col">Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if ($_GET['type'] == 0) {
+                                        search_test($_GET['set'], $_GET['friend']);
+                                    } else if ($_GET['type'] == 1) {
+                                        get_test($_GET['set'], $_GET['friend']);
+                                    }
+                                    ?>
+
+                                    <script>
+                                        jQuery(document).ready(function($) {
+                                            $(".clickable-row").click(function() {
+                                                window.location = $(this).data("href");
+                                            });
+                                        });
+                                    </script>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- END PLAYER PANEL-->
 
             <!-- NEWS -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">

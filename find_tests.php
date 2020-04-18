@@ -31,6 +31,15 @@ function search_test($set, $friend)
 
 			$src = 'img/done.png';
 
+
+			$get_comments = "SELECT COUNT(*) FROM player_bidding_tests JOIN comments ON comments.id_player_test = player_bidding_tests.id_player_test WHERE comments.id_player_test = $biddingtest;";
+			$comments_counter = mysqli_query($con, $get_comments);
+			$bbb =  mysqli_fetch_array($comments_counter);
+
+			$get_new_comments = "SELECT COUNT(*) FROM player_bidding_tests JOIN comments ON comments.id_player_test = player_bidding_tests.id_player_test WHERE comments.id_player_test = $biddingtest AND comment_date  >= DATE(NOW()) - INTERVAL 7 DAY;";
+			$new_comments_counter = mysqli_query($con, $get_new_comments);
+			$ccc =  mysqli_fetch_array($new_comments_counter);
+
 			if (!$completed) {
 				$get_pic = 'SELECT * from bridgeplayers where id = ' . $bidding_person . '';
 				$run_pic = mysqli_query($con, $get_pic);
@@ -39,78 +48,33 @@ function search_test($set, $friend)
 					$src = $row_pic['profile_picture'];
 				}
 			}
+			$c = explode("=", $point_string);
+			$d = explode(";", $c[1]);
 
-			echo "
-			<div class='card mb-4'>
-			<div class='row no-gutters mt-2'>
-				<div class='col-auto'>
-						";
 			if ($completed) {
-
-				$c = explode("=", $point_string);
-				$d = explode(";", $c[1]);
-
-				echo " 
-							<form method='get' action='points_table.php'>
-								<input type='image' class='profile_picture' name='view_points_table' src='$src''>
-								<input type=hidden name='biddingtest' value='$biddingtest'/>
-								<input type=hidden name='biddingset' value='$set'/>
-								<input type=hidden name='test_main_id' value='$test_main_id'/>
-								<input type=hidden name='friend' value='$friend'/>
-								<input type=hidden name='type' value='0'/>
-								<input type=hidden name='test_number' value='$test_number'/>
-							</form>
-						</div>
-						<div class='col ml-1'>
-							<div class='card-block card-desc px-2'>
-								<h4
-									class='card-title font-weight-bold text-capitalize'
-								>
-									Test " . $test_number . "
-								</h4>
-								<p class='card-text'>
-									Points $points/$d[0] 
-								</p>
-							</div>
-                   	   </div>
-
-							";
+				echo '
+					<tr style="cursor: pointer;" class="clickable-row" data-href="points_table.php?biddingtest=' . $biddingtest . '&biddingset=' . $set . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '">';
 			} else {
-				echo "
-							<form method='get' action='bidding_page.php'>
-							<input type='image' class='profile_picture' name='add' src='$src''>
-								<input type=hidden name='biddingtest' value='$biddingtest'/>
-								<input type=hidden name='friend' value='$friend'/>
-								<input type=hidden name='biddingset' value='$set'/>
-								<input type=hidden name='type' value='0'/>
-								<input type=hidden name='test_number' value='$test_number'/>
-								</form>
-						</div>
-						<div class='col ml-1'>
-                        <div class='card-block card-desc px-2'>
-                          <h4
-                            class='card-title font-weight-bold text-capitalize'
-                          >
-                            Test " . $test_number . "
-                          </h4>
-                          <p class='card-text'>
-                          </p>
-                        </div>
-                      </div>
-							";
+				echo '
+					<tr style="cursor: pointer;" class="clickable-row" data-href="bidding_page.php?biddingtest=' . $biddingtest . '&biddingset=' . $set . '&test_number=' . $test_number . '&friend=' . $friend . '">';
 			}
-			echo "
-						
-				</div>
-				</div>
-				";
-
-			if (isset($_GET['view_points_table'])) {
-				echo "<script>window.location.href = 'points_table.php';</script>";
-			}
-			if (isset($_GET['add'])) {
-				echo "<script>window.location.href = 'bidding_page.php';</script>";
-			}
+			echo '
+				<th>
+				' . $test_number . '
+				</th>
+				<th>
+					<img class="profile_picture" style="width:40px; height: 40px; 
+					border: 1px solid black; border-radius: 75%;" src="' . $src . '">
+				</th>
+				<th>
+					<p class="font-weight-normal">
+						' . $bbb[0] . ' <small class="text-danger"> ' . $ccc[0] . ' new </small>
+					</p>
+				</th>  
+				<th>
+				' . round(($points * 100) / $d[0]) . '% 
+				</th>
+			</tr>';
 		}
 	}
 }
