@@ -121,7 +121,7 @@ if (!isset($_SESSION['is_logged'])) {
                                 <h4 class="card-title">Level III</h4>
                                 <hr />
                                 <p class="card-text">
-                                    This is for experts. You can find here interesting hands and you don't become points, if there is the wrong declarer.
+                                    This is for experts. You can find here interesting hands and you don't get points, if there is the wrong declarer.
                                 </p>
                             </div>
                         </div>

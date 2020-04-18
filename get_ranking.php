@@ -112,39 +112,53 @@ function get_ranking_test_table($test_id)
 }
 
 
-function get_ranking_set_table($set_id)
+function get_ranking_set_table($set_id, $max_points)
 {
     global $con;
 
-    $get_ranking_query = 'SELECT * FROM `player_bidding_sets` WHERE `id_set` = ' . $set_id . ' ORDER BY `points` DESC LIMIT 50';
+    $get_points_in_set = "SELECT SUM(player_bidding_tests.points) AS points, player_bidding_sets.first_user AS first_user, player_bidding_sets.second_user 
+    AS second_user FROM player_bidding_tests JOIN player_bidding_sets ON player_bidding_tests.id_player_set = player_bidding_sets.id_player_sets
+     WHERE player_bidding_sets.id_set = " . $set_id . " AND player_bidding_tests.completed_test = 1 GROUP BY id_player_sets ORDER BY 1 DESC LIMIT 50;";
 
-    $run_biddingtest = mysqli_query($con, $get_ranking_query);
+    $points_counter = mysqli_query($con, $get_points_in_set);
+    $row_set_score = mysqli_fetch_array($points_counter);
 
     $place = 1;
 
     echo '
-    <div class="">
-    <table style="border-spacing:30px 0px;">
-            <tr style="color: rgb(253, 197, 124);">
-                <td style="padding-left: 0px; padding-right: 7.5px;"> Miejsce </td>
-                <td style="padding-left: 7.5px; padding-right: 7.5px;"> Nazwa użytkownika </td>
-                <td style="padding-left: 7.5px; padding-right: 0px;"> Punkty </td>
-            <tr>    
+    <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User</th>
+                <th scope="col">Score</th>
+            </tr>
+            </thead>  
+            <tbody>
     ';
-    while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
-        $first_user_id = $row_biddingtest['first_player'];
-        $second_user_id = $row_biddingtest['second_player'];
-        $points = $row_biddingtest['points'];
+    $last_points = -1;
+
+    do {
+        echo $place;
+        $first_user_id = $row_set_score['first_user'];
+        $second_user_id = $row_set_score['second_user'];
+        $points = $row_set_score['points'];
         $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $first_user_id . '"'));
         $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $second_user_id . '"'));
 
-        echo '<tr>
-            <td style="color: rgb(179, 255, 144);">' . $place . '</td>
-            <td>
+        if ($last_points == $points) {
+            echo '<tr>
+            <th scope="row"></th>';
+        } else {
+            echo '<tr>
+            <th scope="row">' . $place . '</th>';
+        }
+        echo '<td>
                 <img class="profile_picture" style="width:40px; height: 40px; 
                 border: 1px solid black; border-radius: 75%;" src="' . $first['profile_picture'] . '">
             ' . $first['user'] . ' </td> 
-            <td>' . $points . '</td>
+                <td>
+                ' . round(($points * 100) / $max_points) . '% </td>
         </tr>
         <tr>
             <td style="color: rgb(179, 255, 144);"></td>
@@ -154,11 +168,12 @@ function get_ranking_set_table($set_id)
             ' . $second['user'] . ' </td> 
             <td></td>
         </tr>
-
         ';
 
         $place = $place + 1;
-    }
+        $last_points = $points;
+    } while ($row_set_score = mysqli_fetch_array($points_counter));
 
-    echo '</table></div>';
+    echo '</tbody>
+    </table>';
 }
