@@ -45,11 +45,16 @@ function get_both_hands($test)
         $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $second_user . '"'));
         echo '<b"><div class="hand m-auto" id="hand">';
 
+        echo '<div class="first-hand mr-2 ml-3 mr-sm-5 ml-sm-5" style="float: left;">';
         echo 'N (' . $second['user'] . ')';
         get_cards_on_hand($row_biddingtest['S_hand']);
+        echo '</div>';
 
+        echo '<div class="second-hand ml-2 ml-sm-5" style="float: left;">';
         echo 'S (' . $first['user'] . ')';
         get_cards_on_hand($row_biddingtest['N_hand']);
+        echo '</div>';
+
         echo '</div></b>';
     }
 }

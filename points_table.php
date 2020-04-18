@@ -99,9 +99,6 @@ if (!isset($_SESSION['is_logged'])) {
                                                         <?php get_both_hands($test_id); ?>
                                                     </p>
 
-                                                    <div id="points_table" style="float: left;">
-                                                        <?php get_points_table($test_id); ?>
-                                                    </div>
                                                 </div>
 
                                             </div>
@@ -109,6 +106,7 @@ if (!isset($_SESSION['is_logged'])) {
                                         </div>
                                         <div style="clear: both;"> </div>
 
+                                        <!-- OUR BIDDING -->
                                         <div id="bidding" style="float:left; margin-top: 50px;">
                                             <p>Our bidding</p>
                                             <table id="bidding_desk">
@@ -120,6 +118,13 @@ if (!isset($_SESSION['is_logged'])) {
                                             </table>
                                             <div id="bidding_string"><?php get_bidding($test_id); ?></div>
                                         </div>
+                                        <!-- END OUR BIDDING -->
+
+                                        <!-- POINTS TABLE -->
+                                        <div id="points_table" style="float: left;">
+                                            <?php get_points_table($test_id); ?>
+                                        </div>
+                                        <!-- END POINTS TABLE -->
 
                                         <div id="bidding" style="float:left; margin-top: 50px;">
 
