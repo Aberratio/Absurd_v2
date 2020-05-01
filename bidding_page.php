@@ -172,13 +172,65 @@ if (!isset($_SESSION['is_logged'])) {
                                             <?php
 
                                             if (isset($_POST['add_comment'])) {
-                                                mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
-                                                VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
 
+                                                $comment = $_POST["comment"];
+                                                $comment = $htmlp->purify($comment);
+                                                $comment = trim($comment);
+                                                $comment = htmlentities($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                                                $comment = htmlspecialchars($comment);
+                                                $comment = filter_var($comment, FILTER_SANITIZE_STRING);
+                                                $comment = filter_var($comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                                                $comment = jsEscape($comment);
 
-                                                // header('Location: points_table.php?biddingtest=' . $test_id . '&
-                                                // biddingset=' . $set_id . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '');
+                                                $comment =  filter_input(INPUT_POST, "comment", FILTER_SANITIZE_STRING);
+                                                if (!empty($comment)) {
+                                                    $comment = strip_tags($comment);
+
+                                                    mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
+                                                    VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $comment . '")');
+                                                }
                                             }
+
+                                            function jsEscape($str)
+                                            {
+                                                $output = '';
+                                                $str = str_split($str);
+                                                for ($i = 0; $i < count($str); $i++) {
+                                                    $chrNum = ord($str[$i]);
+                                                    $chr = $str[$i];
+                                                    if ($chrNum === 226) {
+                                                        if (isset($str[$i + 1]) && ord($str[$i + 1]) === 128) {
+                                                            if (isset($str[$i + 2]) && ord($str[$i + 2]) === 168) {
+                                                                $output .= '\u2028';
+                                                                $i += 2;
+                                                                continue;
+                                                            }
+                                                            if (isset($str[$i + 2]) && ord($str[$i + 2]) === 169) {
+                                                                $output .= '\u2029';
+                                                                $i += 2;
+                                                                continue;
+                                                            }
+                                                        }
+                                                    }
+                                                    switch ($chr) {
+                                                        case "'":
+                                                        case '"':
+                                                        case "\n";
+                                                        case "\r";
+                                                        case "&";
+                                                        case "\\";
+                                                        case "<":
+                                                        case ">":
+                                                            $output .= sprintf("\\u%04x", $chrNum);
+                                                            break;
+                                                        default:
+                                                            $output .= $str[$i];
+                                                            break;
+                                                    }
+                                                }
+                                                return $output;
+                                            }
+
                                             ?>
                                         </form>
                                     </div>

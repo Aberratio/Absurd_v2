@@ -113,7 +113,8 @@ if (!isset($_SESSION['is_logged'])) {
                                                 move_uploaded_file($image_tmp, "img/$u_image.$random_number");
 
 
-                                                $update = "update bridgeplayers set profile_picture='img/$u_image.$random_number' where email='$user'";
+                                                $update = "update bridgeplayers set profile_picture='img/$u_image.$random_number'
+                                                 where email='$user'";
 
                                                 $run = mysqli_query($con, $update);
 

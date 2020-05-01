@@ -22,7 +22,7 @@ if (isset($_POST['user'])) {
 
     if ((filter_var($save_email, FILTER_VALIDATE_EMAIL) == false) || ($save_email != $email)) {
         $is_good = false;
-        $_SESSION['error_email'] = "Niepoprawny adres email";
+        $_SESSION['error_email'] = "Incorrect email address.";
     }
 
     //checking password
@@ -49,12 +49,13 @@ if (isset($_POST['user'])) {
 
     //checking humanity
     $secret_key = "6LcHc7wUAAAAADazqGqrLGVScTewI9ltumGnLLO6";
-    $check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response']);
+    $check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret_key . '
+    &response=' . $_POST['g-recaptcha-response']);
     $response = json_decode($check);
 
     if ($response->success == false) {
         $is_good = false;
-        $_SESSION['error_humanity'] = "Wykryto boota";
+        $_SESSION['error_humanity'] = "Boot detected";
     }
 
     require_once "connect.php";
