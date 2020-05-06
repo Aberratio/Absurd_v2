@@ -10,28 +10,12 @@ if (!isset($_SESSION['is_logged'])) {
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatile" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script type="text/javascript" src="js/biddingbox.js">
 
-
-    <title>Absurd - platforma licytacyjna</title>
-    <meta name="description" content="Strona do nauki gry w brydża">
-    <meta name="keywords" content="brydż, licytacja, rozgrywka, bridge, absurd">
-    <meta name="author" content="Joanna Kokot">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-
-    <script type="text/javascript" src="js/biddingbox.js">
-
-    </script>
-</head>
+</script>
 
 <body>
 

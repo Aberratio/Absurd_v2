@@ -2,9 +2,11 @@
 
 include("connect.php");
 
-function search_for_folders($friend_id, $type, $user_id)
+
+function search_for_folders($friend_id, $type, $user_id, $infos)
 {
 	global $con;
+
 	$get_folders = 'SELECT * FROM player_folders JOIN folders ON folders.id_folder = player_folders.id_folder WHERE type = ' . $type . ' AND  (id_first_player = ' . $friend_id . ' OR id_first_player = ' . $user_id . ') AND (id_second_player = ' . $friend_id . ' OR id_second_player = ' . $user_id . ')';
 
 	$run_folders = mysqli_query($con, $get_folders);
@@ -32,10 +34,10 @@ function search_for_folders($friend_id, $type, $user_id)
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">Completed</th>
-							<th scope="col">Score</th>
-							<th scope="col">Comments</th>
+							<th scope="col">' . $infos->set_name . '</th>
+							<th scope="col">' . $infos->set_completed . '</th>
+							<th scope="col">' . $infos->score . '</th>
+							<th scope="col">' . $infos->comments . '</th>
 						</tr>
 					</thead>
 					<tbody>

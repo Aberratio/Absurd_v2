@@ -2,56 +2,23 @@
 session_start();
 include("connect.php");
 
+if ($_SESSION['language'] == 1) {
+  include("lang/lang_eng.php");
+} else {
+  include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 if (!isset($_SESSION['is_logged'])) {
   header('Location: index.php');
   exit();
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>Absurd - Bridge Platform</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-  <div class="container">
-    <a class="navbar-brand" href="menu.php">
-      <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-      <h3 class="d-inline align-middle">Absurd</h3>
-      <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-    </a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-        </li>
-        <li class="nav-item">
-          <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-          <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-        </li>
-        <li class="nav-item">
-          <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-        </li>
-    </div>
-  </div>
-</nav>
 <!-- MENU -->
 
 <body>
@@ -62,7 +29,7 @@ if (!isset($_SESSION['is_logged'])) {
         <div class="container mt-5">
           <div class="card">
             <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-              Settings
+              <?php echo $infos->update_profile; ?>
             </h4>
             <div class="option_container mx-3 mt-2">
               <div class="option">
@@ -84,10 +51,10 @@ if (!isset($_SESSION['is_logged'])) {
                     <form action="" method="post" class="settings_form pt-3" enctype="multipart/form-data">
                       <table class="mb-4">
                         <tr>
-                          <td class="mr-3" style="font-weight: bold; margin-right: 20px;">
-                            Rename</td>
+                          <td class="mr-3 mb-2" style="font-weight: bold; margin-right: 20px;">
+                            <?php echo $infos->rename; ?></td>
                           <td>
-                            <input class="form-control" type="text" name="u_name" required="required" value="<?php echo $user_name; ?>" />
+                            <input class="form-control ml-2 mb-2" type="text" name="u_name" required="required" value="<?php echo $user_name; ?>" />
                           </td>
                         </tr>
 
@@ -96,24 +63,39 @@ if (!isset($_SESSION['is_logged'])) {
                             <img class='profile_picture' src="<?php echo $profile_picture; ?>">
                           </td>
 
-                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="upload.php"><i class="fa fa-user mr-2" aria-hidden="true"></i>Change your profile photo</a></td>
+                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="upload.php"><i class="fa fa-user mr-2" aria-hidden="true"></i><?php echo $infos->change_profile_picture; ?></a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td style="font-weight: bold; margin-right: 20px;"><?php echo $infos->language; ?></td>
+                          <td>
+                            <select class="form-control mt-3 mb-3 ml-2" name="language">
+                              <option <?php if ($_SESSION['language'] == '1') {
+                                        echo ("selected");
+                                      } ?> value='1'>English</option>
+                              <option <?php if ($_SESSION['language'] == '0') {
+                                        echo ("selected");
+                                      } ?> value='0'>Polski</option>
+                            </select>
+                          </td>
                         </tr>
 
                         <tr>
-                          <td style="font-weight: bold;">Change email</td>
+                          <td style="font-weight: bold;"><?php echo $infos->change_email; ?></td>
                           <td>
-                            <input class="form-control" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>"></td>
+                            <input class="form-control  ml-2" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>"></td>
                         </tr>
 
                         <tr>
                           <td style="font-weight: bold;"></td>
 
-                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="change_password.php"><i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i>Password change</a></td>
+                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="change_password.php"><i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i><?php echo $infos->change_password; ?></a></td>
                         </tr>
 
                         <tr>
                           <td colspan="6">
-                            <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
+                            <button class="btn btn-secondary mt-3 btn-block" type="submit" name="update"> <?php echo $infos->update; ?> </button>
                           </td>
                         </tr>
                       </table>
@@ -124,8 +106,13 @@ if (!isset($_SESSION['is_logged'])) {
 
                       $user_name = htmlentities($_POST['u_name']);
                       $email = htmlentities($_POST['u_email']);
+                      $language = htmlentities($_POST['language']);
 
-                      $update = "update bridgeplayers set user='$user_name', email='$email' where email='$user'";
+                      $update = "update bridgeplayers set user='$user_name', email='$email', language='$language' where email='$user'";
+
+                      $_SESSION['language'] = $language;
+                      $_SESSION['user'] = $user_name;
+                      $_SESSION['email'] = $email;
 
                       $run = mysqli_query($con, $update);
 

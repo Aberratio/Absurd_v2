@@ -2,54 +2,22 @@
 session_start();
 include("find_partner_function.php");
 
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Absurd - Bridge Platform</title>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-    <div class="container">
-        <a class="navbar-brand" href="menu.php">
-            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-            <h3 class="d-inline align-middle">Absurd</h3>
-            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-                </li>
-                <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-                </li>
-                <li class="nav-item">
-                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-                </li>
-        </div>
-    </div>
-</nav>
-
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
 <!-- MENU -->
 
@@ -61,7 +29,7 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Find player
+                            <?php echo $infos->find_player; ?>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
@@ -79,40 +47,40 @@ if (!isset($_SESSION['is_logged'])) {
                         <li>
                             <div class="timeline-panel">
                                 <div class="timeline-body">
-                                    <p>Do you have a problem and need help?</p>
+                                    <p><?php echo $infos->need_help_cloud; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-panel">
                                 <div class="timeline-body">
-                                    <p>Maybe you have some interesting bridge tests?</p>
+                                    <p><?php echo $infos->intresting_tests_cloud; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-panel">
                                 <div class="timeline-body">
-                                    <p>Or have you ever wondered if you could join the trainers?</p>
+                                    <p><?php echo $infos->join_trainers_cloud; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-panel">
                                 <div class="timeline-body">
-                                    <p> Have you found a bug?</p>
+                                    <p><?php echo $infos->found_bug_cloud; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-panel">
                                 <div class="timeline-body">
-                                    <p>Would you like to work with me on the development of Absurd?</p>
+                                    <p><?php echo $infos->development_cloud; ?></p>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    <a class="btn btn-secondary mt-3 btn-block mb-3 mt-1" href="https://www.facebook.com/joanna.kokot.37" target="_blank"> Write me a message </a>
+                    <a class="btn btn-secondary mt-3 btn-block mb-3 mt-1" href="https://www.facebook.com/joanna.kokot.37" target="_blank"><?php echo $infos->write_me_button; ?></a>
 
                 </div>
             </div>

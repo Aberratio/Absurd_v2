@@ -11,58 +11,26 @@ $test_main_id = $_GET['test_main_id'];
 $test_number = $_GET['test_number'];
 $friend = $_GET['friend'];
 
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
 
+$infos = new Infos();
 
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
 ?>
-<!DOCTYPE HTML>
-<html lang="pl">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Absurd - Bridge Platform</title>
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
-    <script type="text/javascript" src="js/biddingbox.js">
+<script type="text/javascript" src="js/biddingbox.js">
 
-    </script>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-    <div class="container">
-        <a class="navbar-brand" href="menu.php">
-            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-            <h3 class="d-inline align-middle">Absurd</h3>
-            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-                </li>
-                <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-                </li>
-                <li class="nav-item">
-                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-                </li>
-        </div>
-    </div>
-</nav>
+</script>
 
 <!-- MENU -->
 
@@ -76,7 +44,7 @@ if (!isset($_SESSION['is_logged'])) {
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
                             <ul class="pagination pagination-sm justify-content-between mb-0">
                                 <?php get_previous_bidding_page($test_number, $test_id, $friend); ?>
-                                <li>Problem <?php echo $test_number; ?></li>
+                                <li><?php echo $infos->problem . " " . $test_number; ?></li>
                                 <?php get_next_bidding_page($test_number, $test_id, $friend); ?>
                             </ul>
                         </h4>
@@ -87,10 +55,10 @@ if (!isset($_SESSION['is_logged'])) {
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
                                         <a href='choose_bidding_test.php?type=0&set=<?php echo $set_id; ?>&friend=<?php echo $friend ?>' class='text-decoration-none ml-2 mr-3 mb-2'>
-                                            <i class="fas fa-long-arrow-alt-left mr-2"></i> Back
+                                            <i class="fas fa-long-arrow-alt-left mr-2"></i> <?php echo $infos->back; ?>
                                         </a>
                                         <h3 class="ml-5">
-                                            <a href="ranking_test.php?test_id=<?php echo $test_main_id ?>" class="text-capitalize text-decoration-none"><i class="fas fa-medal mr-2 text-warning"></i> Ranking </a>
+                                            <a href="ranking_test.php?test_id=<?php echo $test_main_id ?>" class="text-capitalize text-decoration-none"><i class="fas fa-medal mr-2 text-warning"></i><?php echo $infos->ranking_header; ?> </a>
                                         </h3>
                                         <div style='width: 100%;' class="mt-2">
                                             <div class='col ml-1 p-auto ml-md-5 ml-sm-2 ml-1'>
@@ -108,7 +76,7 @@ if (!isset($_SESSION['is_logged'])) {
 
                                         <!-- OUR BIDDING -->
                                         <div id="bidding" style="float:left; margin-top: 50px;">
-                                            <p>Our bidding</p>
+                                            <p><?php echo $infos->our_bidding; ?></p>
                                             <table id="bidding_desk">
                                                 <td id="N" class="bidding_desk_column" style="padding: 3px; width: 150px;">N</td>
                                                 <td id="E" class="bidding_desk_column" style="padding: 3px; width: 150px;">E</td>
@@ -129,7 +97,7 @@ if (!isset($_SESSION['is_logged'])) {
                                         <div id="bidding" style="float:left; margin-top: 50px;">
 
                                             <a target="bidding" href="right_bidding_pop.php?biddingtest=$test_id" onclick="window.open('right_bidding_pop.php?biddingtest=<?php echo $test_id; ?>', 'Right bidding').focus(); return false">
-                                                Proposed bidding</a>
+                                                <?php echo $infos->proposed_bidding; ?></a>
 
                                             <div id="biddingbox" style="display: none;">
 
@@ -162,7 +130,7 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Comments
+                            <?php echo $infos->comments; ?>
                         </h4>
                         <div class='card mb-4 ml-3 mr-3'>
                             <div class='row no-gutters mt-2'>
@@ -178,17 +146,13 @@ if (!isset($_SESSION['is_logged'])) {
                                                 <textarea class="comments_text_area form-control" rows="3" name="comment"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <button class='btn btn-secondary text-decoration-none text-white btn-block' type="submit" value="Submit" name="add_comment">Send comment</button>
+                                                <button class='btn btn-secondary text-decoration-none text-white btn-block' type="submit" value="Submit" name="add_comment"><?php echo $infos->send_comment; ?></button>
                                             </div>
                                             <?php
 
                                             if (isset($_POST['add_comment'])) {
                                                 mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
                                                 VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
-
-
-                                                // header('Location: points_table.php?biddingtest=' . $test_id . '&
-                                                // biddingset=' . $set_id . '&test_main_id=' . $test_main_id . '&test_number=' . $test_number . '&friend=' . $friend . '');
                                             }
                                             ?>
                                         </form>

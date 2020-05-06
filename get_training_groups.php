@@ -2,7 +2,8 @@
 
 include("connect.php");
 
-function get_group_table()
+
+function get_group_table($infos)
 {
     global $con;
 
@@ -18,8 +19,8 @@ function get_group_table()
         <tr>
             <th>
                 <h4 class="text-capitalize"> ' . $group_name . ' </h4>
-                <p> Player I -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $first_player . ""))["user"] . '</i></p>
-                <p> Player II -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </i></p>
+                <p> ' . $infos->user . ' I -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $first_player . ""))["user"] . '</i></p>
+                <p> ' . $infos->user . ' II -  <i>' . mysqli_fetch_array(mysqli_query($con, "SELECT * FROM bridgeplayers WHERE id=" . $second_player . ""))["user"] . ' </i></p>
             </th>
             <th>
                 <form method="get">
@@ -29,12 +30,12 @@ function get_group_table()
                     </select>
                 </div>
 
-                <button class="btn btn-secondary mt-3 btn-block mt-2" name="add_btn' . $first_player . '' . $second_player . '");">Add folder</button>
+                <button class="btn btn-secondary mt-3 btn-block mt-2" name="add_btn' . $first_player . '' . $second_player . '");">' . $infos->add_folder . '</button>
                 </form>  
             </th>
             <th>
                 <a class="btn btn-primary mt-3 btn-block"
-                href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">Show</a>
+                href="choose_player_set.php?first_user=' . $first_player . '&second_user=' . $second_player . '&type=0");">' . $infos->show . '</a>
             </th>  
         </tr>';
 
@@ -58,9 +59,9 @@ function get_group_table()
                     add_set($first_player, $second_player, $id_set);
                 }
 
-                add_folder($first_player, $second_player, $_GET['folder_id']);
+                add_folder($first_player, $second_player, $_GET['folder_id'], $infos);
             } else {
-                echo 'Player already have this folder!';
+                echo $infos->already_have_folder;
             }
         }
     }
@@ -95,13 +96,14 @@ function add_set($first_player, $second_player, $set_id)
 }
 
 
-function add_folder($first_player, $second_player, $folder_id)
+function add_folder($first_player, $second_player, $folder_id, $infos)
 {
     global $con;
+
     $add_player_set = "INSERT INTO `player_folders`(`id_player_folder`, `id_folder`, `id_first_player`, `id_second_player`) VALUES (0," . $folder_id . "," . $first_player . "," . $second_player . ")";
     mysqli_query($con, $add_player_set);
 
-    echo "Folder added!";
+    echo $infos->folder_added;
 }
 
 function get_folders_list()
@@ -109,7 +111,7 @@ function get_folders_list()
     $option_string = "";
 
     global $con;
-    $get_folders = "SELECT * FROM folders";
+    $get_folders = "SELECT * FROM folders WHERE id_folder = 1";
     $run_folders = mysqli_query($con, $get_folders);
     while ($row_folders = mysqli_fetch_array($run_folders)) {
         $id_folder = $row_folders['id_folder'];

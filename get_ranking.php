@@ -3,7 +3,7 @@ include("get_test_details.php");
 
 include("connect.php");
 
-function get_ranking_table()
+function get_ranking_table($infos)
 {
     global $con;
 
@@ -18,8 +18,8 @@ function get_ranking_table()
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">User</th>
-                <th scope="col">Points</th>
+                <th scope="col">' . $infos->user . '</th>
+                <th scope="col">' . $infos->score . '</th>
             </tr>
             </thead>  
             <tbody>
@@ -49,7 +49,7 @@ function get_ranking_table()
     </table>';
 }
 
-function get_ranking_test_table($test_id)
+function get_ranking_test_table($test_id, $infos)
 {
     global $con;
 
@@ -64,8 +64,8 @@ function get_ranking_test_table($test_id)
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">User</th>
-                <th scope="col">Points</th>
+                <th scope="col">' . $infos->user . '</th>
+                <th scope="col">' . $infos->score . '</th>
             </tr>
             </thead>  
             <tbody>
@@ -112,7 +112,7 @@ function get_ranking_test_table($test_id)
 }
 
 
-function get_ranking_set_table($set_id, $max_points)
+function get_ranking_set_table($set_id, $max_points, $infos)
 {
     global $con;
 
@@ -130,8 +130,8 @@ function get_ranking_set_table($set_id, $max_points)
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">User</th>
-                <th scope="col">Score</th>
+                <th scope="col">' . $infos->user . '</th>
+                <th scope="col">' . $infos->score . '</th>
             </tr>
             </thead>  
             <tbody>

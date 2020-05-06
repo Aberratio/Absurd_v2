@@ -9,23 +9,7 @@ if (!isset($_SESSION['is_registred'])) {
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-
-    <title>Absurd - Bridge Platform</title>
-    <meta name="description" content="Strona do nauki gry w brydża">
-    <meta name="keywords" content="brydż, licytacja, rozgrywka, bridge, absurd">
-    <meta name="author" content="Joanna Kokot">
-
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-</head>
+<?php include 'templates/header.php'; ?>
 
 <body>
     <main>

@@ -5,6 +5,16 @@ include("get_comments.php");
 include("get_next_bidding_page.php");
 include("connect.php");
 
+
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
+
 $test_id = $_GET['biddingtest'];
 $set_id = $_GET['biddingset'];
 $test_number = $_GET['test_number'];
@@ -16,51 +26,13 @@ if (!isset($_SESSION['is_logged'])) {
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Absurd - Bridge Platform</title>
+<script type="text/javascript" src="js/biddingbox.js">
 
-    <script type="text/javascript" src="js/biddingbox.js">
+</script>
 
-    </script>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-    <div class="container">
-        <a class="navbar-brand" href="menu.php">
-            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-            <h3 class="d-inline align-middle">Absurd</h3>
-            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-                </li>
-                <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-                </li>
-                <li class="nav-item">
-                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-                </li>
-        </div>
-    </div>
-</nav>
 <!-- MENU -->
 
 <body>
@@ -145,13 +117,12 @@ if (!isset($_SESSION['is_logged'])) {
             </div>
             <!-- BIDDING BOX END -->
 
-
             <!-- Comments -->
             <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
                 <div class="container mt-5">
                     <div class="card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Comments
+                            <?php echo $infos->comments; ?>
                         </h4>
                         <div class='card mb-4 ml-3 mr-3'>
                             <div class='row no-gutters mt-2'>

@@ -5,62 +5,22 @@ include("get_comp_test.php");
 include("connect.php");
 include("get_ranking.php");
 
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Absurd - Bridge Platform</title>
-
-    <script type="text/javascript" src="js/biddingbox.js">
-
-    </script>
-
-
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-    <div class="container">
-        <a class="navbar-brand" href="menu.php">
-            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-            <h3 class="d-inline align-middle">Absurd</h3>
-            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-                </li>
-                <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-                </li>
-                <li class="nav-item">
-                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-                </li>
-        </div>
-    </div>
-</nav>
-
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
 <!-- MENU -->
 <?php
@@ -76,16 +36,16 @@ echo $x['set_name']; ?></div>
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Find problem
+                            <?php echo $infos->find_problem; ?>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Turn</th>
-                                        <th scope="col">Comments</th>
-                                        <th scope="col">Score</th>
+                                        <th scope="col"><?php echo $infos->problem_turn; ?></th>
+                                        <th scope="col"><?php echo $infos->comments; ?></th>
+                                        <th scope="col"><?php echo $infos->score; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -116,10 +76,10 @@ echo $x['set_name']; ?></div>
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            Set Ranking
+                            <?php echo $infos->set_ranking; ?>
                         </h4>
 
-                        <?php get_ranking_set_table($x['id_set'], $x['max_points']); ?>
+                        <?php get_ranking_set_table($x['id_set'], $x['max_points'], $infos); ?>
 
                     </div>
                 </div>

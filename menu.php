@@ -3,6 +3,15 @@ session_start();
 
 include("connect.php");
 
+
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
@@ -11,47 +20,9 @@ if (!isset($_SESSION['is_logged'])) {
 $steps = 0;
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/fe0a0fefeb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Absurd - Bridge Platform</title>
-</head>
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
-    <div class="container">
-        <a class="navbar-brand" href="menu.php">
-            <img src="img/logo_Asia_rev.png" alt="" width="50" height="50" />
-            <h3 class="d-inline align-middle">Absurd</h3>
-            <img src="img/logo_Domi_rev.png" alt="" width="50" height="50" />
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
-                </li>
-                <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
-                </li>
-                <li class="nav-item">
-                    <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
-                </li>
-        </div>
-    </div>
-</nav>
+<?php include 'templates/header.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
 <!-- MENU -->
 
@@ -63,7 +34,7 @@ $steps = 0;
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            Player Menu Panel
+                            <?php echo $infos->player_menu_panel; ?>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
@@ -82,11 +53,10 @@ $steps = 0;
                                         <div class='col ml-1'>
                                             <div class='card-block px-2'>
                                                 <h4 class='card-title font-weight-bold text-capitalize'>
-                                                Tournament generator
+                                                " . $infos->tournament_generator_header . "
                                                 </h4>
                                                 <p class='card-text'>
-                                                    Create a new set and add your own tests. 
-                                                    You can also edit old sets.
+                                                " . $infos->tournament_generator_description . "
                                                 </p>
                                             </div>
                                         </div>
@@ -107,10 +77,10 @@ $steps = 0;
                                         <div class="col ml-1">
                                             <div class="card-block px-2">
                                                 <h4 class="card-title font-weight-bold text-capitalize">
-                                                    Bidding quiz
+                                                    <?php echo $infos->bidding_quiz_header; ?>
                                                 </h4>
                                                 <p class="card-text">
-                                                    Have you ever struggled finding a convenient date for your bidding training with your partner? Now that's not a problem! Try asynchronous bidding quizzes.
+                                                    <?php echo $infos->bidding_quiz_description; ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -128,11 +98,10 @@ $steps = 0;
                                         <div class="col ml-1">
                                             <div class="card-block px-2">
                                                 <h4 class="card-title font-weight-bold text-capitalize">
-                                                    Ranking
+                                                    <?php echo $infos->ranking_header; ?>
                                                 </h4>
                                                 <p class="card-text">
-
-                                                    Check your achievements. How do you compare to other players? Are you in the TOP 50?
+                                                    <?php echo  $infos->ranking_description; ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -150,10 +119,10 @@ $steps = 0;
                                         <div class="col ml-1">
                                             <div class="card-block px-2">
                                                 <h4 class="card-title font-weight-bold text-capitalize">
-                                                    Settings
+                                                    <?php echo $infos->settings_header; ?>
                                                 </h4>
                                                 <p class="card-text">
-                                                    Here you can change your profile picture, password, set a different e-mail address or edit information about yourself.
+                                                    <?php echo $infos->settings_description; ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -282,11 +251,10 @@ $steps = 0;
                                         <div class='col ml-1'>
                                             <div class='card-block px-2'>
                                                 <h4 class='card-title font-weight-bold text-capitalize'>
-                                                    Training groups
+                                                " . $infos->training_groups_header . "
                                                 </h4>
                                                 <p class='card-text'>
-                                                    Add your pairs, challenge them in the form of new bidding sets and monitor their progress. 
-                                                    A good trainer must be up to date!
+                                                " . $infos->training_groups_description . "
                                                 </p>
                                             </div>
                                         </div>
@@ -333,7 +301,7 @@ $steps = 0;
                 <div class="container mt-5">
                     <div class="card process text-center py-2">
                         <h3 class="d-block text-center py-2 mt-2 mx-3 text-capitalize">
-                            What you have to do?
+                            <?php echo $infos->what_you_have_to_do; ?>
                         </h3>
                         <hr class="hr-dark py-3" />
 
@@ -344,9 +312,10 @@ $steps = 0;
                                     <i class='fas fa-camera fa-4x process-icon'>
                                         <div class='process-step'>" . ++$steps . "</div>
                                     </i>
-                                    <h4>Change your profile picture</h4>
+                                    <h4>" . $infos->change_profile_picture_header . "</h4>
                                     <p>
-                                        It will be more convenient and pleasant to use this application</p>
+                                    " . $infos->change_profile_picture_description . "    
+                                    </p>
                                 </a>
                             </div>";
                         }
@@ -374,9 +343,9 @@ $steps = 0;
                                 <i class='fas fa-mail-bulk fa-4x process-icon my-2'>
                                     <div class='process-step'>" . ++$steps . "</div>
                                 </i>
-                                <h4>Send nicknames</h4>
+                                <h4>" . $infos->send_nicknames_header . "</h4>
                                 <p>
-                                    Send yours and your partners name to one of our treners and wait for sets from him.
+                                " . $infos->send_nicknames_description . "
                                 </p>
                             </a>
                         </div>";
@@ -388,8 +357,8 @@ $steps = 0;
                                 <i class="fas fa-medal fa-4x process-icon my-2">
                                     <div class="process-step"><?php echo ++$steps; ?></div>
                                 </i>
-                                <h4>Bid and check your score in ranking</h4>
-                                <p>You can check your progress both in the overall ranking, as in separate rankings at each problem</p>
+                                <h4><?php echo $infos->ranking_header; ?></h4>
+                                <p><?php echo $infos->ranking_description; ?></p>
                             </a>
                         </div>
 
@@ -398,8 +367,8 @@ $steps = 0;
                                 <i class="fas fa-people-carry fa-4x process-icon my-2">
                                     <div class="process-step"><?php echo ++$steps; ?></div>
                                 </i>
-                                <h4>Analyse tests with your partner</h4>
-                                <p>Did you finish the test? Congratulations! However, remember that this is only half the battle. To improve your skills, you should discuss each hand with your partner.</p>
+                                <h4><?php echo $infos->analyse_tests_header; ?></h4>
+                                <p><?php echo $infos->analyse_tests_description; ?></p>
                             </a>
                         </div>
 
@@ -408,7 +377,7 @@ $steps = 0;
                                 <i class="fas fa-grin-wink fa-4x process-icon my-2">
                                     <div class="process-step"><?php echo ++$steps; ?></div>
                                 </i>
-                                <h4>Good luck and have fun! ♥ ♥ ♥</h4>
+                                <h4><?php echo $infos->good_luck_header; ?></h4>
                             </div>
                         </div>
 
