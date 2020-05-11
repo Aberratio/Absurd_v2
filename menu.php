@@ -65,7 +65,6 @@ $steps = 0;
                                 }
                                 ?>
 
-
                                 <!-- BIDDING QUIZ-->
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
@@ -296,7 +295,7 @@ $steps = 0;
                 </div>
             </div>
 
-            <!-- NEWS -->
+            <!-- WHAT YOU HAVE TO DO -->
             <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
                 <div class="container mt-5">
                     <div class="card process text-center py-2">

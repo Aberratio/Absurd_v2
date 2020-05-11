@@ -95,6 +95,9 @@ class Infos
 
     //Points Table
     public $user = "Player";
+    public $role = "Role";
+    public $admin = "Admin";
+    public $trainer = "Trainer";
     public $proposed_bidding = "Proposed bidding";
     public $our_bidding = "Our bidding";
 
@@ -113,5 +116,22 @@ class Infos
 
     //Navigation
     public $back = "Back";
+    public $accept = "Accept";
+    public $cancel = "Cancel";
+    public $close = "Close";
     public $logout = "Log Out";
+    public $need_help = "Do you need help?";
+
+    //Invitations
+    public $send_invite_to_user = "Invite user to pair";
+    public $received_invitations = "Received invitations";
+    public $sended_invitations = "Sended invitations";
+    public $invite = "Invite";
+    public $search_player = "Search Player";
+
+    //Invitations
+    public $help_with_partner_step_1 = "Search for a partner.";
+    public $help_with_partner_step_2 = "Send him an invitation.";
+    public $help_with_partner_step_3 = "If your invitation is accepted, you'll get a folder that contains over 350 bridge problems.";
+    public $ask_trainer_for_more_folders = "Ask your trainer for more sets!";
 }

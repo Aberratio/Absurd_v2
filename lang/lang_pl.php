@@ -95,6 +95,9 @@ class Infos
 
     //Points Table
     public $user = "Gracz";
+    public $role = "Funkcja";
+    public $admin = "Admin";
+    public $trainer = "Trener";
     public $proposed_bidding = "Proponowana licytacja";
     public $our_bidding = "Nasza licytacja";
 
@@ -113,5 +116,22 @@ class Infos
 
     //Navigation
     public $back = "Cofnij";
+    public $accept = "Zaakceptuj";
+    public $cancel = "Usuń";
+    public $close = "Zamknij";
     public $logout = "Wyloguj";
+    public $need_help = "Potrzebujesz pomocy?";
+
+    //Invitations
+    public $send_invite_to_user = "Zaproś gracza do pary";
+    public $received_invitations = "Otrzymane zaproszenia";
+    public $sended_invitations = "Wysłane zaproszenia";
+    public $invite = "Zaproś";
+    public $search_player = "Wyszukaj Gracza";
+
+    //Invitations
+    public $help_with_partner_step_1 = "Wpisz login partnera w wyszukiwarkę.";
+    public $help_with_partner_step_2 = "Wyślij mu zaproszenie.";
+    public $help_with_partner_step_3 = "Jeżeli Twoje zaproszenie zostanie zaakceptowane, dostaniecie folder, który zawiera ponad 350 zadań.";
+    public $ask_trainer_for_more_folders = "O więcej zestawów poproś swojego trenera!";
 }

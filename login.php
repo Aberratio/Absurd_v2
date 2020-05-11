@@ -11,6 +11,7 @@ if ((!isset($_POST['login'])) || (!isset($_POST['password']))) {
 }
 
 require_once "connect.php";
+global $con;
 
 $db_connection = @new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -47,6 +48,11 @@ if ($db_connection->connect_errno != 0) {
 
                 unset($_SESSION['error_login']);
                 $sql_query_result->free_result();
+
+                //Update inofs about login
+                $update = "update bridgeplayers set last_login='" . date('Y-m-d H:i:s') . "', visits = visits + 1 where email='" . $_SESSION['email'] . "'";
+                echo $update;
+                $run = mysqli_query($con, $update);
 
                 header('Location: menu.php');
             } else {
