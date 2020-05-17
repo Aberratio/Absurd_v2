@@ -1,0 +1,9 @@
+# Default ignored files
+/idea/workspace.xml
+# Datasource local storage ignored files
+/idea/dataSources.local.xml
+/idea/dataSources/
+/JWT/vendor/
+/JWT/composer.lock
+/JWT/phpunit.xml
+/JWT/.env
