@@ -2,8 +2,9 @@
 <?php
 session_start();
 include("connect.php");
+require_once "JWT/handleJWT.php";
 
-if(!isset($_SESSION['user_email'])){
+if(!isset($_COOKIE["token"])){
 	
 	header("location: signin.php");
 
@@ -35,8 +36,11 @@ else{ ?>
 			<div class="col-md-9 col-sm-9 col-xs-12 right-sidebar">
 				<div class="row">
 					<!-- getting the user information who is logged in -->
-					<?php 
-						$user = $_SESSION['user_email'];
+					<?php
+                        $token = $_COOKIE["token"];
+                        $payload = validateJWTAndReturnPayload($token);
+                        $array = json_decode(json_encode($payload), true);
+						$user = $array['user_email'];
 						$get_user = "select * from users where user_email='$user'"; 
 						$run_user = mysqli_query($con,$get_user);
 						$row=mysqli_fetch_array($run_user);

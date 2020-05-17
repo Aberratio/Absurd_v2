@@ -78,6 +78,7 @@ if (isset($_POST['user'])) {
             }
 
             //checking username in data base
+
             $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE user='$user'");
 
             if (!$result) {

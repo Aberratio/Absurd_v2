@@ -1,11 +1,14 @@
 <?php
 $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
+require_once "JWT/handleJWT.php";
 
 function get_group_table()
 {
     global $con;
-
-    $get_training_groups_query = 'SELECT * FROM training_groups RIGHT JOIN bridgeplayers ON id_trainer = id WHERE id_trainer = ' . $_SESSION["id"] . ';';
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
+    $get_training_groups_query = 'SELECT * FROM training_groups RIGHT JOIN bridgeplayers ON id_trainer = id WHERE id_trainer = ' . $array["id"] . ';';
 
     $run_groups = mysqli_query($con, $get_training_groups_query);
 

@@ -1,9 +1,11 @@
 <?php
+require_once "JWT/handleJWT.php";
 
-if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
+if (isset($_COOKIE["token"])){
     header('Location: menu.php');
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,8 +97,6 @@ if (isset($_POST['submit'])) {
     $check_user = mysqli_num_rows($query);
 
     if ($check_user == 1) {
-
-        $_SESSION['user_email'] = $email;
 
         echo "<script>window.open('create_password.php','_self')</script>";
     } else {

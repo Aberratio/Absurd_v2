@@ -1,9 +1,13 @@
 <?php
 $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
+require_once "JWT/handleJWT.php";
 
 function get_hand($test)
 {
     global $con;
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
 
     $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
         WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
@@ -14,7 +18,7 @@ function get_hand($test)
         $first = $row_biddingtest['first_player'];
         echo '<b><div class="hand m-auto" id="hand" style="display: table;">';
 
-        if ($first == $_SESSION['id']) {
+        if ($first == $array['id']) {
             echo 'N';
             $cards_view = $row_biddingtest['N_hand'];
         } else {
@@ -206,7 +210,9 @@ function get_points_table($test)
 function update_bidding($test)
 {
     global $con;
-
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
     $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
         WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
 
@@ -251,7 +257,7 @@ function update_bidding($test)
             }
 
             $friend = 0;
-            if ($first_player == $_SESSION['id']) {
+            if ($first_player == $array['id']) {
                 $friend = $second_player;
             } else {
                 $friend = $first_player;
@@ -272,7 +278,9 @@ function update_bidding($test)
 function update_player_bidding($test, $friend)
 {
     global $con;
-
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
     $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
         WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
 
@@ -318,7 +326,7 @@ function update_player_bidding($test, $friend)
             }
 
             $friend = 0;
-            if ($first_player == $_SESSION['id']) {
+            if ($first_player == $array['id']) {
                 $friend = $second_player;
             } else {
                 $friend = $first_player;

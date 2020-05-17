@@ -6,7 +6,7 @@ $test_id = $_GET['biddingtest'];
 $id_first = $_GET['id_first'];
 $id_second = $_GET['id_second'];
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($COOKIE['token'])) {
     header('Location: index.php');
     exit();
 }

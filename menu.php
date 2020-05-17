@@ -1,11 +1,14 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($_COOKIE["token"])) {
     header('Location: index.php');
     exit();
 }
-
+require_once "JWT/handleJWT.php";
+$token = $_COOKIE["token"];
+$payload = validateJWTAndReturnPayload($token);
+$array = json_decode(json_encode($payload), true);
 $steps = 0;
 
 ?>
@@ -38,11 +41,11 @@ $steps = 0;
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                    <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
                 </li>
                 <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                    <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+                    <i style="color:white;"><?php echo $array['user']; ?></i>
                 </li>
                 <li class="nav-item">
                     <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
@@ -130,7 +133,7 @@ $steps = 0;
                                 </div>
 
 
-                                <?php if ($_SESSION['role'] == 1) {
+                                <?php if ($array['role'] == 1) {
                                     echo "
             <div class='col-sm-4'>
                 <figure>
@@ -141,7 +144,7 @@ $steps = 0;
                                 }
                                 ?>
 
-                                <?php if ($_SESSION['role'] == 0) {
+                                <?php if ($array['role'] == 0) {
                                     echo "
             <div class='col-sm-4'>
                 <figure>
@@ -152,7 +155,7 @@ $steps = 0;
                                 }
                                 ?>
 
-                                <?php if ($_SESSION['role'] == 1) {
+                                <?php if ($array['role'] == 1) {
                                     echo "
             <div class='col-sm-4'>
                 <figure>
@@ -163,7 +166,7 @@ $steps = 0;
                                 }
                                 ?>
                                 <!-- ADD TESTS-->
-                                <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
+                                <?php if ($array['role'] == 1 or $array['role'] == 2) {
                                     echo "
 
                                     <div class='card mb-4'>
@@ -190,7 +193,7 @@ $steps = 0;
                                 ?>
 
                                 <!-- TRAINING GROUPS-->
-                                <?php if ($_SESSION['role'] == 1 or $_SESSION['role'] == 2) {
+                                <?php if ($array['role'] == 1 or $array['role'] == 2) {
                                     echo "
 
                                     <div class='card mb-4'>
@@ -218,7 +221,7 @@ $steps = 0;
 
 
                                 <!-- <?php
-                                        if ($_SESSION['role'] == 1) {
+                                        if ($array['role'] == 1) {
                                             echo "
               <div class='col-sm-4'>
                   <figure>
@@ -231,7 +234,7 @@ $steps = 0;
                                         ?> -->
                                 <!-- 
             <?php
-            if ($_SESSION['role'] == 1) {
+            if ($array['role'] == 1) {
                 echo "
                     <div class='col-sm-4'>
                         <figure>
@@ -258,7 +261,7 @@ $steps = 0;
                         </h3>
                         <hr class="hr-dark py-3" />
 
-                        <?php if ($_SESSION['profile_picture'] == "img/profil.png") {
+                        <?php if ($array['profile_picture'] == "img/profil.png") {
 
                             echo "<div class='mx-auto mb-3' style='max-width: 18rem;'>
                                 <a class='text-decoration-none d-block' href='upload.php'>
@@ -274,12 +277,13 @@ $steps = 0;
                         ?>
 
                         <?php
-
-
+                        $token = $_COOKIE["token"];
+                        $payload = validateJWTAndReturnPayload($token);
+                        $array = json_decode(json_encode($payload), true);
                         $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
                         global $con;
 
-                        $get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_second_player WHERE id_first_player = ' . $_SESSION["id"] . ' or id_second_player = ' . $_SESSION["id"] . '';
+                        $get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_second_player WHERE id_first_player = ' . $array["id"] . ' or id_second_player = ' . $array["id"] . '';
 
                         $run_user = mysqli_query($con, $get_user);
 

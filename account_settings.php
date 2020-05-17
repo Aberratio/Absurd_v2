@@ -1,11 +1,15 @@
 <?php
-session_start();
-include("connect.php");
 
-if (!isset($_SESSION['is_logged'])) {
+include("connect.php");
+require_once "JWT/handleJWT.php";
+
+if (!isset($_COOKIE["token"])) {
   header('Location: index.php');
   exit();
 }
+$token = $_COOKIE["token"];
+$payload = validateJWTAndReturnPayload($token);
+$array = json_decode(json_encode($payload), true);
 ?>
 
 <!DOCTYPE HTML>
@@ -40,11 +44,11 @@ if (!isset($_SESSION['is_logged'])) {
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+          <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
         </li>
         <li class="nav-item">
-          <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-          <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+          <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+          <i style="color:white;"><?php echo $array['user']; ?></i>
         </li>
         <li class="nav-item">
           <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
@@ -70,7 +74,7 @@ if (!isset($_SESSION['is_logged'])) {
                   <div class="col-sm-2">
                   </div>
                   <?php
-                  $user = $_SESSION['email'];
+                  $user = $array['email'];
                   $get_user = "select * from bridgeplayers where email='$user'";
                   $run_user = mysqli_query($con, $get_user);
                   $row = mysqli_fetch_array($run_user);
@@ -105,36 +109,53 @@ if (!isset($_SESSION['is_logged'])) {
                             <input class="form-control" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>"></td>
                         </tr>
 
-                        <tr>
-                          <td style="font-weight: bold;"></td>
-
-                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="change_password.php"><i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i>Password change</a></td>
-                        </tr>
-
-                        <tr>
-                          <td colspan="6">
-                            <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
-                          </td>
-                        </tr>
-                      </table>
-                    </form>
                     <?php
 
                     if (isset($_POST['update'])) {
 
                       $user_name = htmlentities($_POST['u_name']);
                       $email = htmlentities($_POST['u_email']);
-
                       $update = "update bridgeplayers set user='$user_name', email='$email' where email='$user'";
 
                       $run = mysqli_query($con, $update);
 
                       if ($run) {
+                          $payload = array(
+                              "exp" => time() + 3600,
+                              "id" => $array['id'],
+                              "user" => $user_name,
+                              "email" => $email,
+                              "cezar" => $array['cezar'],
+                              "profile_picture" => $array['profile_picture'],
+                              "role" => $array['role'],
+                              "player_points" => $array['player_points'],
+                          );
+
+                          $JWT = createJWT($payload);
+                          setcookie("token", $JWT, [
+                              'expires' => time() + 86400,
+                              'path' => '/',
+                              'secure' => false,
+                              'samesite' => 'Strict',
+                              'httponly' => true
+                          ]);
                         echo "<script>window.open('account_settings.php','_self')</script>";
                       }
                     }
 
                     ?>
+                          <tr>
+                              <td colspan="6">
+                                  <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
+                              </td>
+                          </tr>
+                      </table>
+                    </form>
+                      <tr>
+                          <td style="font-weight: bold;"></td>
+
+                          <td><a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="change_password.php"><i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i>Password change</a></td>
+                      </tr>
                   </div>
                   <div class="col-sm-2">
                   </div>

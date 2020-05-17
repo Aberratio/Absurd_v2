@@ -4,7 +4,7 @@ include("get_test_details.php");
 
 $test_id = $_GET['biddingtest'];
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($COOKIE['token'])) {
     header('Location: index.php');
     exit();
 }

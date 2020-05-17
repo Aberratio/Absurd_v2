@@ -3,16 +3,20 @@ session_start();
 include("get_test_details.php");
 include("get_comments.php");
 include("get_next_bidding_page.php");
+require_once "JWT/handleJWT.php";
 
 $test_id = $_GET['biddingtest'];
 $set_id = $_GET['biddingset'];
 $test_number = $_GET['test_number'];
 $friend = $_GET['friend'];
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($_COOKIE["token"])) {
     header('Location: index.php');
     exit();
 }
+$token = $_COOKIE["token"];
+$payload = validateJWTAndReturnPayload($token);
+$array = json_decode(json_encode($payload), true);
 ?>
 
 <!DOCTYPE HTML>
@@ -48,11 +52,11 @@ if (!isset($_SESSION['is_logged'])) {
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                    <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
                 </li>
                 <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                    <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+                    <i style="color:white;"><?php echo $array['user']; ?></i>
                 </li>
                 <li class="nav-item">
                     <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
@@ -126,7 +130,7 @@ if (!isset($_SESSION['is_logged'])) {
                             <button type="submit" class="biddingbox_bottom_button">&#10060;</button>
                             <button type="submit" class="biddingbox_bottom_button" onclick="declare(36)">PASS</button>
                             <button type="submit" class="biddingbox_bottom_button">&#10060;&#10060;</button> <!-- blue XX-->
-                            <?php if ($_SESSION['role'] == 2) {
+                            <?php if ($array['role'] == 2) {
                                 echo "
                                     <button type='submit' id='undo_button' class='biddingbox_bottom_button biddingbox_bottom_button_back' onclick='declare(38)'>&#128584;</button>";
                             } else {
@@ -156,7 +160,7 @@ if (!isset($_SESSION['is_logged'])) {
                             <div class='row no-gutters mt-2'>
                                 <div class="option">
                                     <div class='col-auto'>
-                                        <img class="profile_picture mb-2" src="<?php echo $_SESSION['profile_picture'] ?>">
+                                        <img class="profile_picture mb-2" src="<?php echo $array['profile_picture'] ?>">
                                     </div>
                                 </div>
                                 <div class='col ml-1'>
@@ -174,7 +178,7 @@ if (!isset($_SESSION['is_logged'])) {
 
                                             if (isset($_POST['add_comment'])) {
                                                 mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
-                                                VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
+                                                VALUES (0, ' . $test_id . ', ' . $array['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
 
 
                                                 // header('Location: points_table.php?biddingtest=' . $test_id . '&

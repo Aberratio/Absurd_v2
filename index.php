@@ -1,10 +1,12 @@
 <?php
 session_start();
+require_once "JWT/handleJWT.php";
 
-if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
+if (isset($_COOKIE["token"])) {
     header('Location: menu.php');
     exit();
 }
+
 ?>
 
 <!DOCTYPE HTML>

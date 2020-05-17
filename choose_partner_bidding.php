@@ -1,11 +1,15 @@
 <?php
 session_start();
 include("find_partner_function.php");
+require_once "JWT/handleJWT.php";
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($_COOKIE["token"])) {
     header('Location: index.php');
     exit();
 }
+$token = $_COOKIE["token"];
+$payload = validateJWTAndReturnPayload($token);
+$array = json_decode(json_encode($payload), true);
 ?>
 
 <!DOCTYPE HTML>
@@ -37,11 +41,11 @@ if (!isset($_SESSION['is_logged'])) {
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                    <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
                 </li>
                 <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                    <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+                    <i style="color:white;"><?php echo $array['user']; ?></i>
                 </li>
                 <li class="nav-item">
                     <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
@@ -65,7 +69,7 @@ if (!isset($_SESSION['is_logged'])) {
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
-                                <?php search_user($_SESSION['user'], $_GET['type']); ?>
+                                <?php search_user($array['user'], $_GET['type']); ?>
                             </div>
                         </div>
                     </div>

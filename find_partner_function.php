@@ -1,12 +1,15 @@
 <?php
+require_once "JWT/handleJWT.php";
 $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
 
 function search_user($user_name, $type)
 {
-
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
 	global $con;
 
-	$get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_second_player WHERE id_first_player = ' . $_SESSION["id"] . ' or id_second_player = ' . $_SESSION["id"] . '';
+	$get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_second_player WHERE id_first_player = ' . $array["id"] . ' or id_second_player = ' . $array["id"] . '';
 
 	$run_user = mysqli_query($con, $get_user);
 
@@ -51,7 +54,7 @@ function search_user($user_name, $type)
 		}
 	}
 
-	$get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_first_player WHERE id_first_player = ' . $_SESSION["id"] . ' or id_second_player = ' . $_SESSION["id"] . '';
+	$get_user = 'SELECT * FROM bridgeplayers RIGHT JOIN training_groups ON id = id_first_player WHERE id_first_player = ' . $array["id"] . ' or id_second_player = ' . $array["id"] . '';
 
 	$run_user = mysqli_query($con, $get_user);
 

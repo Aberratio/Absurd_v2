@@ -1,7 +1,8 @@
 <?php 
 session_start();
 
-include("connect.php"); 
+require_once "JWT/handleJWT.php";
+include("connect.php");
 
 	if(isset($_POST['sign_in'])){
 	

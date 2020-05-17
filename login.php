@@ -8,9 +8,9 @@
     }
 
     require_once "connect.php";
+    require_once "JWT/handleJWT.php";
 
     $db_connection = @new mysqli($host, $db_user, $db_password, $db_name);
-
     if($db_connection->connect_errno!=0) {
         echo "Error".$db_connection->connect_errno;
     } else {
@@ -28,19 +28,27 @@
                 $db_row = $sql_query_result->fetch_assoc();
 
                 if(password_verify($password, $db_row['pass'])) {
-                    $_SESSION['is_logged'] = true;
-
-                    $_SESSION['id'] = $db_row['id'];
-                    $_SESSION['user'] = $db_row['user'];
-                    $_SESSION['email'] = $db_row['email'];
-                    $_SESSION['cezar'] = $db_row['cezar'];
-                    $_SESSION['profile_picture'] = $db_row['profile_picture'];
-                    $_SESSION['role'] = $db_row['role'];
-                    $_SESSION['player_points'] = $db_row['player_points'];
 
                     unset($_SESSION['error_login']);
                     $sql_query_result->free_result();
+                    $payload = array(
+                        "exp" => time() + 3600,
+                        "id" => $db_row['id'],
+                        "user" => $db_row['user'],
+                        "email" => $db_row['email'],
+                        "cezar" => $db_row['cezar'],
+                        "profile_picture" => $db_row['profile_picture'],
+                        "role" => $db_row['role'],
+                        "player_points" => $db_row['player_points'],
+                    );
 
+                    $JWT = createJWT($payload);
+                    setcookie("token", $JWT, [
+                        'expires' => time() + 3600,
+                        'samesite' => 'Strict',
+                        'path' => '/',
+                        'httponly' => true
+                    ]);
                     header('Location: menu.php');
                 } else {
                     $_SESSION['error_login'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';

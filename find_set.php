@@ -1,9 +1,13 @@
 <?php
+require_once "JWT/handleJWT.php";
 $con = mysqli_connect("localhost", "bridgeab_absurd", "Absurd-49", "bridgeab_absurd") or die("Connection was not established");
 
 function search_set($friend_id, $type)
 {
-	$user_id = $_SESSION['id'];
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
+	$user_id = $array['id'];
 	global $con;
 	$get_biddingset = 'SELECT player_bidding_sets.*, bidding_sets.*
 		FROM player_bidding_sets JOIN bidding_sets ON player_bidding_sets.id_set = bidding_sets.id_set 

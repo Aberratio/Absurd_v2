@@ -1,0 +1,13 @@
+{
+  "require": {
+    "vlucas/phpdotenv": "^2.4",
+    "ext-json": "*",
+    "ext-mysqli": "*",
+    "firebase/php-jwt": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Src\\": "src/"
+    }
+  }
+}

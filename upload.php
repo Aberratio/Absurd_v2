@@ -1,13 +1,18 @@
 <?php
 session_start();
 include("connect.php");
+require_once "JWT/handleJWT.php";
 ?>
 <?php
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($_COOKIE["token"])) {
 
     header("location: menu.php");
-} else { ?>
+} else {
+    $token = $_COOKIE["token"];
+    $payload = validateJWTAndReturnPayload($token);
+    $array = json_decode(json_encode($payload), true);
+    ?>
     <!DOCTYPE HTML>
     <html lang="pl">
 
@@ -39,11 +44,11 @@ if (!isset($_SESSION['is_logged'])) {
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                        <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
                     </li>
                     <li class="nav-item">
-                        <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                        <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                        <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+                        <i style="color:white;"><?php echo $array['user']; ?></i>
                     </li>
                     <li class="nav-item">
                         <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
@@ -70,34 +75,14 @@ if (!isset($_SESSION['is_logged'])) {
                                         <div class="col-sm-2">
                                         </div>
                                         <?php
-                                        $user = $_SESSION['email'];
+                                        $user = $array['email'];
                                         $get_user = "select * from bridgeplayers where email='$user'";
                                         $run_user = mysqli_query($con, $get_user);
                                         $row = mysqli_fetch_array($run_user);
 
                                         $user_name = $row['user'];
                                         $user_profile = $row['profile_picture'];
-                                        ?>
-                                        <div class="col-sm-8">
-                                            <div class='row'>
-                                                <div class='col-sm-2'>
-                                                </div>
-                                                <div class='col-sm-8 mb-3'>
-                                                    <h2 class="text-capitalize"><?php echo $user_name; ?></h2>
-                                                    <img class='profile_picture' src='<?php echo $user_profile; ?>'>
 
-                                                    <form method='post' enctype='multipart/form-data' class="mt-2">
-
-                                                        <div id='update_profile'>
-                                                            <input type='file' name='u_image' size='60' />
-                                                        </div>
-                                                        <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div><br><br>
-
-                                        <?php
 
                                         if (isset($_POST['update'])) {
 
@@ -119,25 +104,53 @@ if (!isset($_SESSION['is_logged'])) {
                                                 $run = mysqli_query($con, $update);
 
                                                 if ($run) {
+                                                    $payload = array(
+                                                        "exp" => time() + 3600,
+                                                        "id" => $array['id'],
+                                                        "user" => $array['user'],
+                                                        "email" => $array['email'],
+                                                        "cezar" => $array['cezar'],
+                                                        "profile_picture" => "img/$u_image.$random_number",
+                                                        "role" => $array['role'],
+                                                        "player_points" => $array['player_points'],
+                                                    );
 
+                                                    $JWT = createJWT($payload);
+                                                    setcookie("token", $JWT, [
+                                                        'expires' => time() + 86400,
+                                                        'path' => '/',
+                                                        'secure' => false,
+                                                        'samesite' => 'Strict',
+                                                        'httponly' => true
+                                                    ]);
                                                     echo "<script>alert('Profile updated!')</script>";
-
-
-                                                    $_SESSION['profile_picture'] = "img/$u_image.$random_number";
-
                                                     echo "<script>window.open('upload.php','_self')</script>";
                                                 }
                                             }
                                         }
-
-
                                         ?>
+                                        <div class="col-sm-8">
+                                            <div class='row'>
+                                                <div class='col-sm-2'>
+                                                </div>
+                                                <div class='col-sm-8 mb-3'>
+                                                    <h2 class="text-capitalize"><?php echo $user_name; ?></h2>
+                                                    <img class='profile_picture' src='<?php echo $user_profile; ?>'>
+
+                                                    <form method='post' enctype='multipart/form-data' class="mt-2">
+
+                                                        <div id='update_profile'>
+                                                            <input type='file' name='u_image' size='60' />
+                                                        </div>
+                                                        <input class="btn btn-secondary mt-3 btn-block" type="submit" name="update" value="Update" />
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div><br><br>
                                     </div>
                                     <div class="col-sm-2">
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

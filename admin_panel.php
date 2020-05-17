@@ -1,13 +1,16 @@
 <?php
 session_start();
 include("get_training_groups.php");
+require_once "JWT/handleJWT.php";
 
-if (!isset($_SESSION['is_logged'])) {
+if (!isset($_COOKIE["token"])) {
     header('Location: index.php');
     exit();
 }
-
-if ($_SESSION['role'] == 3) {
+$token = $_COOKIE["token"];
+$payload = validateJWTAndReturnPayload($token);
+$array = json_decode(json_encode($payload), true);
+if ($array['role'] == 3) {
     header('Location: menu.php');
     exit();
 }
@@ -47,11 +50,11 @@ if ($_SESSION['role'] == 3) {
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <p class="text-light"> Points: <?php echo $_SESSION['player_points']; ?> </p>
+                    <p class="text-light"> Points: <?php echo $array['player_points']; ?> </p>
                 </li>
                 <li class="nav-item">
-                    <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
-                    <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
+                    <img class='profile_picture_nav' src='<?php echo $array['profile_picture']; ?>'>
+                    <i style="color:white;"><?php echo $array['user']; ?></i>
                 </li>
                 <li class="nav-item">
                     <a class="text-decoration-none text-light" href="logout.php">Log Out</a>
