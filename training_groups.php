@@ -80,13 +80,21 @@ $infos = new Infos();
                                 $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['first_player'] . '"'));
                                 $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE user = "' . $_GET['second_player'] . '"'));
 
-                                $counter =  mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM training_groups WHERE id_trainer = " . $_SESSION['id'] . " AND (id_first_player = " . $first['id'] . " OR id_second_player = " . $first['id'] . ") AND (id_first_player = " . $second['id'] . " OR id_second_player = " . $second['id'] . ") "));
+                                $counter =  mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM training_groups WHERE (id_first_player = " . $first['id'] . " OR id_second_player = " . $first['id'] . ") AND (id_first_player = " . $second['id'] . " OR id_second_player = " . $second['id'] . ") "));
 
                                 if ($counter[0] == 0) {
                                     mysqli_query($con, "INSERT INTO `training_groups`(`id_group`, `id_trainer`, `id_first_player`, `id_second_player`, `group_name`) 
                                     VALUES (0," . $_SESSION['id'] . "," . $first['id'] . "," . $second['id'] . ",'" . $_GET['group_name'] . "')");
 
                                     echo $infos->group_added;
+                                }
+
+                                $counter2 =  mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM training_groups WHERE id_trainer = 12 AND (id_first_player = " . $first['id'] . " OR id_second_player = " . $first['id'] . ") AND (id_first_player = " . $second['id'] . " OR id_second_player = " . $second['id'] . ") "));
+
+                                if ($counter2[0] == 1) {
+                                    $update = "UPDATE training_groups SET id_trainer=" . $_SESSION['id'] . " WHERE id_trainer = 12 AND (id_first_player = " . $first['id'] . " OR id_second_player = " . $first['id'] . ") AND (id_first_player = " . $second['id'] . " OR id_second_player = " . $second['id'] . ") ";
+
+                                    $run = mysqli_query($con, $update);
                                 }
                             }
                             ?>

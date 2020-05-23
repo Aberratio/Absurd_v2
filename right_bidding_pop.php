@@ -8,6 +8,15 @@ if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
+
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 ?>
 
 <?php include 'templates/header.php'; ?>

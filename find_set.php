@@ -13,23 +13,30 @@ function search_for_folders($friend_id, $type, $user_id, $infos)
 
 	while ($row_biddingset = mysqli_fetch_array($run_folders)) {
 		$id_folder = $row_biddingset['id_folder'];
+		$folder_name = $row_biddingset['name'];
+		if ($infos->level == "Level") {
+			$description = $row_biddingset['description'];
+		} else {
+			$description = $row_biddingset['description_pl'];
+		}
+		$folder_level = $row_biddingset['folder_level'];
 
 		echo '
 		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne">
+			<div class="panel-heading" role="tab" id="heading' . $id_folder . '">
 				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				<h4 class="panel-title text-capitalize">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						First Step Into Absurd
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $id_folder . '" aria-expanded="false" aria-controls="collapse' . $id_folder . '">
+						' . $folder_name . '
 					</a>
 					<small class="text-info">
-						Level 2
+					' . $infos->level . ' ' . $folder_level . '
 					</small>
 				</h4>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero facilis reiciendis veritatis ratione ipsam aliquid voluptate dicta quae minima corrupti!</p>
+				<p>' . $description . '</p>
 			</div>
-		<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		<div id="collapse' . $id_folder . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' . $id_folder . '">
 			<div class="panel-body table-responsive">
 				<table class="table table-striped">
 					<thead>
@@ -66,7 +73,6 @@ function search_set_in_folder($friend_id, $type, $id_folder, $user_id)
 	while ($row_biddingset = mysqli_fetch_array($run_biddingset)) {
 		$biddingset = $row_biddingset['id_player_sets'];
 		$set_id = $row_biddingset['id_set'];
-		$level = $row_biddingset['level'];
 		$setname = $row_biddingset['set_name'];
 		$max = $row_biddingset['max_points'];
 

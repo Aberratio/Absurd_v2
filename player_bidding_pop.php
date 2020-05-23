@@ -10,6 +10,15 @@ if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
     exit();
 }
+
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
 ?>
 
 <?php include 'templates/header.php'; ?>
@@ -41,9 +50,9 @@ if (!isset($_SESSION['is_logged'])) {
             </div>
             <div id="biddingbox_bottom">
                 <button type="submit" class="biddingbox_bottom_button">&#10060;</button>
-                <button type=" submit" class="biddingbox_bottom_button" onclick="declare(36)">PASS</button>
+                <button type="submit" class="biddingbox_bottom_button" onclick="declare(36)">PASS</button>
                 <button type="submit" class="biddingbox_bottom_button">&#10060;&#10060;</button> <!-- blue XX-->
-                <button type=" submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(38)">&#128584;</button>
+                <button type="submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(38)">&#128584;</button>
 
             </div>
             <?php update_bidding($test_id); ?>

@@ -12,6 +12,16 @@ if ($_SESSION['role'] == 3) {
     header('Location: menu.php');
     exit();
 }
+
+if ($_SESSION['language'] == 1) {
+    include("lang/lang_eng.php");
+} else {
+    include("lang/lang_pl.php");
+}
+
+$infos = new Infos();
+
+
 ?>
 
 <?php include 'templates/header.php'; ?>
@@ -51,10 +61,10 @@ if ($_SESSION['role'] == 3) {
                         }
 
                         $set_id = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bidding_sets WHERE set_name = "' . $_POST['set_name'] . '"'));
-                        $test_counter = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bidding_tests WHERE set_name = "' . $_POST['set_name'] . '"'));
+                        $test_counter = mysqli_fetch_array(mysqli_query($con, 'SELECT COUNT(*) FROM bidding_tests JOIN bidding_sets ON bidding_tests.id_set = bidding_sets.id_set WHERE set_name = "' . $_POST['set_name'] . '"'))[0] + 1;
 
-                        mysqli_query($con, 'INSERT INTO `bidding_tests`(`id_test`, `level`, `S_hand`, `N_hand`, `point_string`, `id_set`, `declarer`) 
-                    VALUES (0,1,"' . $_POST['S_hand'] . '","' . $_POST['N_hand'] . '","' . $_POST['points_input'] . '",' . $set_id["id_set"] . ',2)');
+                        mysqli_query($con, 'INSERT INTO `bidding_tests`(`id_test`, `level`, `S_hand`, `N_hand`, `point_string`, `id_set`, `declarer`,  `test_number`) 
+                    VALUES (0,1,"' . $_POST['S_hand'] . '","' . $_POST['N_hand'] . '","' . $_POST['points_input'] . '",' . $set_id["id_set"] . ',2,' . $test_counter . ')');
                         echo "Dodano nowy test!";
                     }
                     ?>

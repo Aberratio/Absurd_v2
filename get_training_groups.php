@@ -111,7 +111,7 @@ function get_folders_list()
     $option_string = "";
 
     global $con;
-    $get_folders = "SELECT * FROM folders WHERE id_folder = 1";
+    $get_folders = "SELECT * FROM folders WHERE id_folder < 3";
     $run_folders = mysqli_query($con, $get_folders);
     while ($row_folders = mysqli_fetch_array($run_folders)) {
         $id_folder = $row_folders['id_folder'];

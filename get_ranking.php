@@ -139,21 +139,21 @@ function get_ranking_set_table($set_id, $max_points, $infos)
     $last_points = -1;
 
     do {
-        echo $place;
-        $first_user_id = $row_set_score['first_user'];
-        $second_user_id = $row_set_score['second_user'];
         $points = $row_set_score['points'];
-        $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $first_user_id . '"'));
-        $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $second_user_id . '"'));
+        if ($points > 0) {
+            $first_user_id = $row_set_score['first_user'];
+            $second_user_id = $row_set_score['second_user'];
+            $first = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $first_user_id . '"'));
+            $second = mysqli_fetch_array(mysqli_query($con, 'SELECT * FROM bridgeplayers WHERE id = "' . $second_user_id . '"'));
 
-        if ($last_points == $points) {
-            echo '<tr>
+            if ($last_points == $points) {
+                echo '<tr>
             <th scope="row"></th>';
-        } else {
-            echo '<tr>
+            } else {
+                echo '<tr>
             <th scope="row">' . $place . '</th>';
-        }
-        echo '<td>
+            }
+            echo '<td>
                 <img class="profile_picture" style="width:40px; height: 40px; 
                 border: 1px solid black; border-radius: 75%;" src="' . $first['profile_picture'] . '">
             ' . $first['user'] . ' </td> 
@@ -170,8 +170,9 @@ function get_ranking_set_table($set_id, $max_points, $infos)
         </tr>
         ';
 
-        $place = $place + 1;
-        $last_points = $points;
+            $place = $place + 1;
+            $last_points = $points;
+        }
     } while ($row_set_score = mysqli_fetch_array($points_counter));
 
     echo '</tbody>
