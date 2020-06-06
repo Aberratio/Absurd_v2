@@ -134,4 +134,8 @@ class Infos
     public $help_with_partner_step_2 = "Wyślij mu zaproszenie.";
     public $help_with_partner_step_3 = "Jeżeli Twoje zaproszenie zostanie zaakceptowane, dostaniecie folder, który zawiera ponad 350 zadań.";
     public $ask_trainer_for_more_folders = "O więcej zestawów poproś swojego trenera!";
+
+    //Bidding
+    public $send_bidding = "Zatwierdź licytację";
+    public $check_proposed_bidding = "Sprawdź proponowaną licytację";
 }

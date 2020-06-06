@@ -59,6 +59,32 @@ function get_both_hands($test)
     }
 }
 
+function get_both_hands_in_proposed_bidding($test)
+{
+    global $con;
+
+    $get_test_query = 'SELECT * from bidding_tests JOIN player_bidding_tests ON bidding_tests.id_test = player_bidding_tests.id_test
+        WHERE (player_bidding_tests.id_player_test = ' . $test . ')';
+
+    $run_biddingtest = mysqli_query($con, $get_test_query);
+
+    while ($row_biddingtest = mysqli_fetch_array($run_biddingtest)) {
+        echo '<b"><div class="hand m-auto" id="hand">';
+
+        echo '<div class="first-hand mr-2 ml-3 mr-sm-5 ml-sm-5" style="float: left;">';
+        echo 'N';
+        get_cards_on_hand($row_biddingtest['S_hand']);
+        echo '</div>';
+
+        echo '<div class="second-hand ml-2 ml-sm-5" style="float: left;">';
+        echo 'S';
+        get_cards_on_hand($row_biddingtest['N_hand']);
+        echo '</div>';
+
+        echo '</div></b>';
+    }
+}
+
 function get_cards_on_hand($cards_view)
 {
     $card_div = explode(";", $cards_view);
@@ -275,7 +301,7 @@ function update_bidding($test)
         }
     }
 }
-function update_player_bidding($test, $friend)
+function update_player_bidding($test, $friend, $send_bidding)
 {
     global $con;
 
@@ -296,7 +322,7 @@ function update_player_bidding($test, $friend)
 
         echo "
         <form id='send_bidding' method='get'>
-            <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' />
+            <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' value='" . $send_bidding . "' />
             <input type='hidden' name='biddingset' value='$player_set' />
             <input type='hidden' name='friend' value='$friend' />
             <input type='hidden' name='type' value='0' />

@@ -22,7 +22,7 @@ if (isset($_POST["query"])) {
         ON bridgeplayers.id = invitations.id_second_user
         LEFT JOIN training_groups
         ON training_groups.id_first_player = bridgeplayers.id 
-        WHERE user LIKE '%" . $search . "%' AND  id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR (id_first_user != " . $_SESSION['id'] . " AND id_second_user != id))
+        WHERE user LIKE '%" . $search . "%' AND  id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR id_first_user != " . $_SESSION['id'] . " )
         GROUP BY id, id_second_user
         ORDER BY user LIMIT 5
     ";
@@ -33,7 +33,7 @@ if (isset($_POST["query"])) {
         ON bridgeplayers.id = invitations.id_second_user
         LEFT JOIN training_groups
         ON training_groups.id_first_player = bridgeplayers.id
-        WHERE id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR (id_first_user != " . $_SESSION['id'] . " AND id_second_user != id))
+        WHERE id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR id_first_user != " . $_SESSION['id'] . ")
         GROUP BY id, id_second_user 
         ORDER BY user LIMIT 5";
 }

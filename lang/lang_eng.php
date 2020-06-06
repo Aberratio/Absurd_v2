@@ -134,4 +134,8 @@ class Infos
     public $help_with_partner_step_2 = "Send him an invitation.";
     public $help_with_partner_step_3 = "If your invitation is accepted, you'll get a folder that contains over 350 bridge problems.";
     public $ask_trainer_for_more_folders = "Ask your trainer for more sets!";
+
+    //Bidding 
+    public $send_bidding = "Send bidding";
+    public $check_proposed_bidding = "Check proposed bidding";
 }
