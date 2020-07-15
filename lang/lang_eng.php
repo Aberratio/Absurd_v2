@@ -24,6 +24,9 @@ class Infos
     public $training_groups_header = "Training Groups";
     public $training_groups_description = "Add your pairs, challenge them in the form of new bidding sets and monitor their progress. A good trainer must be up to date!";
 
+    public $competition_header = "Competition (only PL)";
+    public $competition_description = "You can take part in the prize competition until the end of August!";
+
     //What you have to do?
     public $what_you_have_to_do = "What You Have To Do?";
 
@@ -42,7 +45,7 @@ class Infos
     public $good_luck_header = "Good luck and have fun! ♥ ♥ ♥";
 
     //Find Player
-    public $find_player = "Player Menu Panel";
+    public $find_player = "My Partners";
 
     //Conntact Line
     public $need_help_cloud = "Do you have a problem and need help?";
@@ -53,7 +56,7 @@ class Infos
     public $write_me_button = "Write me a message";
 
     //Find Set
-    public $find_set = "Find bidding set";
+    public $find_set = "Solve bidding set";
     public $set_name = "Name";
     public $set_completed = "Completed";
     public $score = "Score";
@@ -62,6 +65,7 @@ class Infos
     //Comments
     public $comments = "Comments";
     public $send_comment = "Send comment";
+    public $explanation = "Explanation";
 
     //Level Description
     public $level_description_header = "Description of levels";
@@ -71,7 +75,7 @@ class Infos
     public $experts_level_description = "This is for experts. You can find here interesting hands and you don't get points, if there is the wrong declarer.";
 
     //Find Problem
-    public $find_problem = "Find Problem";
+    public $find_problem = "Solve Problem";
     public $problem_turn = "Turn";
     public $problem = "Problem";
 
@@ -97,6 +101,8 @@ class Infos
     public $user = "Player";
     public $role = "Role";
     public $admin = "Admin";
+    public $visits = "Visits";
+    public $last_login = "Last login";
     public $trainer = "Trainer";
     public $proposed_bidding = "Proposed bidding";
     public $our_bidding = "Our bidding";

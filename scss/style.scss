@@ -29,6 +29,15 @@ h4 {
   text-transform: uppercase;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  h4 {
+    font-size: 1.3rem;
+  }
+}
 body {
   background: #263f31;
   color: #000;
@@ -244,6 +253,9 @@ body {
   }
 }
 
+.prev_nex_btn {
+  width: 100px;
+}
 //CHAT
 
 .timeline {
@@ -549,6 +561,23 @@ body {
   }
 }
 
+.biddingbox_bottom_button_back {
+  width: 70px;
+}
+
+.biddingbox_bottom_button_send {
+  width: 390px;
+}
+
+.biddingbox_bottom_button:hover {
+  background-color: #222222;
+  color: white;
+}
+
+.bidding_desk_column {
+  width: 20px;
+}
+
 @media (max-width: 370px) {
   .biddingbox_bottom_button {
     float: left;
@@ -564,23 +593,14 @@ body {
     cursor: pointer;
     border-radius: 15%;
   }
-}
 
-.biddingbox_bottom_button_back {
-  width: 70px;
-}
+  .biddingbox_bottom_button_back {
+    width: 72px;
+  }
 
-.biddingbox_bottom_button_send {
-  width: 340px;
-}
-
-.biddingbox_bottom_button:hover {
-  background-color: #222222;
-  color: white;
-}
-
-.bidding_desk_column {
-  width: 20px;
+  .biddingbox_bottom_button_send {
+    width: 289px;
+  }
 }
 
 .player_turn {

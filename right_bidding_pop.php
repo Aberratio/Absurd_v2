@@ -5,6 +5,8 @@ include("get_comments.php");
 include("connect.php");
 
 $test_id = $_GET['biddingtest'];
+$test_number = $_GET['test_number'];
+$test_main_id = $_GET['test_main_id'];
 
 if ($_SESSION['language'] == 1) {
     include("lang/lang_eng.php");
@@ -37,7 +39,7 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            <?php echo $infos->problem; ?>
+                            <?php echo $infos->problem . " " . $test_number; ?>
                         </h4>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
@@ -91,13 +93,13 @@ if (!isset($_SESSION['is_logged'])) {
                 <div class="container mt-5">
                     <div class="card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
-                            <?php echo $infos->comments; ?>
+                            <?php echo $infos->explanation; ?>
                         </h4>
 
                         <hr class="hr-dark py-3" />
 
                         <!-- Previous comments -->
-                        <?php get_comments($test_id); ?>
+                        <?php get_explanation($test_main_id); ?>
                     </div>
                 </div>
             </div>
@@ -132,7 +134,7 @@ if (!isset($_SESSION['is_logged'])) {
             <div class="footer-container">
                 <p class="copyright">
                     Copyright &copy; 2020 by
-                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                    <a href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank">Aberratio</a>. All Rights Reserved
                 </p>
             </div>
         </div>

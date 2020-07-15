@@ -5,6 +5,12 @@ include("get_comments.php");
 include("get_next_bidding_page.php");
 include("connect.php");
 
+$test_id = $_GET['biddingtest'];
+$set_id = $_GET['biddingset'];
+$test_number = $_GET['test_number'];
+$friend = $_GET['friend'];
+
+
 
 if ($_SESSION['language'] == 1) {
     include("lang/lang_eng.php");
@@ -14,11 +20,6 @@ if ($_SESSION['language'] == 1) {
 
 $infos = new Infos();
 
-
-$test_id = $_GET['biddingtest'];
-$set_id = $_GET['biddingset'];
-$test_number = $_GET['test_number'];
-$friend = $_GET['friend'];
 
 if (!isset($_SESSION['is_logged'])) {
     header('Location: index.php');
@@ -45,7 +46,7 @@ if (!isset($_SESSION['is_logged'])) {
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
                             <ul class="pagination pagination-sm justify-content-between mb-0">
                                 <?php get_previous_bidding_page($test_number, $test_id, $friend); ?>
-                                <li>Problem <?php echo $test_number; ?></li>
+                                <li><?php echo $infos->problem . " " . $test_number; ?></li>
                                 <?php get_next_bidding_page($test_number, $test_id, $friend); ?>
                             </ul>
                         </h4>
@@ -55,9 +56,9 @@ if (!isset($_SESSION['is_logged'])) {
                                 <div class="card mb-4">
                                     <div class="row no-gutters mt-2">
                                         <a href='choose_bidding_test.php?type=0&set=<?php echo $set_id; ?>&friend=<?php echo $friend ?>' class='text-decoration-none ml-2 mb-2'>
-                                            <i class="fas fa-long-arrow-alt-left mr-2"></i> Back
+                                            <i class="fas fa-long-arrow-alt-left mr-2"></i> <?php echo $infos->back; ?>
                                         </a>
-                                        <div class='player_turn' style='width: 100%;'> Turn:
+                                        <div class='player_turn' style='width: 100%;'> <?php echo $infos->problem_turn; ?>:
                                             <b>
                                                 <div id="turn"><?php get_player($test_id); ?></div>
                                             </b>
@@ -99,7 +100,7 @@ if (!isset($_SESSION['is_logged'])) {
                             <button type="submit" class="biddingbox_bottom_button">&#10060;</button>
                             <button type="submit" class="biddingbox_bottom_button" onclick="declare(36)">PASS</button>
                             <button type="submit" class="biddingbox_bottom_button">&#10060;&#10060;</button> <!-- blue XX-->
-                            <?php if ($_SESSION['role'] == 2) {
+                            <?php if ($_SESSION['id'] == 26 or $_SESSION['id'] == 27) {
                                 echo "
                                     <button type='submit' id='undo_button' class='biddingbox_bottom_button biddingbox_bottom_button_back' onclick='declare(38)'>&#128584;</button>";
                             } else {
@@ -117,8 +118,9 @@ if (!isset($_SESSION['is_logged'])) {
             </div>
             <!-- BIDDING BOX END -->
 
+
             <!-- Comments -->
-            <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
+            <div class="col-sm-10 col-lg-5 mx-auto">
                 <div class="container mt-5">
                     <div class="card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
@@ -128,7 +130,8 @@ if (!isset($_SESSION['is_logged'])) {
                             <div class='row no-gutters mt-2'>
                                 <div class="option">
                                     <div class='col-auto'>
-                                        <img class="profile_picture mb-2" src="<?php echo $_SESSION['profile_picture'] ?>">
+                                        <img class='profile_picture' style='width:60px; height: 60px; 
+				border: 1px solid black; border-radius: 75%;' src="<?php echo $_SESSION['profile_picture'] ?>">
                                     </div>
                                 </div>
                                 <div class='col ml-1'>
@@ -143,65 +146,9 @@ if (!isset($_SESSION['is_logged'])) {
                                             <?php
 
                                             if (isset($_POST['add_comment'])) {
-
-                                                $comment = $_POST["comment"];
-                                                $comment = $htmlp->purify($comment);
-                                                $comment = trim($comment);
-                                                $comment = htmlentities($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-                                                $comment = htmlspecialchars($comment);
-                                                $comment = filter_var($comment, FILTER_SANITIZE_STRING);
-                                                $comment = filter_var($comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                                                $comment = jsEscape($comment);
-
-                                                $comment =  filter_input(INPUT_POST, "comment", FILTER_SANITIZE_STRING);
-                                                if (!empty($comment)) {
-                                                    $comment = strip_tags($comment);
-
-                                                    mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
-                                                    VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $comment . '")');
-                                                }
+                                                mysqli_query($con, 'INSERT INTO comments (`id_comment`, `id_player_test`, `id_player`, `comment_date`, `comment`) 
+                                                VALUES (0, ' . $test_id . ', ' . $_SESSION['id'] . ', "' . date('Y-m-d H:i:s') . '", "' . $_POST['comment'] . '")');
                                             }
-
-                                            function jsEscape($str)
-                                            {
-                                                $output = '';
-                                                $str = str_split($str);
-                                                for ($i = 0; $i < count($str); $i++) {
-                                                    $chrNum = ord($str[$i]);
-                                                    $chr = $str[$i];
-                                                    if ($chrNum === 226) {
-                                                        if (isset($str[$i + 1]) && ord($str[$i + 1]) === 128) {
-                                                            if (isset($str[$i + 2]) && ord($str[$i + 2]) === 168) {
-                                                                $output .= '\u2028';
-                                                                $i += 2;
-                                                                continue;
-                                                            }
-                                                            if (isset($str[$i + 2]) && ord($str[$i + 2]) === 169) {
-                                                                $output .= '\u2029';
-                                                                $i += 2;
-                                                                continue;
-                                                            }
-                                                        }
-                                                    }
-                                                    switch ($chr) {
-                                                        case "'":
-                                                        case '"':
-                                                        case "\n";
-                                                        case "\r";
-                                                        case "&";
-                                                        case "\\";
-                                                        case "<":
-                                                        case ">":
-                                                            $output .= sprintf("\\u%04x", $chrNum);
-                                                            break;
-                                                        default:
-                                                            $output .= $str[$i];
-                                                            break;
-                                                    }
-                                                }
-                                                return $output;
-                                            }
-
                                             ?>
                                         </form>
                                     </div>
@@ -225,13 +172,13 @@ if (!isset($_SESSION['is_logged'])) {
             <div class="footer-container">
                 <p class="copyright">
                     Copyright &copy; 2020 by
-                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                    <a href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank">Aberratio</a>. All Rights Reserved
                 </p>
             </div>
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>

@@ -22,7 +22,7 @@ if (isset($_POST["query"])) {
         ON bridgeplayers.id = invitations.id_second_user
         LEFT JOIN training_groups
         ON training_groups.id_first_player = bridgeplayers.id 
-        WHERE user LIKE '%" . $search . "%' AND  id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR id_first_user != " . $_SESSION['id'] . " )
+        WHERE user LIKE '%" . $search . "%' AND  id != " . $_SESSION['id'] . " AND (id_first_user IS NULL OR id_first_user != " . $_SESSION['id'] . ")
         GROUP BY id, id_second_user
         ORDER BY user LIMIT 5
     ";
@@ -96,7 +96,7 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <a class="btn btn-secondary" href="http://bridgeabsurd.com/choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&invite=true">' . $infos->invite . '</a>
+                        <a class="btn btn-secondary" href="choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&invite=true">' . $infos->invite . '</a>
                             <button type="button" class="btn btn-primary" data-dismiss="modal">' . $infos->close . '</button>
                         </div>
                     </div>

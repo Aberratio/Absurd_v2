@@ -11,6 +11,7 @@ if ($_SESSION['language'] == 1) {
 }
 
 $infos = new Infos();
+$output = "";
 
 $query = "SELECT * FROM invitations LEFT JOIN bridgeplayers ON bridgeplayers.id=invitations.id_first_user WHERE id_second_user=" . $_SESSION['id'] . " AND is_deleted='false' AND is_canceled='false' AND is_accepted='false'  ORDER BY date_of_invitation";
 $result = mysqli_query($con, $query);
@@ -43,8 +44,8 @@ if (mysqli_num_rows($result) > 0) {
                             <td>' . $row["user"] . '</td>
                             <td>' . $row["player_points"] . '</td>
                             <td>' . $role . '</td>
-                            <td><a class="btn btn-primary" href="http://bridgeabsurd.com/choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&accept=true">' . $infos->accept . '</a></td>
-                            <td><a class="btn btn-secondary" href="http://bridgeabsurd.com/choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&cancel=true">' . $infos->cancel . '</a></td>
+                            <td><a class="btn btn-primary" href="choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&accept=true">' . $infos->accept . '</a></td>
+                            <td><a class="btn btn-secondary" href="choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&cancel=true">' . $infos->cancel . '</a></td>
                         </tr>';
     }
     $output .= "</table></div>";

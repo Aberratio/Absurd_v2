@@ -23,6 +23,7 @@
                 <li class="nav-item">
                     <a class="text-decoration-none text-light" href="logout.php"><?php echo $infos->logout; ?></a>
                 </li>
+            </ul>
         </div>
     </div>
 </nav>

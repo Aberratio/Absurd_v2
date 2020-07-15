@@ -11,6 +11,7 @@ if ($_SESSION['language'] == 1) {
 }
 
 $infos = new Infos();
+$output2 = "";
 
 $query = "SELECT * FROM invitations LEFT JOIN bridgeplayers ON bridgeplayers.id=invitations.id_second_user WHERE id_first_user=" . $_SESSION['id'] . "  AND is_accepted='false'  AND is_deleted='false' AND is_canceled='false' ORDER BY date_of_invitation";
 $result = mysqli_query($con, $query);
@@ -42,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td>' . $row["user"] . '</td>
                 <td>' . $row["player_points"] . '</td>
                 <td>' . $role . '</td>
-                <td><a class="btn btn-secondary" href="http://bridgeabsurd.com/choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&delete=true">' . $infos->back . '</a></td>
+                <td><a class="btn btn-secondary" href="choose_partner_bidding.php?type=0&partner_id=' . $row["id"] . '&delete=true">' . $infos->back . '</a></td>
             </tr>';
     }
     $output2 .= "</table></div>";

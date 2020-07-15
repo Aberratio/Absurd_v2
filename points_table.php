@@ -88,7 +88,7 @@ if (!isset($_SESSION['is_logged'])) {
                                         </div>
                                         <!-- END OUR BIDDING -->
 
-                                        <a class="btn btn-secondary btn-block mb-4 mt-2 mx-5" target="bidding" href="right_bidding_pop.php?biddingtest=$test_id" onclick="window.open('right_bidding_pop.php?biddingtest=<?php echo $test_id; ?>', 'Right bidding').focus(); return false">
+                                        <a class="btn btn-secondary btn-block mb-4 mt-2 mx-5" target="bidding" href="right_bidding_pop.php?biddingtest=$test_id&test_main_id=$test_main_id&test_number=$test_number" onclick="window.open('right_bidding_pop.php?biddingtest=<?php echo $test_id; ?>&test_main_id=<?php echo $test_main_id; ?>&test_number=<?php echo $test_number; ?>', 'Right bidding').focus(); return false">
                                             <?php echo $infos->check_proposed_bidding; ?></a>
 
                                         <!-- POINTS TABLE -->
@@ -106,7 +106,7 @@ if (!isset($_SESSION['is_logged'])) {
             </div>
 
             <!-- Comments -->
-            <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
+            <div class="col-sm-10 col-lg-5 mx-auto">
                 <div class="container mt-5">
                     <div class="card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
@@ -116,7 +116,8 @@ if (!isset($_SESSION['is_logged'])) {
                             <div class='row no-gutters mt-2'>
                                 <div class="option">
                                     <div class='col-auto'>
-                                        <img class="profile_picture mb-2" src="<?php echo $_SESSION['profile_picture'] ?>">
+                                        <img class='profile_picture' style='width:60px; height: 60px; 
+				border: 1px solid black; border-radius: 75%;' src='<?php echo $_SESSION['profile_picture'] ?>'>
                                     </div>
                                 </div>
                                 <div class='col ml-1'>
@@ -165,7 +166,7 @@ if (!isset($_SESSION['is_logged'])) {
                     <button type="submit" class="biddingbox_bottom_button">&#10060;&#10060;</button> <!-- blue XX-->
                     <button type="submit" class="biddingbox_bottom_button biddingbox_bottom_button_back" onclick="declare(38)">&#128584;</button>
                 </div>
-                <?php update_player_bidding($test_id, $friend, $infos->$send_bidding); ?>
+                <?php update_player_bidding($test_id, $friend); ?>
             </div>
             <div style="clear: both;"> </div>
         </div>
@@ -180,7 +181,7 @@ if (!isset($_SESSION['is_logged'])) {
             <div class="footer-container">
                 <p class="copyright">
                     Copyright &copy; 2020 by
-                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                    <a href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank">Aberratio</a>. All Rights Reserved
                 </p>
             </div>
         </div>

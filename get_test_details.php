@@ -301,7 +301,7 @@ function update_bidding($test)
         }
     }
 }
-function update_player_bidding($test, $friend, $send_bidding)
+function update_player_bidding($test, $friend)
 {
     global $con;
 
@@ -318,11 +318,10 @@ function update_player_bidding($test, $friend, $send_bidding)
         $second_player = $row_biddingtest['second_player'];
         $test_number = $row_biddingtest['test_number'];
         $test_main_id = $row_biddingtest['id_test'];
-        $set_id = $row_biddingtest['id_set'];
 
         echo "
         <form id='send_bidding' method='get'>
-            <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' value='" . $send_bidding . "' />
+            <input type='hidden' name='send_button' id='send_button' class='biddingbox_bottom_button  biddingbox_bottom_button_send' action='menu.php' value='Zatwierdź licytację' />
             <input type='hidden' name='biddingset' value='$player_set' />
             <input type='hidden' name='friend' value='$friend' />
             <input type='hidden' name='type' value='0' />

@@ -27,10 +27,10 @@ function search_for_folders($friend_id, $type, $user_id, $infos)
 				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				<h4 class="panel-title text-capitalize">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $id_folder . '" aria-expanded="false" aria-controls="collapse' . $id_folder . '">
+					<button class="btn btn-secondary my-1" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $id_folder . '" aria-expanded="false" aria-controls="collapse' . $id_folder . '">
 						' . $folder_name . '
-					</a>
-					<small class="text-info">
+					</button>
+					<small class="text-primary">
 					' . $infos->level . ' ' . $folder_level . '
 					</small>
 				</h4>
@@ -58,6 +58,64 @@ function search_for_folders($friend_id, $type, $user_id, $infos)
 	}
 }
 
+
+
+function search_for_bridge_test_folders($user_id, $infos)
+{
+	global $con;
+
+	$get_folders = 'SELECT * FROM player_folders JOIN folders ON folders.id_folder = player_folders.id_folder WHERE type = ' . $type . ' AND  (id_first_player = ' . $friend_id . ' OR id_first_player = ' . $user_id . ') AND (id_second_player = ' . $friend_id . ' OR id_second_player = ' . $user_id . ')';
+
+	$run_folders = mysqli_query($con, $get_folders);
+
+	while ($row_biddingset = mysqli_fetch_array($run_folders)) {
+		$id_folder = $row_biddingset['id_folder'];
+		$folder_name = $row_biddingset['name'];
+		if ($infos->level == "Level") {
+			$description = $row_biddingset['description'];
+		} else {
+			$description = $row_biddingset['description_pl'];
+		}
+		$folder_level = $row_biddingset['folder_level'];
+
+		echo '
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading' . $id_folder . '">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				<h4 class="panel-title text-capitalize">
+					<button class="btn btn-secondary my-1" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $id_folder . '" aria-expanded="false" aria-controls="collapse' . $id_folder . '">
+						' . $folder_name . '
+					</button>
+					<small class="text-primary">
+					' . $infos->level . ' ' . $folder_level . '
+					</small>
+				</h4>
+				<p>' . $description . '</p>
+			</div>
+		<div id="collapse' . $id_folder . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' . $id_folder . '">
+			<div class="panel-body table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">' . $infos->set_name . '</th>
+							<th scope="col">' . $infos->set_completed . '</th>
+							<th scope="col">' . $infos->score . '</th>
+							<th scope="col">' . $infos->comments . '</th>
+						</tr>
+					</thead>
+					<tbody>
+						' . search_set_in_folder($friend_id, $type, $id_folder, $user_id) . '
+					</tbody>
+				</table>
+	
+			</div>
+		</div>
+	</div>';
+	}
+}
+
+
 function search_set_in_folder($friend_id, $type, $id_folder, $user_id)
 {
 	$result_string = "";
@@ -66,7 +124,7 @@ function search_set_in_folder($friend_id, $type, $id_folder, $user_id)
 	$get_biddingset = 'SELECT player_bidding_sets.*, bidding_sets.*
 		FROM player_bidding_sets JOIN bidding_sets ON player_bidding_sets.id_set = bidding_sets.id_set 
 		WHERE set_type = ' . $type . ' AND (player_bidding_sets.first_user = ' . $friend_id . ' OR player_bidding_sets.second_user = ' . $friend_id . ') AND 
-			(player_bidding_sets.first_user = ' . $user_id . ' OR player_bidding_sets.second_user = ' . $user_id . ') AND id_folder = ' . $id_folder . ';';
+			(player_bidding_sets.first_user = ' . $user_id . ' OR player_bidding_sets.second_user = ' . $user_id . ') AND id_folder = ' . $id_folder . ' ORDER BY bidding_sets.id_set;';
 
 	$run_biddingset = mysqli_query($con, $get_biddingset);
 
@@ -96,20 +154,18 @@ function search_set_in_folder($friend_id, $type, $id_folder, $user_id)
 		$points_counter = mysqli_query($con, $get_goints_in_set);
 		$aaa =  mysqli_fetch_array($points_counter);
 
-		$result_string = $result_string . '<tr>
-			<th>
-			<a href="';
+		$result_string = $result_string . '<tr style="cursor: pointer;" class="clickable-row" data-href="';
 
 		if ($type == 0) {
-			$result_string = $result_string . "choose_bidding_test.php?set=" . $biddingset . "&type=" . $type . "&friend=" . $friend_id . "";
+			$result_string = $result_string . 'choose_bidding_test.php?set=' . $biddingset . '&type=' . $type . '&friend=' . $friend_id . '">';
 		} else if ($type == 1) {
-			$result_string = $result_string . "comp_test_page.php";
+			$result_string = $result_string . 'comp_test_page.php">';
 		}
 
 		$result_string = $result_string . '
-                ">
+                <th>
                     <h4 class="card-title font-weight-bold text-capitalize mr-3"> ' . $setname . ' </h4> 
-                </a>
+               
 			</th>
             <th>
 				<p class="font-weight-normal">

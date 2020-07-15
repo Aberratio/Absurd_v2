@@ -19,6 +19,8 @@ if (!isset($_SESSION['is_logged'])) {
 
 <?php include 'templates/header.php'; ?>
 <?php include 'templates/navbar.php'; ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
 <!-- MENU -->
 
@@ -32,10 +34,21 @@ if (!isset($_SESSION['is_logged'])) {
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
                             <?php echo $infos->find_player; ?>
                         </h4>
+                        <a href='menu.php' class='text-decoration-none ml-2 mb-2'>
+                            <i class="fas fa-long-arrow-alt-left mr-2"></i> <?php echo $infos->back; ?>
+                        </a>
                         <div class="option_container mx-3 mt-2">
                             <div class="option">
-                                <?php search_user($_SESSION['user'], $_GET['type']); ?>
+                                <?php search_user($_SESSION['user'], $_GET['type'], $infos); ?>
                             </div>
+
+                            <script>
+                                jQuery(document).ready(function($) {
+                                    $(".clickable-row").click(function() {
+                                        window.location = $(this).data("href");
+                                    });
+                                });
+                            </script>
                         </div>
 
                         <button class="btn btn-secondary my-2 mx-5" data-toggle="modal" data-target="#helperModal"><?php echo $infos->need_help ?> </button>
@@ -133,7 +146,6 @@ if (!isset($_SESSION['is_logged'])) {
                                 mysqli_query($con, "INSERT INTO `invitations`(`id_invitation`, `id_first_user`, `id_second_user`, `date_of_invitation`, `is_deleted`, `is_canceled`) 
                             VALUES (0," . $_SESSION['id'] . "," . $_GET["partner_id"] . ",'" . date('Y-m-d H:i:s') . "','false','false')");
                             }
-                            header('refresh: 1;');
                         }
                         if (isset($_GET["cancel"])) {
                             $update = "UPDATE invitations SET is_canceled=true
@@ -219,48 +231,49 @@ if (!isset($_SESSION['is_logged'])) {
             </div>
 
 
-            <!-- NEWS -->
-            <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
-                <div class="container mt-5 card">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-panel">
-                                <div class="timeline-body">
-                                    <p><?php echo $infos->need_help_cloud; ?></p>
+            <!-- HELP -->
+            <div class="col-sm-10 col-lg-5 mx-auto">
+                <div class="container mt-5">
+                    <div class="card p-2">
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p><?php echo $infos->need_help_cloud; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-panel">
-                                <div class="timeline-body">
-                                    <p><?php echo $infos->intresting_tests_cloud; ?></p>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p><?php echo $infos->intresting_tests_cloud; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-panel">
-                                <div class="timeline-body">
-                                    <p><?php echo $infos->join_trainers_cloud; ?></p>
+                            </li>
+                            <li>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p><?php echo $infos->join_trainers_cloud; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-panel">
-                                <div class="timeline-body">
-                                    <p><?php echo $infos->found_bug_cloud; ?></p>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p><?php echo $infos->found_bug_cloud; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-panel">
-                                <div class="timeline-body">
-                                    <p><?php echo $infos->development_cloud; ?></p>
+                            </li>
+                            <li>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p><?php echo $infos->development_cloud; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <a class="btn btn-secondary mt-3 btn-block mb-3 mt-1" href="https://www.facebook.com/joanna.kokot.37" target="_blank"><?php echo $infos->write_me_button; ?></a>
-
+                            </li>
+                        </ul>
+                        <a class="btn btn-secondary mt-3 btn-block mb-3 mt-1" href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank"><?php echo $infos->write_me_button; ?></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,13 +284,13 @@ if (!isset($_SESSION['is_logged'])) {
             <div class="footer-container">
                 <p class="copyright">
                     Copyright &copy; 2020 by
-                    <a href="https://www.facebook.com/joanna.kokot.37" target="_blank">Aberratio</a>. All Rights Reserved
+                    <a href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank">Aberratio</a>. All Rights Reserved
                 </p>
             </div>
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
