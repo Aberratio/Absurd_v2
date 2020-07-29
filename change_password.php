@@ -26,108 +26,125 @@ if (!isset($_SESSION['is_logged'])) {
 <body>
 
   <main>
-    <div class="row">
-      <div class="col-sm-2">
+    <div class ="site-container">
+      <div class="row my-5">
+      <!-- PLAYER PANEL -->
+        <div class="row col-12 mt-5 mx-auto">
+          <div class=" col-sm-10 col-md-8 col-lg-4 bg-white p-1 rounded mx-auto">
+            <form action="" method="post" class="settings_form " enctype="multipart/form-data">
+              <h4 class="bg-primary d-block text-center py-2 mt-1 mx-3 rounded text-white text-capitalize"><?php echo $infos->update_password; ?></h4>
+              <a href="account_settings.php" class="text-decoration-none ml-2 mb-2">
+                <i class="fas fa-long-arrow-alt-left mr-2" aria-hidden="true"></i> <?php echo $infos->back; ?>
+              </a>
+              <div class="">
+                
+                <div class ="col-12 option "> 
+                  <div class= "mx-auto">         
+                    <!-- using data base -->
+                      <?php
+                        $user = $_SESSION['email'];
+                        $get_user = "select * from bridgeplayers where email='$user'";
+                        $run_user = mysqli_query($con, $get_user);
+                        $row = mysqli_fetch_array($run_user);
+
+                        $user_pass = $row['pass'];
+                      ?>
+                    
+                      
+                      
+
+                        <div class="row text-left">
+                          <div class= "col-6">
+                            <div class="my-4" style="font-weight: bold;"><?php echo $infos->current_password; ?>
+                            </div>
+                            <div class="my-4" style="font-weight: bold;"><?php echo $infos->new_password; ?>
+                            </div>
+                            <div class="my-4" style="font-weight: bold;"><?php echo $infos->repeat_new_password; ?>
+                            </div>
+                          </div>
+                          <div class= "col-6">
+                            <input class="form-control my-3" type="password" name="current_pass" id="mypass" required="required">
+                            <input class="form-control my-3" type="password" name="u_pass1" id="mypass" required="required" >
+                            <input class="form-control my-3" type="password" name="u_pass2" id="mypass" required="required" >
+                          </div>
+                        </div>
+                       
+
+                        <div class=" text-right">
+                          <a href="forgot_pass.php" class="text-decoration-none ml-2 mb-2"><!-- todo- add an apropriate page -->
+                          <i class="fa fa-key fa-fw mr-2" aria-hidden="true"></i><?php echo $infos->forgot_password; ?>
+                          </a>
+                        </div>
+
+                        <?php
+                          if (isset($_POST['change'])) {
+                            $c_pass = $_POST['current_pass'];
+                            $pass1 = $_POST['u_pass1'];
+                            $pass2 = $_POST['u_pass2'];
+                            $user = $_SESSION['email'];
+                            $get_pass = "select * from bridgeplayers where email='$user'";
+                            $run_pass = mysqli_query($con, $get_pass);
+                            $row = mysqli_fetch_array($run_pass);
+
+                            $user_password = $row['pass'];
+
+                            if (!password_verify($c_pass, $user_password)) {
+                              echo "
+                                    <div class='alert alert-danger'>
+                                      <strong>" . $infos->old_password_didnt_match . "</strong> 
+                                    </div>
+                                  ";
+                            }
+
+                            if ($pass1 != $pass2) {
+                              echo "
+                                    <div class='alert alert-danger'>
+                                      <strong>" . $infos->new_password_didnt_match . "</strong> 
+                                    </div>
+                                  ";
+                            }
+                            if ((strlen($pass1) < 8) || (strlen($pass1) > 20)) {
+                              echo "
+                                    <div class='alert alert-danger'>
+                                      <strong>" . $infos->characters_in_password . "</strong> 
+                                    </div>
+                                  ";
+                            }
+
+                            if ($pass1 == $pass2 and password_verify($c_pass, $user_password)) {
+                              $hashed_password = password_hash($pass1, PASSWORD_DEFAULT);
+                              $update_pass = mysqli_query($con, "UPDATE bridgeplayers SET pass='$hashed_password' WHERE email='$user'");
+                              echo "
+                                    <div class='alert alert-success'>
+                                      <strong>" . $infos->changed_password . "</strong> 
+                                    </div>
+                                  ";
+                            }
+                          }
+                        ?>
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="my-2 mx-3">
+                      <button class="btn btn-secondary mt-3 btn-block" type="submit" name="change"> <?php echo $infos->update; ?> </button>
+                  </div>
+              </div>  
+            </form>     
+          </div>
+        </div>
       </div>
-      <?php
-      $user = $_SESSION['email'];
-      $get_user = "select * from bridgeplayers where email='$user'";
-      $run_user = mysqli_query($con, $get_user);
-      $row = mysqli_fetch_array($run_user);
-
-      $user_pass = $row['pass'];
-      ?>
-      <div class="col-sm-8">
-        <h2 style="color: rgb(247, 109, 109); margin-top: 20px; margin-left: 70px;"><?php echo $infos->change_email; ?></h2>
-        <form action="" method="post" class="settings_form" enctype="multipart/form-data">
-          <table>
-
-            <tr>
-              <td style="font-weight: bold;"><?php echo $infos->current_password; ?></td>
-              <td>
-                <input class="form-control" type="password" name="current_pass" id="mypass" required="required" placeholder="<?php echo $infos->current_password; ?>" />
-              </td>
-            </tr>
-
-            <tr>
-              <td style="font-weight: bold;"><?php echo $infos->new_password; ?></td>
-              <td>
-                <input class="form-control" type="password" name="u_pass1" id="mypass" required="required" placeholder="<?php echo $infos->new_password; ?>" />
-              </td>
-            </tr>
-
-            <tr>
-              <td style="font-weight: bold;"><?php echo $infos->repeat_new_password; ?></td>
-              <td>
-                <input class="form-control" type="password" name="u_pass2" id="mypass" required="required" placeholder="<?php echo $infos->repeat_new_password; ?>" />
-              </td>
-            </tr>
-
-            <tr align="center">
-              <td colspan="6">
-                <input class="update_button" type="submit" name="update" value="<?php echo $infos->update; ?>" />
-              </td>
-            </tr>
-          </table>
-        </form>
-
-
-        <?php
-        if (isset($_POST['change'])) {
-          $c_pass = $_POST['current_pass'];
-          $pass1 = $_POST['u_pass1'];
-          $pass2 = $_POST['u_pass2'];
-
-          $user = $_SESSION['email'];
-          $get_pass = "select * from bridgeplayers where email='$user'";
-          $run_pass = mysqli_query($con, $get_pass);
-          $row = mysqli_fetch_array($run_pass);
-
-          $user_password = $row['pass'];
-
-          if (!password_verify($c_pass, $user_password)) {
-            echo "
-                  <div class='alert alert-danger'>
-                    <strong>" . $infos->old_password_didnt_match . "</strong> 
-                  </div>
-                ";
-          }
-
-          if ($pass1 != $pass2) {
-            echo "
-                  <div class='alert alert-danger'>
-                    <strong>" . $infos->new_password_didnt_match . "</strong> 
-                  </div>
-                ";
-          }
-          if ((strlen($pass1) < 8) || (strlen($pass1) > 20)) {
-            echo "
-                  <div class='alert alert-danger'>
-                    <strong>" . $infos->characters_in_password . "</strong> 
-                  </div>
-                ";
-          }
-
-          if ($pass1 == $pass2 and password_verify($c_pass, $user_password)) {
-            $hashed_password = password_hash($pass1, PASSWORD_DEFAULT);
-            $update_pass = mysqli_query($con, "UPDATE bridgeplayers SET pass='$hashed_password' WHERE email='$user'");
-            echo "
-                  <div class='alert alert-danger'>
-                    <strong>" . $infos->password_changed . "</strong> 
-                  </div>
-                ";
-          }
-        }
-        ?>
-      </div>
-      <div class="col-sm-2">
-      </div>
-    </div>
-
+    </div>    
   </main>
 
   <footer>
-
+  <div class="navbar fixed-bottom justify-content-center align-content-center" id="main-footer">
+      <div class="footer-container">
+        <p class="copyright">
+          Copyright &copy; 2020 by
+          <a href="https://www.facebook.com/joanna.gertrud.kokot/" target="_blank">Aberratio</a>. All Rights Reserved
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

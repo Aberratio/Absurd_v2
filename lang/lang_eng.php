@@ -83,6 +83,7 @@ class Infos
     public $rename = "Rename";
     public $change_email = "Change email";
     public $change_profile_picture = "Change your profile photo";
+    public $click_to_change_profile_picture = "Click on your profile picture to change it";
     public $change_password = "Password change";
     public $current_password = "Current password";
     public $new_password = "New password";
@@ -94,8 +95,10 @@ class Infos
     public $changed_password = "Your password is changed";
     public $profile_updated = "Profile updated!";
     public $select_profile_picture = "Select a profile picture!";
-    public $update_profile = "Update Profile";
+    public $update_profile = "Update Profile!";
+    public $update_password = "Update Password!";
     public $language = "Change language";
+    public $forgot_password = "Forgot password?";                                                               
 
     //Points Table
     public $user = "Player";
