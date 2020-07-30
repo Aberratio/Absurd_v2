@@ -3,7 +3,7 @@
 class Infos
 {
     //Login
-    public $bad_login_or_password = "Incorrect login or password!";
+    public $invalid_login_or_password = "Incorrect login or password!";
 
     //Menu Options
     public $player_menu_panel = "Player Menu Panel";

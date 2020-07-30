@@ -11,7 +11,6 @@ if ($_SESSION['language'] == 1) {
 
 $infos = new Infos();
 
-
 ?>
 <?php
 if (!isset($_SESSION['is_logged'])) {
@@ -49,10 +48,6 @@ if (!isset($_SESSION['is_logged'])) {
 
                         $user_pass = $row['pass'];
                       ?>
-                    
-                      
-                      
-
                         <div class="row text-left">
                           <div class= "col-6">
                             <div class="my-4" style="font-weight: bold;"><?php echo $infos->current_password; ?>

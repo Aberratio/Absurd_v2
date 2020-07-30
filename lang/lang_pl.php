@@ -3,7 +3,7 @@
 class Infos
 {
     // Login
-    public $bad_login_or_password = "Nieprawidłowy login lub hasło!";//invalid sounds better
+    public $invalid_login_or_password = "Nieprawidłowy login lub hasło!";
 
     // Menu Options
     public $player_menu_panel = "Panel Gracza";

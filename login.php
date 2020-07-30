@@ -56,11 +56,11 @@ if ($db_connection->connect_errno != 0) {
 
                 header('Location: menu.php');
             } else {
-                $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->bad_login_or_password . ' </span>';
+                $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->invalid_login_or_password . ' </span>';
                 header('Location: index.php');
             }
         } else {
-            $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->bad_login_or_password . ' </span>';
+            $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->invalid_login_or_password . ' </span>';
             header('Location: index.php');
         }
     }
