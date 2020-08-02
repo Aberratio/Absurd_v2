@@ -56,7 +56,9 @@
 
                       <div class = "row col-12 mx-auto">
                         <div class = "col-6">
-                          <img class="profile_picture" src="img/zd_ps (1).jpg.46">
+                          <a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="upload.php">
+                            <img class="profile_picture" src="<?php echo $profile_picture; ?>">
+                          </a>
                         </div>
                         <div class="col-6 my-auto">
                           <a class="btn btn-default text-dark" style="text-decoration: none;font-size: 15px;" href="upload.php">
@@ -79,10 +81,10 @@
                         </div>
                         <div class="col-6">
                             <div>
-                              <input class="form-control ml-2 mb-2" type="text" name="u_name" required="required" value="Kuba">
+                              <input class="form-control ml-2 mb-2" type="text" name="u_name" required="required" value="<?php echo $user_name; ?>">
                             </div>
                             <div>
-                              <input class="form-control  ml-2" type="email" name="u_email" required="required" value="jogkot@gmail.com">
+                              <input class="form-control  ml-2" type="email" name="u_email" required="required" value="<?php echo $user_email; ?>">
                             </div>
 
                             <div>
@@ -123,7 +125,7 @@
                     </div>
 
             </div>
-            <div class="my-3 mx-3">
+            <div class="mb-3 mx-3">
               <button class="btn btn-secondary mt-3 btn-block" type="submit" name="update"> <?php echo $infos->update; ?></button>
             </div>
           </div>
