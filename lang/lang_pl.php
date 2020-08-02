@@ -3,7 +3,7 @@
 class Infos
 {
     // Login
-    public $bad_login_or_password = "Nieprawidłowy login lub hasło!";
+    public $invalid_login_or_password = "Nieprawidłowy login lub hasło!";
 
     // Menu Options
     public $player_menu_panel = "Panel Gracza";
@@ -83,6 +83,7 @@ class Infos
     public $rename = "Zmień nazwę";
     public $change_email = "Zmień email";
     public $change_profile_picture = "Zmień swoje zdjęcie profilowe";
+    public $click_to_change_profile_picture = "Kliknij w zdjęcie, aby je zmienić";
     public $change_password = "Zmień hasło";
     public $current_password = "Bieżące hasło";
     public $new_password = "Nowe hasło";
@@ -94,8 +95,16 @@ class Infos
     public $changed_password = "Twoje hasło zostało zmienione";
     public $profile_updated = "Profil został zaktualizowany!";
     public $select_profile_picture = "Wybierz zdjęcie profilowe!";
-    public $update_profile = "Zaktaulizuj Profil!";
+    public $update_profile = "Zaktualizuj Profil!";
+    public $update_password = "Zaktualizuj Hasło!";
     public $language = "Zmień język";
+    public $forgot_password = "Nie pamietam hasła";
+    public $settings ="Ustawienia";
+    public $show_profile ="Profil";      
+    public $points= "Punkty: ";
+    public $login_amount = "Ilość zalogowań: ";
+    public $permitions = "Rola: ";
+    public $comment_amount = "Napisane komentarze: ";
 
     //Points Table
     public $user = "Gracz";
