@@ -99,7 +99,12 @@ class Infos
     public $update_password = "Zaktualizuj Hasło!";
     public $language = "Zmień język";
     public $forgot_password = "Nie pamietam hasła";
-    
+    public $settings ="Ustawienia";
+    public $show_profile ="Profil";      
+    public $points= "Punkty: ";
+    public $login_amount = "Ilość zalogowań: ";
+    public $permitions = "Rola: ";
+    public $comment_amount = "Napisane komentarze: ";
 
     //Points Table
     public $user = "Gracz";
