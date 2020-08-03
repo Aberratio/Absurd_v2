@@ -4,6 +4,7 @@ include("get_test_details.php");
 include("get_next_bidding_page.php");
 include("get_comments.php");
 include("connect.php");
+include("try.php");
 
 $test_id = $_GET['biddingtest'];
 $set_id = $_GET['biddingset'];
@@ -27,6 +28,8 @@ if (!isset($_SESSION['is_logged'])) {
 
 <?php include 'templates/header.php'; ?>
 <?php include 'templates/navbar.php'; ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
 <script type="text/javascript" src="js/biddingbox.js">
 
@@ -144,14 +147,21 @@ if (!isset($_SESSION['is_logged'])) {
 
                         <hr class="hr-dark py-3" />
 
+                        <div id="previous_comments"></div>
                         <!-- Previous comments -->
-                        <?php get_comments($test_id); ?>
+                        <script>
+                            $(document).ready(function() {
+                                var test_id = <?php echo $test_id ?>;
+                                $("#previous_comments").load("try.php", {
+                                    player_test_id: test_id
+                                });
+                            });
+                        </script>
+
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <!-- Bidding box -->
         <div id="bidding">
@@ -172,8 +182,6 @@ if (!isset($_SESSION['is_logged'])) {
         </div>
 
         <!-- End of bidding box -->
-
-
 
         <!-- FOOTER -->
 
