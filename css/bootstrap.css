@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -1950,6 +1950,57 @@ fieldset:disabled a.btn {
     border-color: black; }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(38, 38, 38, 0.5); }
+.btn-primary {
+  color: #fff;
+  background-color: #000;
+  border-color: #000; }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black; }
+  .btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+    box-shadow: 0 0 0 0.2rem rgba(38, 38, 38, 0.5); }
+  .btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: #000;
+    border-color: #000; }
+  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: black;
+    border-color: black; }
+    .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(38, 38, 38, 0.5); }
+
+    .btn-primary-no-focused-border {
+      color: #fff;
+      background-color: #000;
+      border-color: #000; }
+      .btn-primary:hover {
+        color: #fff;
+        background-color: black;
+        border-color: black; }
+      .btn-primary:focus, .btn-primary.focus {
+        color: #fff;
+        background-color: black;
+        border-color: black;
+        box-shadow:  black;; }
+      .btn-primary.disabled, .btn-primary:disabled {
+        color: #fff;
+        background-color: #000;
+        border-color: #000; }
+      .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: black;
+        border-color: black; }
+        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+          box-shadow: 0 0 0 0.2rem rgba(38, 38, 38, 0.5); }
+
+
+
+
 
 .btn-secondary {
   color: #fff;
