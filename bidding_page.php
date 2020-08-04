@@ -122,16 +122,22 @@ if (!isset($_SESSION['is_logged'])) {
             <!-- Comments -->
             <div class="col-sm-10 col-lg-5 mx-auto">
                 <div class="container mt-5">
-                    <div class="card mt-2">
+                    <div class="row card mt-2">
                         <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
                             <?php echo $infos->comments; ?>
                         </h4>
+                            <div class= "text-right">
+                                <button class="btn btn-secondary my-2 mx-3" data-toggle="modal" data-target="#CommentHelpModal"><?php echo $infos->help ?> </button>
+                            </div>
                         <div class='card mb-4 ml-3 mr-3'>
+                        
                             <div class='row no-gutters mt-2'>
+                            
                                 <div class="option">
+                                    
                                     <div class='col-auto'>
                                         <img class='profile_picture' style='width:60px; height: 60px; 
-				border: 1px solid black; border-radius: 75%;' src="<?php echo $_SESSION['profile_picture'] ?>">
+				                            border: 1px solid black; border-radius: 75%;' src="<?php echo $_SESSION['profile_picture'] ?>">
                                     </div>
                                 </div>
                                 <div class='col ml-1'>
@@ -139,9 +145,9 @@ if (!isset($_SESSION['is_logged'])) {
                                         <form method="post" name="add_comment">
                                             <div class="form-group">
                                                 <textarea class="comments_text_area form-control" rows="3" name="comment"></textarea>
-                                            </div>
+                                            </div>  
                                             <div class="form-group">
-                                                <button class='btn btn-secondary text-decoration-none text-white btn-block' type="submit" value="Submit" name="add_comment">Send comment</button>
+                                                <button class='btn btn-secondary text-decoration-none text-white btn-block' type="submit" value="Submit" name="add_comment"><?php echo $infos->send_comment?></button>
                                             </div>
                                             <?php
 
@@ -164,7 +170,43 @@ if (!isset($_SESSION['is_logged'])) {
                 </div>
             </div>
         </div>
-
+         <!-- MODAL -->
+        <div class="modal fade" id="CommentHelpModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="row mx-0  p-0">
+                            <div class="row col-12 p-0 mx-0">
+                                <div class="col-12 px-1">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row  col-12 p-0 mx-0 text-center">
+                                <div class="col-12">
+                                    <h3 class="text-capitalize"><?php echo $infos->comments; ?></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="row p-0 mx-1">
+                            
+                            <div class="col-6">
+                            <?php echo $infos->comment_help_text1?>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/system/avatar2.png" class="rounded mx-auto d-block float-center" style="width: 175px" alt="Responsive image">
+                            </div>
+                            <div class="col-12">
+                            <?php echo $infos->comment_help_text2?>
+                            </div>
+                        </div>
+                       
+                        <div class="my-2 mx-3 text-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo $infos->close ?></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         <!-- FOOTER -->
 
