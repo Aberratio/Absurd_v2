@@ -24,7 +24,7 @@
                             <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" data-toggle="modal" data-target="#userInfoModal" href="#"><?php echo $infos->show_profile; ?></a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#helperModal" href="#"><?php echo $infos->show_profile; ?></a>
 
                             <a class="dropdown-item" href="account_settings.php"><?php echo $infos->settings; ?></a>
                         </div>

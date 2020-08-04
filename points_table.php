@@ -4,7 +4,6 @@ include("get_test_details.php");
 include("get_next_bidding_page.php");
 include("get_comments.php");
 include("connect.php");
-include("try.php");
 
 $test_id = $_GET['biddingtest'];
 $set_id = $_GET['biddingset'];
