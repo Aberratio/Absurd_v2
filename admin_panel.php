@@ -56,6 +56,7 @@ $infos = new Infos();
 
                     <?php
                     if (isset($_POST['add_test'])) {
+
                         if (isset($_POST['new_set'])) {
                             mysqli_query($con, 'INSERT INTO `bidding_sets`(`id_set`, `set_name`, `set_type`) VALUES (0,"' . $_POST['set_name'] . '",0)');
                         }
@@ -64,9 +65,10 @@ $infos = new Infos();
                         $test_counter = mysqli_fetch_array(mysqli_query($con, 'SELECT COUNT(*) FROM bidding_tests JOIN bidding_sets ON bidding_tests.id_set = bidding_sets.id_set WHERE set_name = "' . $_POST['set_name'] . '"'))[0] + 1;
 
                         mysqli_query($con, 'INSERT INTO `bidding_tests`(`id_test`, `level`, `S_hand`, `N_hand`, `point_string`, `id_set`, `declarer`,  `test_number`) 
-                    VALUES (0,1,"' . $_POST['S_hand'] . '","' . $_POST['N_hand'] . '","' . $_POST['points_input'] . '",' . $set_id["id_set"] . ',2,' . $test_counter . ')');
+                        VALUES (0,1,"' . $_POST['S_hand'] . '","' . $_POST['N_hand'] . '","' . $_POST['points_input'] . '",' . $set_id["id_set"] . ',2,' . $test_counter . ')');
                         echo "Dodano nowy test!";
                     }
+
                     ?>
                 </form>
             </div>

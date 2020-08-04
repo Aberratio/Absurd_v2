@@ -66,7 +66,7 @@ if ($role == 1) {
 
 ?>
 <!-- MODAL -->
-<div class="modal fade" id="helperModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="row mx-0">

@@ -66,6 +66,11 @@ class Infos
     public $comments = "Komentarze";
     public $send_comment = "Wyślij komentarz";
     public $explanation = "Wyjaśnienie";
+        //Help Section
+    public $formatting = "Formatowanie:";
+    public $comment_help_text1 = "</br>Dwa znaki równości następujące po sobie odpowiadają eneterowi.";
+    public $comment_help_text2 = "<b>Kto widzi Twóje komentarze?</b></br>Twój partner.</br>Twój trener (jeśli takiego na platformie posiadasz).</br>Administrator (ale ma za dużo roboty, żeby je czytać).</br>Pozostali użytkownicy nie mają dostępu do Twoich komentarzy!</br>";
+    
 
     // Level Description
     public $level_description_header = "Opis poziomów";
@@ -78,6 +83,7 @@ class Infos
     public $find_problem = "Rozwiąż zadanie";
     public $problem_turn = "Kolej";
     public $problem = "Zadanie";
+    public $help = "Pomoc";
 
     //Account Settings
     public $rename = "Zmień nazwę";
