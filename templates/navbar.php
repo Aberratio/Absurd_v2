@@ -24,7 +24,7 @@
                             <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" data-toggle="modal" data-target="#helperModal" href="#"><?php echo $infos->show_profile; ?></a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#userInfoModal" href="#"><?php echo $infos->show_profile; ?></a>
 
                             <a class="dropdown-item" href="account_settings.php"><?php echo $infos->settings; ?></a>
                         </div>
@@ -59,14 +59,14 @@ $role = $row['role'];
 if ($role == 1) {
     $function = $infos->admin;
 } else if ($role  == 2) {
-    $function =  $infos->user;
+    $function =  $infos->trainer;
 } else if ($role  == 3) {
-    $function = $infos->trainer;
+    $function = $infos->user;
 }
 
 ?>
 <!-- MODAL -->
-<div class="modal fade" id="helperModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="row mx-0">
