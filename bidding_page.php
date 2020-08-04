@@ -188,13 +188,19 @@ if (!isset($_SESSION['is_logged'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class ="row p-0 mx-1">
+                        
+                        <div class ="row p-0 ml-1">
                             
-                            <div class="col-6">
+                            <div class="col-6 p-1">
+                                <?php echo $infos->formatting?>
+                                </br><?php echo "s! = "?><b style="color:blue"> ♠ </b>
+                                </br><?php echo "h! = "?><b style="color:red"> ♥</b>
+                                </br><?php echo "d! = "?><b style="color:orange"> ♦ </b>
+                                </br><?php echo "c! = "?><b style="color:green"> ♣ </b>
                             <?php echo $infos->comment_help_text1?>
                             </div>
-                            <div class="col-6">
-                                <img src="img/system/avatar2.png" class="rounded mx-auto d-block float-center" style="width: 175px" alt="Responsive image">
+                            <div class="d-none d-sm-block col-sm-6 ">
+                                <img src="img/system/avatar2.png" class="rounded  d-block float-center" style="width: 175px" alt="Responsive image">
                             </div>
                             <div class="col-12">
                             <?php echo $infos->comment_help_text2?>

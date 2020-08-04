@@ -67,8 +67,9 @@ class Infos
     public $send_comment = "Send comment";
     public $explanation = "Explanation";
         //Help Section
-    public $comment_help_text1 = "</br>s! = ♠ </br>h! = ♥ </br>d! = ♦ </br>c! = ♣ </br>Two equal signs will make a new line.";
-    public $comment_help_text2 = "<b>Who can see your comment?</b></br>Your partner.</br>Your trainer (only if he exists on this platform).</br>The Admin (But he doesn't have time to read it).</br>Other users cannot see your comments!</br>";
+    public $formatting = "<b>Formatting:</b>";
+    public $comment_help_text1 = "</br>Two equal signs will make a new line.";
+    public $comment_help_text2 = "<b>Who can see your comments?</b></br>Your partner.</br>Your trainer (only if he exists on this platform).</br>The Admin (But he doesn't have time to read it).</br>Other users cannot see your comments!</br>";
         
     
     //Level Description
