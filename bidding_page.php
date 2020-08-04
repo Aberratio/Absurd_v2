@@ -191,7 +191,7 @@ if (!isset($_SESSION['is_logged'])) {
                         
                         <div class ="row p-0 ml-1">
                             
-                            <div class="col-6 p-1">
+                            <div class="col-6">
                                 <?php echo $infos->formatting?>
                                 </br><?php echo "s! = "?><b style="color:blue"> ♠ </b>
                                 </br><?php echo "h! = "?><b style="color:red"> ♥</b>
