@@ -123,7 +123,7 @@ if (!isset($_SESSION['is_logged'])) {
                                 <div class="option">
                                     <div class='col-auto'>
                                         <img class='profile_picture' style='width:60px; height: 60px; 
-				border: 1px solid black; border-radius: 75%;' src='<?php echo $_SESSION['profile_picture'] ?>'>
+				                        border: 1px solid black; border-radius: 75%;' src='<?php echo $_SESSION['profile_picture'] ?>'>
                                     </div>
                                 </div>
                                 <div class='col ml-1'>
