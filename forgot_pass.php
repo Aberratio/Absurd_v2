@@ -34,13 +34,13 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" placeholder=<?php echo $infos-> nickname?> />
+                        <input class="form-control" type="text" id="nickname" placeholder="<?php echo $infos-> nickname?>" />
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" placeholder=<?php echo $infos->email ?> />
+                        <input class="form-control" type="email" id="email" placeholder="<?php echo $infos->email ?>" />
                     </div>
 
                     <button class="btn btn-secondary btn-block" type="submit">
