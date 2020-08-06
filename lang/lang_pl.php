@@ -127,7 +127,7 @@ class Infos
     public $password = "Hasło";
     public $password_repeat = "Powtórz hasło";
 
-    public $have_fun = "BawSięDobrze!";// :/ doesnt work the other way shows only one word
+    public $have_fun = "Baw Się Dobrze!";
 
     //Forgotten password
     public $password_still_remember = "Aaa... już pamiętam";

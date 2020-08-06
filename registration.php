@@ -159,7 +159,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" name="user" placeholder=<?php echo $infos->nickname?> />
+                        <input class="form-control" type="text" id="nickname" name="user" placeholder="<?php echo $infos->nickname?>"" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_user'])) {
@@ -172,7 +172,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" name="email" placeholder=<?php echo $infos->email?> />
+                        <input class="form-control" type="email" id="email" name="email" placeholder="<?php echo $infos->email?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_email'])) {
@@ -185,7 +185,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="password" name="password1" placeholder=<?php echo $infos->password?> />
+                        <input class="form-control" type="password" id="password" name="password1" placeholder="<?php echo $infos->password?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_password'])) {
@@ -198,7 +198,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder=<?php echo $infos->password_repeat?> />
+                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder="<?php echo $infos->password_repeat?>" />
                     </div>
 
                     <div class="input-group mb-3">
@@ -215,7 +215,7 @@ if (isset($_POST['user'])) {
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="rules" id="gridCheck" />
                             <label class="form-check-label" for="gridCheck"><?php echo $infos->i_accept_the?>
-                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title=<?php echo $infos->have_fun?>>
+                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title="<?php echo $infos->have_fun?>">
                                 <?php echo $infos->terms?>
                                 </b>
                             </label>

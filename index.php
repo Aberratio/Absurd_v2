@@ -36,13 +36,13 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" name="login" placeholder="Nickname" required="required" />
+                        <input class="form-control" type="text" id="nickname" name="login" placeholder="<?php echo $infos->nickname?>" required="required" />
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="password" name="password" placeholder="Password" required="required" />
+                        <input class="form-control" type="password" id="password" name="password" placeholder="<?php echo $infos->password?>" required="required" />
                     </div>
                     <button class="btn btn-secondary btn-block" type="submit">
 
