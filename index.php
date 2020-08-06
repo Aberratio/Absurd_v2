@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php"; 
+
+$infos = new Infos();
+
+
 if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
     header('Location: menu.php');
     exit();
@@ -37,7 +45,9 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <input class="form-control" type="password" id="password" name="password" placeholder="Password" required="required" />
                     </div>
                     <button class="btn btn-secondary btn-block" type="submit">
-                        Practice!
+
+                   <?php echo  $infos->log_in ?>
+
                     </button>
                     <?php
                     if (isset($_SESSION['error_login'])) {
@@ -45,10 +55,10 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                     }
                     ?>
                     <div class="mb-4 mt-4">
-                        <p class="text-center">OR</p>
+                        <p class="text-center"> <?php echo  $infos->or?> </p>
                     </div>
-                    <a class="btn btn-primary btn-block" href="registration.php">Create an account</a>
-                    <a class="text-center d-block mt-3" href="forgot_pass.php">Forgot password?</a>
+                    <a class="btn btn-primary btn-block" href="registration.php"><?php echo  $infos->create_account ?>    </a>
+                    <a class="text-center d-block mt-3" href="forgot_pass.php"><?php echo  $infos->forgot_password ?></a>
                 </form>
             </div>
         </div>

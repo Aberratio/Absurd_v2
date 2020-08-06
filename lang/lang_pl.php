@@ -4,6 +4,10 @@ class Infos
 {
     // Login
     public $invalid_login_or_password = "Nieprawidłowy login lub hasło!";
+    public $log_in = "Zaloguj się";
+    public $log_out = "Wyloguj się";
+    public $create_account = "Stwórz konto!";
+
 
     // Menu Options
     public $player_menu_panel = "Panel Gracza";
@@ -106,6 +110,26 @@ class Infos
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
 
+    //Registration 
+    public $user_name_warning1 =  "Nazwa użytkownika powinna zawierać między 8 a 20 znaków.";
+    public $user_name_warning2 = "Nazwa użytkownika nie może zawierać polskich znaków, ani znaków specjalnych.";
+    public $password_warning1 = "Hasło musi zawierać między 8 a 60 znaków.";
+    public $password_warning2 = "Hasła muszą być identyczne.";
+    public $term_acceptaion = "Zatwierdź warunki korzystania.";
+    public $email_in_use =  "Email zajęty!";
+    public $adventure_start = "Do dzieła!";
+    public $already_has_account = "Mam już konto";
+    public $i_accept_the = "Akceptuję";
+    public $terms = "regulamin";
+
+    public $nickname = "Nazwa użytkownika";
+    public $email = "Email";
+    public $password = "Hasło";
+    public $password_repeat = "Powtórz hasło";
+
+    public $have_fun = "BawSięDobrze!";// :/ doesnt work the other way shows only one word
+
+
     //Points Table
     public $user = "Gracz";
     public $role = "Funkcja";
@@ -153,4 +177,6 @@ class Infos
     //Bidding
     public $send_bidding = "Zatwierdź licytację";
     public $check_proposed_bidding = "Sprawdź proponowaną licytację";
+    //Other
+    public $or = "lub";
 }
