@@ -218,7 +218,6 @@ if (!isset($_SESSION['is_logged'])) {
                       } catch (Exception $e) {
                         echo '<span style=color:red;">Błąd serwera!</span>';
                       }
-                      
                     }
                     ?>
                   </div>
