@@ -91,7 +91,7 @@ class Infos
     public $update = "Update";
     public $old_password_didnt_match = "Your old password didn't match";
     public $new_password_didnt_match = "Your new password did't match with each other";
-    public $characters_in_password = "Use 9 to 19 characters";
+    public $characters_in_password = "Use 8 to 60 characters";
     public $changed_password = "Your password is changed";
     public $profile_updated = "Profile updated!";
     public $select_profile_picture = "Select a profile picture!";

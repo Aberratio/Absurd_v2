@@ -91,7 +91,7 @@ class Infos
     public $update = "Zaktualizuj";
     public $old_password_didnt_match = "Błędnie wpisano stare hasło.";
     public $new_password_didnt_match = "Wpisano różne nowe hasła.";
-    public $characters_in_password = "Użyj od 9 do 19 znaków";
+    public $characters_in_password = "Użyj od 8 do 60 znaków";
     public $changed_password = "Twoje hasło zostało zmienione";
     public $profile_updated = "Profil został zaktualizowany!";
     public $select_profile_picture = "Wybierz zdjęcie profilowe!";

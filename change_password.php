@@ -98,7 +98,7 @@ if (!isset($_SESSION['is_logged'])) {
                                     </div>
                                   ";
                             }
-                            if ((strlen($pass1) < 8) || (strlen($pass1) > 20)) {
+                            if ((strlen($pass1) < 8) || (strlen($pass1) > 60)) {
                               echo "
                                     <div class='alert alert-danger'>
                                       <strong>" . $infos->characters_in_password . "</strong> 
