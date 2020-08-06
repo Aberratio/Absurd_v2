@@ -41,8 +41,8 @@
 </nav>
 <!-- DATAS -->
 <?php
-$user = $_SESSION['email'];
-$get_user = "select * from bridgeplayers where email='$user'";
+$user_id = $_SESSION['id'];
+$get_user = "select * from bridgeplayers where id='$user_id'";
 $run_user = mysqli_query($con, $get_user);
 $row = mysqli_fetch_array($run_user);
 

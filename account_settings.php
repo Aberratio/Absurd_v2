@@ -40,8 +40,8 @@ if (!isset($_SESSION['is_logged'])) {
               <div class="option_container mx-3 mt-2">
                 <div class="row">
                   <?php
-                  $user = $_SESSION['email'];
-                  $get_user = "select * from bridgeplayers where email='$user'";
+                  $user_id = $_SESSION['id'];
+                  $get_user = "select * from bridgeplayers where id='$user_id'";
                   $run_user = mysqli_query($con, $get_user);
                   $row = mysqli_fetch_array($run_user);
 
@@ -96,27 +96,105 @@ if (!isset($_SESSION['is_logged'])) {
                     <div class="text-right"><a class="btn btn-default text-dark " style="text-decoration: none;font-size: 15px;" href="change_password.php"><?php echo $infos->change_password; ?></a>
                     </div>
                   </div>
-
+                  <div class = "col-12">
                   <?php
-                  if (isset($_POST['update'])) {
 
-                    $user_name = htmlentities($_POST['u_name']);
-                    $email = htmlentities($_POST['u_email']);
-                    $language = htmlentities($_POST['language']);
+                    if (isset($_POST['update'])){
+                      $user_id = $_SESSION['id'];
+                      $get_user = "select * from bridgeplayers where id='$user_id'";
+                      $run_user = mysqli_query($con, $get_user);
+                      $row = mysqli_fetch_array($run_user);
 
-                    $update = "update bridgeplayers set user='$user_name', email='$email', language='$language' where email='$user'";
+                      $primary_user_name = $row['user'];
+                      $primary_user_email = $row['email'];
 
-                    $_SESSION['language'] = $language;
-                    $_SESSION['user'] = $user_name;
-                    $_SESSION['email'] = $email;
+                      $user_name = htmlentities($_POST['u_name']);
+                      $user_email = htmlentities($_POST['u_email']);
+                      $language = htmlentities($_POST['language']);
+                      $is_good=true;
 
-                    $run = mysqli_query($con, $update);
+                      try {
+                        $db_connection = new mysqli($host, $db_user, $db_password, $db_name);
+                        if ($db_connection->connect_errno != 0) {
+                            throw new Exception(mysqli_connect_errno());
+                        } else {
+                          //checking email in data base
+                          $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE email='$user_email'");
 
-                    if ($run) {
-                      echo "<script>window.open('account_settings.php','_self')</script>";
+                          if (!$result) {
+                              throw new Exception(($db_connection->error));
+                          }
+                          if($primary_user_email!=$user_email){
+                            $same_email_counter = $result->num_rows;
+                            if ($same_email_counter > 0) {
+                                $is_good = false;
+
+                                $_SESSION['error_email'] = "Email zajęty!";
+                                echo "
+                                      <div class='alert alert-danger'>
+                                        <strong>" . $infos->user_email_cannot_change . "</strong> 
+                                      </div>
+                                    ";
+                            }
+                          }
+                          //checking username in data base
+                          $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE user='$user_name'");
+                          
+                          if (!$result) {
+                            throw new Exception(($db_connection->error));
+                          }
+                          if($primary_user_name!=$user_name){
+                            $same_user_counter = $result->num_rows;
+                            if ($same_user_counter > 0) {
+                              $is_good = false;
+                              $_SESSION['error_user'] = "Login zajęty!";
+                              echo "
+                                      <div class='alert alert-danger'>
+                                        <strong>" . $infos->user_name_cannot_change . "</strong> 
+                                      </div>
+                                    ";
+                            }
+                          }
+                      
+                          if($is_good){
+                            $update = "update bridgeplayers set user='$user_name', email='$user_email', language='$language' where id='$user_id'";
+                            $_SESSION['user'] = $user_name;
+                            $_SESSION['email'] = $user_email;
+                            $_SESSION['language'] = $language;
+
+                            $run = mysqli_query($con, $update);
+                            if($primary_user_email!=$user_email){
+                              echo "
+                                        <div class='alert alert-succes'>
+                                          <strong>" . $infos->user_email_changed . "</strong> 
+                                        </div>
+                                      ";
+                            }
+                            if($primary_user_name!=$user_name){
+      
+                              echo "
+                              <div class='alert alert-success'>
+                              <strong>" . $infos->user_name_changed . "</strong> 
+                              </div>
+                              ";        
+                            }
+
+                            if ($run) {
+                              echo "<script>window.open('account_settings.php','_self')</script>";
+                            }
+                          }
+                          
+                            $db_connection->close();
+                        }
+                      } catch (Exception $e) {
+                        echo '<span style=color:red;">Błąd serwera!</span>';
+                      }
+                      
                     }
-                  }
-                  ?>
+                    ?>
+                  </div>
+
+            
                 </div>
                 <div class="col-sm-2">
                 </div>

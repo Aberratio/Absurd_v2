@@ -104,7 +104,12 @@ class Infos
     public $points="Points: ";
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
-    public $comment_amount = "Comments Quantity: ";             
+    public $comment_amount = "Comments Quantity: ";          
+    public $user_name_cannot_change = "This user name is already in use!";
+    public $user_email_cannot_change = "This email is already in use!";   
+    public $user_name_changed = "Succes! Your user name has been succesfully changed!";
+    public $user_email_changed = "Succes! Your email has been succesfully changed!";
+
 
     //Points Table
     public $user = "Player";

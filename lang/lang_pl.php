@@ -105,6 +105,11 @@ class Infos
     public $login_amount = "Ilość zalogowań: ";
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
+    public $user_name_cannot_change = "Ta nazwa jest już w użyciu!";
+    public $user_email_cannot_change = "Ten email jest już w użyciu!";
+    public $user_name_changed = "Sukces! Twoja nazwa użytkownika została zmieniona!";
+    public $user_email_changed = "Sukces! Twój adres email został zmieniony!";
+
 
     //Points Table
     public $user = "Gracz";
