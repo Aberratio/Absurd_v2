@@ -118,13 +118,13 @@ if (!isset($_SESSION['is_logged'])) {
                         if ($db_connection->connect_errno != 0) {
                             throw new Exception(mysqli_connect_errno());
                         } else {
-                          //checking email in data base
-                          $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE email='$user_email'");
-
-                          if (!$result) {
-                              throw new Exception(($db_connection->error));
-                          }
                           if($primary_user_email!=$user_email){
+                            //checking email in data base
+                            $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE email='$user_email'");
+
+                            if (!$result) {
+                                throw new Exception(($db_connection->error));
+                            }
                             $same_email_counter = $result->num_rows;
                             if ($same_email_counter > 0) {
                                 $is_good = false;
@@ -132,28 +132,57 @@ if (!isset($_SESSION['is_logged'])) {
                                 $_SESSION['error_email'] = "Email zajęty!";
                                 echo "
                                       <div class='alert alert-danger'>
-                                        <strong>" . $infos->user_email_cannot_change . "</strong> 
+                                        <strong>" . $infos->user_email_in_use . "</strong> 
                                       </div>
                                     ";
                             }
-                          }
-                          //checking username in data base
-                          $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE user='$user_name'");
-                          
-                          if (!$result) {
-                            throw new Exception(($db_connection->error));
+                              //checking email
+                              $save_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+
+                              if ((filter_var($save_email, FILTER_VALIDATE_EMAIL) == false) || ($save_email != $user_email)) {
+                                  $is_good = false;
+                                  echo "
+                                        <div class='alert alert-danger'>
+                                          <strong>" . $infos->user_email_incorrect  . "</strong> 
+                                        </div>
+                                      ";
+                              }
                           }
                           if($primary_user_name!=$user_name){
+                            //checking username in data base
+                            $result = $db_connection->query("SELECT id FROM bridgeplayers WHERE user='$user_name'");
+                            
+                            if (!$result) {
+                              throw new Exception(($db_connection->error));
+                            }
                             $same_user_counter = $result->num_rows;
                             if ($same_user_counter > 0) {
                               $is_good = false;
                               $_SESSION['error_user'] = "Login zajęty!";
                               echo "
                                       <div class='alert alert-danger'>
-                                        <strong>" . $infos->user_name_cannot_change . "</strong> 
+                                        <strong>" . $infos->user_name_in_use  . "</strong> 
                                       </div>
                                     ";
                             }
+                              
+                              if ((strlen($user_name) < 3) || (strlen($user_name) > 20)) {
+                                  $is_good = false;
+                                  echo "
+                                      <div class='alert alert-danger'>
+                                        <strong>" . $infos->user_name_incorrect_length  . "</strong> 
+                                      </div>
+                                    ";
+                              }
+
+                              if (ctype_alnum($user_name) == false) {
+                                  $is_good = false;
+                                  echo "
+                                      <div class='alert alert-danger'>
+                                        <strong>" . $infos->user_name_incorrect_signs  . "</strong> 
+                                      </div>
+                                    ";
+                              }
                           }
                       
                           if($is_good){

@@ -105,11 +105,13 @@ class Infos
     public $login_amount = "Ilość zalogowań: ";
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
-    public $user_name_cannot_change = "Ta nazwa jest już w użyciu!";
-    public $user_email_cannot_change = "Ten email jest już w użyciu!";
+    public $user_name_in_use = "Ta nazwa jest już w użyciu!";
+    public $user_email_in_use = "Ten email jest już w użyciu!";
     public $user_name_changed = "Sukces! Twoja nazwa użytkownika została zmieniona!";
     public $user_email_changed = "Sukces! Twój adres email został zmieniony!";
-
+    public $user_name_incorrect_length = "Nazwa użytkownika może mięć między 3 a 20 znaków!";
+    public $user_name_incorrect_signs = "Nazwa użytkownika nie może zawierać polskich znaków, ani znaków specjalnych!";
+    public $user_email_incorrect = "Nieprawidłowy email!";
 
     //Points Table
     public $user = "Gracz";

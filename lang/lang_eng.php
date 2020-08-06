@@ -105,10 +105,13 @@ class Infos
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
     public $comment_amount = "Comments Quantity: ";          
-    public $user_name_cannot_change = "This user name is already in use!";
-    public $user_email_cannot_change = "This email is already in use!";   
+    public $user_name_in_use = "This user name is already in use!";
+    public $user_email_in_use = "This email is already in use!";   
     public $user_name_changed = "Succes! Your user name has been succesfully changed!";
     public $user_email_changed = "Succes! Your email has been succesfully changed!";
+    public $user_name_incorrect_length = "The username must contain between 3 and 20 characters. ";
+    public $user_name_incorrect_signs = "The username can only contain letters (without non-english characters) and numbers.";
+    public $user_email_incorrect = "Incorrect email address";
 
 
     //Points Table
