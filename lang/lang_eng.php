@@ -127,6 +127,10 @@ class Infos
     public $password_repeat = "Repeat password";
     public $have_fun = "Have Fun!";
 
+    //Forgotten password
+    public $password_still_remember = "However I still remember";
+    public $password_reset = "Reset my password";
+
     //Points Table
     public $user = "Player";
     public $role = "Role";

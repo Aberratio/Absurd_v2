@@ -1,5 +1,12 @@
 <?php
 
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php"; 
+
+$infos = new Infos();
+
 if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
     header('Location: menu.php');
     exit();
@@ -27,23 +34,23 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" placeholder="Nickname" />
+                        <input class="form-control" type="text" id="nickname" placeholder=<?php echo $infos-> nickname?> />
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" placeholder="Email" />
+                        <input class="form-control" type="email" id="email" placeholder=<?php echo $infos->email ?> />
                     </div>
 
                     <button class="btn btn-secondary btn-block" type="submit">
-                        Reset password
+                    <?php echo $infos->password_reset ?>
                     </button>
                     <div class="mb-4 mt-4">
-                        <p class="text-center">OR</p>
+                        <p class="text-center"><?php echo $infos->or ?></p>
                     </div>
                     <a class="btn btn-primary btn-block" href="index.php">
-                        However I remember my password</a>
+                    <?php echo $infos->password_still_remember ?></a>
                 </form>
             </div>
         </div>

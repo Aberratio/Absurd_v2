@@ -129,6 +129,9 @@ class Infos
 
     public $have_fun = "BawSięDobrze!";// :/ doesnt work the other way shows only one word
 
+    //Forgotten password
+    public $password_still_remember = "Aaa... już pamiętam";
+    public $password_reset = "Zmieniam hasło";
 
     //Points Table
     public $user = "Gracz";
