@@ -1,7 +1,13 @@
 <?php
 
 session_start();
-include("lang/lang_eng.php");
+
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php"; 
+
+
 
 $infos = new Infos();
 
@@ -56,11 +62,11 @@ if ($db_connection->connect_errno != 0) {
 
                 header('Location: menu.php');
             } else {
-                $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->bad_login_or_password . ' </span>';
+                $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->invalid_login_or_password . ' </span>';
                 header('Location: index.php');
             }
         } else {
-            $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->bad_login_or_password . ' </span>';
+            $_SESSION['error_login'] = '<span style="color:red"> ' . $infos->invalid_login_or_password . ' </span>';
             header('Location: index.php');
         }
     }
