@@ -4,6 +4,9 @@ class Infos
 {
     //Login
     public $invalid_login_or_password = "Incorrect login or password!";
+    public $log_in = "Log in";
+    public $log_out = "Log out";
+    public $create_account = "Create Account";
 
     //Menu Options
     public $player_menu_panel = "Player Menu Panel";
@@ -105,6 +108,28 @@ class Infos
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
     public $comment_amount = "Comments Quantity: ";             
+    public $incorrect_email = "Incorrect email adress";
+
+    //Registration 
+    public $user_name_warning1 =  "The username must contain between 3 and 20 characters.";
+    public $user_name_warning2 = "The username can only contain letters (without non-english characters) and numbers.";
+    public $password_warning1 = "The password must contain between 8 and 60 characters.";
+    public $password_warning2 = "Passwords must be identical.";
+    public $term_acceptaion = "Accept the terms.";
+    public $email_in_use =  "Email zajęty!";
+    public $adventure_start = "Start the adventure";
+    public $already_has_account = "I already have an account";
+    public $i_accept_the = "I accept the";
+    public $terms = "terms";
+    public $nickname = "Nickname";
+    public $email = "Email";
+    public $password = "Password";
+    public $password_repeat = "Repeat password";
+    public $have_fun = "Have Fun!";
+
+    //Forgotten password
+    public $password_still_remember = "However I still remember";
+    public $password_reset = "Reset my password";
 
     //Points Table
     public $user = "Player";
@@ -126,7 +151,7 @@ class Infos
     public $add = "Add";
     public $group_added = "Group added!";
     public $add_group = "Add new group";
-    public $already_have_folder = "Player already have this folder!";
+    public $already_have_folder = "Player already has this folder!"; // :)
     public $folder_added = "Folder added!";
 
     //Navigation
@@ -153,4 +178,7 @@ class Infos
     //Bidding 
     public $send_bidding = "Send bidding";
     public $check_proposed_bidding = "Check proposed bidding";
+
+    //Other
+    public $or = "or";
 }
