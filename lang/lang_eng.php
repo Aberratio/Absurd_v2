@@ -101,13 +101,13 @@ class Infos
     public $update_profile = "Update Profile!";
     public $update_password = "Update Password!";
     public $language = "Change language";
-    public $forgot_password = "Forgot password?";      
-    public $settings ="Settings";
-    public $show_profile ="Show Profile";    
-    public $points="Points: ";
+    public $forgot_password = "Forgot password?";
+    public $settings = "Settings";
+    public $show_profile = "Show Profile";
+    public $points = "Points: ";
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
-    public $comment_amount = "Comments Quantity: ";             
+    public $comment_amount = "Comments Quantity: ";
     public $incorrect_email = "Incorrect email adress";
 
     //Registration 
@@ -179,6 +179,9 @@ class Infos
     public $send_bidding = "Send bidding";
     public $check_proposed_bidding = "Check proposed bidding";
 
-    //Other
+
+    //Others
+    public $and = "and";
+    public $performance = "performance:";
     public $or = "or";
 }

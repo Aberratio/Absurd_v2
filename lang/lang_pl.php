@@ -103,9 +103,9 @@ class Infos
     public $update_password = "Zaktualizuj Hasło!";
     public $language = "Zmień język";
     public $forgot_password = "Nie pamietam hasła";
-    public $settings ="Ustawienia";
-    public $show_profile ="Profil";      
-    public $points= "Punkty: ";
+    public $settings = "Ustawienia";
+    public $show_profile = "Profil";
+    public $points = "Punkty: ";
     public $login_amount = "Ilość zalogowań: ";
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
@@ -180,6 +180,9 @@ class Infos
     //Bidding
     public $send_bidding = "Zatwierdź licytację";
     public $check_proposed_bidding = "Sprawdź proponowaną licytację";
-    //Other
+
+    //Others
+    public $and = "i";
+    public $performance = "licytacja:";
     public $or = "lub";
 }
