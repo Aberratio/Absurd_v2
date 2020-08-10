@@ -153,4 +153,9 @@ class Infos
     //Bidding 
     public $send_bidding = "Send bidding";
     public $check_proposed_bidding = "Check proposed bidding";
+
+
+    //Others
+    public $and = "and";
+    public $performance = "performance:";
 }

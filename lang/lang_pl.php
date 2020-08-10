@@ -153,4 +153,9 @@ class Infos
     //Bidding
     public $send_bidding = "Zatwierdź licytację";
     public $check_proposed_bidding = "Sprawdź proponowaną licytację";
+    //Others
+    public $and = "i";
+    public $performance = "licytacja:";
+
+
 }
