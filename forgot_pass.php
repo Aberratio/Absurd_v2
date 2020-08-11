@@ -1,5 +1,12 @@
 <?php
 
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php"; 
+
+$infos = new Infos();
+
 if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
     header('Location: menu.php');
     exit();
@@ -27,23 +34,23 @@ if ((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'] == true)) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" placeholder="Nickname" />
+                        <input class="form-control" type="text" id="nickname" placeholder="<?php echo $infos->nickname?>" />
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" placeholder="Email" />
+                        <input class="form-control" type="email" id="email" placeholder="<?php echo $infos->email ?>" />
                     </div>
 
                     <button class="btn btn-secondary btn-block" type="submit">
-                        Reset password
+                        <?php echo $infos->password_reset ?>
                     </button>
                     <div class="mb-4 mt-4">
-                        <p class="text-center">OR</p>
+                        <p class="text-center"><?php echo $infos->or ?></p>
                     </div>
                     <a class="btn btn-primary btn-block" href="index.php">
-                        However I remember my password</a>
+                    <?php echo $infos->password_still_remember ?></a>
                 </form>
             </div>
         </div>
@@ -72,27 +79,77 @@ session_start();
 
 include("connect.php");
 
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
 if (isset($_POST['submit'])) {
+    $db_connection = new mysqli($host, $db_user, $db_password, $db_name);
+    if ($db_connection->connect_errno != 0) {
+        throw new Exception(mysqli_connect_errno());
+    }
 
     $email = htmlentities(mysqli_real_escape_string($con, $_POST['email']));
-    $recovery_account = htmlentities(mysqli_real_escape_string($con, $_POST['cezar']));
+    //$recovery_account = htmlentities(mysqli_real_escape_string($con, $_POST['cezar']));
+    $user_name = htmlentities(mysqli_real_escape_string($con, $_POST['nickname']));
 
-    $select_user = "select * from users where user_email='$email' AND forgotten_answer='$recovery_account'";
+    $select_user = "select * from bridgeplayers where user_email='$email' AND user='$user_name'";
 
     $query = mysqli_query($con, $select_user);
 
     $check_user = mysqli_num_rows($query);
 
     if ($check_user == 1) {
+        //creating new password
+        $newPass=randomPassword();
+        //sending it to the user
 
-        $_SESSION['user_email'] = $email;
+        $output='<p>Dear user,</p>';
+        $output.='<p>Your password has been changed, your new passord is:</p>';
+        $output.='<p>-------------------------------------------------------------</p>';
+        $output.=$newPass 
+        $output.='<p>-------------------------------------------------------------</p>';
+        $body = $output; 
+        $subject = "Forgotten Password- Absurd";
+        
+        $email_to = $email;
+        $fromserver = "noreply@bridgeabsurd.com"; 
+        require("PHPMailer/PHPMailerAutoload.php");
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->Host = "bridgeabsurd.com"; // Enter your host here
+        $mail->SMTPAuth = true;
+        $mail->Username = "noreply@bridgeabsurd.com"; // Enter your email here
+        $mail->Password = "password"; //Enter your password here
+        $mail->Port = 25;
+        $mail->IsHTML(true);
+        $mail->From = "noreply@bridgeabsurd.com";
+        $mail->FromName = "Absurd-support";
+        $mail->Sender = $fromserver; // indicates ReturnPath header
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($email_to);
+        if(!$mail->Send()){
+            echo "Mailer Error: " . $mail->ErrorInfo;
+            //OLD ECHOS:
+            echo "<script>alert('Your Email or your cezar number is Incorrect')</script>";
+            echo "<script>window.open('forgot_pass.php','_self')</script>";
+        }else{
+            echo "<div class='error'>
+            <p>An email has been sent to you with instructions on how to reset your password.</p>
+            </div><br /><br /><br />";
+        }
+        //encodes the password
+        $hashed_password = password_hash($newPass, PASSWORD_DEFAULT);
 
-        echo "<script>window.open('create_password.php','_self')</script>";
-    } else {
-        echo "<script>alert('Your Email or your cezar number is Incorrect')</script>";
-        echo "<script>window.open('forgot_pass.php','_self')</script>";
+        // updates password in db
+        $sql = "UPDATE bridgeplayers SET pass='$hashed_password' WHERE email='$email'";
     }
-}
-
-
-?>
+}?>

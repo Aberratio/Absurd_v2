@@ -4,6 +4,10 @@ class Infos
 {
     // Login
     public $invalid_login_or_password = "Nieprawidłowy login lub hasło!";
+    public $log_in = "Zaloguj się";
+    public $log_out = "Wyloguj się";
+    public $create_account = "Stwórz konto!";
+
 
     // Menu Options
     public $player_menu_panel = "Panel Gracza";
@@ -91,7 +95,7 @@ class Infos
     public $update = "Zaktualizuj";
     public $old_password_didnt_match = "Błędnie wpisano stare hasło.";
     public $new_password_didnt_match = "Wpisano różne nowe hasła.";
-    public $characters_in_password = "Użyj od 8 do 60 znaków";
+    public $characters_in_password = "Użyj od 9 do 19 znaków";
     public $changed_password = "Twoje hasło zostało zmienione";
     public $profile_updated = "Profil został zaktualizowany!";
     public $select_profile_picture = "Wybierz zdjęcie profilowe!";
@@ -112,6 +116,29 @@ class Infos
     public $user_name_incorrect_length = "Nazwa użytkownika może mięć między 3 a 20 znaków!";
     public $user_name_incorrect_signs = "Nazwa użytkownika nie może zawierać polskich znaków, ani znaków specjalnych!";
     public $user_email_incorrect = "Nieprawidłowy email!";
+
+    //Registration 
+    public $user_name_warning1 =  "Nazwa użytkownika powinna zawierać między 8 a 20 znaków.";
+    public $user_name_warning2 = "Nazwa użytkownika nie może zawierać polskich znaków, ani znaków specjalnych.";
+    public $password_warning1 = "Hasło musi zawierać między 8 a 60 znaków.";
+    public $password_warning2 = "Hasła muszą być identyczne.";
+    public $term_acceptaion = "Zatwierdź warunki korzystania.";
+    public $email_in_use =  "Email zajęty!";
+    public $adventure_start = "Do dzieła!";
+    public $already_has_account = "Mam już konto";
+    public $i_accept_the = "Akceptuję";
+    public $terms = "regulamin";
+
+    public $nickname = "Nazwa użytkownika";
+    public $email = "Email";
+    public $password = "Hasło";
+    public $password_repeat = "Powtórz hasło";
+
+    public $have_fun = "Baw Się Dobrze!";
+
+    //Forgotten password
+    public $password_still_remember = "Aaa... już pamiętam";
+    public $password_reset = "Zmieniam hasło";
 
     //Points Table
     public $user = "Gracz";
@@ -160,4 +187,7 @@ class Infos
     //Bidding
     public $send_bidding = "Zatwierdź licytację";
     public $check_proposed_bidding = "Sprawdź proponowaną licytację";
-}
+    //Other
+    public $or = "lub";
+    }
+?>
