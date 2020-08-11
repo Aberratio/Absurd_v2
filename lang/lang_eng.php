@@ -98,7 +98,21 @@ class Infos
     public $update_profile = "Update Profile!";
     public $update_password = "Update Password!";
     public $language = "Change language";
-    public $forgot_password = "Forgot password?";                                                               
+    public $forgot_password = "Forgot password?";      
+    public $settings ="Settings";
+    public $show_profile ="Show Profile";    
+    public $points="Points: ";
+    public $login_amount = "Login Quantity: ";
+    public $permitions = "Permitions: ";
+    public $comment_amount = "Comments Quantity: ";          
+    public $user_name_in_use = "This user name is already in use!";
+    public $user_email_in_use = "This email is already in use!";   
+    public $user_name_changed = "Succes! Your user name has been succesfully changed!";
+    public $user_email_changed = "Succes! Your email has been succesfully changed!";
+    public $user_name_incorrect_length = "The username must contain between 3 and 20 characters. ";
+    public $user_name_incorrect_signs = "The username can only contain letters (without non-english characters) and numbers.";
+    public $user_email_incorrect = "Incorrect email address";
+
 
     //Points Table
     public $user = "Player";
