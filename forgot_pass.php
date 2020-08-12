@@ -79,11 +79,23 @@ session_start();
 
 include("connect.php");
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+/* Exception class. */
+require 'C:\xampp\htdocs\Absurd_v2\PHPMailer-master\src\Exception.php';
+
+/* The main PHPMailer class. */
+require 'C:\xampp\htdocs\Absurd_v2\PHPMailer-master\src\PHPMailer.php';
+
+/* SMTP class, needed if you want to use SMTP. */
+require 'C:\xampp\htdocs\Absurd_v2\PHPMailer-master\src\SMTP.php';
+
 function randomPassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     $pass = array(); //remember to declare $pass as an array
     $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < 8; $i++) {
+    for ($i = 0; $i < 20; $i++) {
         $n = rand(0, $alphaLength);
         $pass[] = $alphabet[$n];
     }
@@ -114,23 +126,23 @@ if (isset($_POST['submit'])) {
         $output='<p>Dear user,</p>';
         $output.='<p>Your password has been changed, your new passord is:</p>';
         $output.='<p>-------------------------------------------------------------</p>';
-        $output.=$newPass 
+        $output.=$newPass;
         $output.='<p>-------------------------------------------------------------</p>';
         $body = $output; 
         $subject = "Forgotten Password- Absurd";
         
         $email_to = $email;
-        $fromserver = "noreply@bridgeabsurd.com"; 
+        $fromserver = "bridgeabsurd.com"; 
         require("PHPMailer/PHPMailerAutoload.php");
         $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->Host = "bridgeabsurd.com"; // Enter your host here
         $mail->SMTPAuth = true;
-        $mail->Username = "noreply@bridgeabsurd.com"; // Enter your email here
-        $mail->Password = "password"; //Enter your password here
+        $mail->Username = "password@bridgeabsurd.com"; // Enter your email here
+        $mail->Password = ""; //Enter your password here
         $mail->Port = 25;
         $mail->IsHTML(true);
-        $mail->From = "noreply@bridgeabsurd.com";
+        $mail->From = "password@bridgeabsurd.com";
         $mail->FromName = "Absurd-support";
         $mail->Sender = $fromserver; // indicates ReturnPath header
         $mail->Subject = $subject;
@@ -150,6 +162,6 @@ if (isset($_POST['submit'])) {
         $hashed_password = password_hash($newPass, PASSWORD_DEFAULT);
 
         // updates password in db
-        $sql = "UPDATE bridgeplayers SET pass='$hashed_password' WHERE email='$email'";
+        //$sql = "UPDATE bridgeplayers SET pass='$hashed_password' WHERE email='$email'";
     }
 }?>
