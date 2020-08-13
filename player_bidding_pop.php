@@ -19,6 +19,9 @@ if ($_SESSION['language'] == 1) {
 
 $infos = new Infos();
 
+
+    
+					
 ?>
 
 <?php include 'templates/header.php'; ?>
@@ -31,18 +34,52 @@ $infos = new Infos();
 <body>
 
     <main>
+        
+        <div class= "row p-0 mt-5">
+            <div class= "row p-0  mt-5 card col-5 mx-auto" id="brigde_table">
+                <div class="col-12  p-0">
+                    <h4 class="bg-primary d-block text-center py-2 my-2 mx-3 rounded text-white text-capitalize">
+                    <?php 
+                        global $con;
+                        $id_first = $_GET['id_first'];
+                        $get_user1 = "select * from bridgeplayers where id='$id_first'";
+                        $run_user1 = mysqli_query($con, $get_user1);
+                        $row1 = mysqli_fetch_array($run_user1);
+                        $user_name1 = $row1['user'];
 
-        <div id="brigde_table">
-            <p>Licytacja graczy</p>
-            <table id="bidding_desk">
-                <td id="N" class="bidding_desk_column" style="padding: 3px; width: 150px;">N</td>
-                <td id="E" class="bidding_desk_column" style="padding: 3px; width: 150px;">E</td>
-                <td id="S" class="bidding_desk_column" style="padding: 3px; width: 150px;">S</td>
-                <td id="W" class="bidding_desk_column" style="padding: 3px; width: 150px;">W</td>
+                        $id_second = $_GET['id_second'];
+                        $get_user2 = "select * from bridgeplayers where id='$id_second'";
+                        $run_user2 = mysqli_query($con, $get_user2);
+                        $row2 = mysqli_fetch_array($run_user2);
+                        $user_name2 = $row2['user'];
+                        
+                        echo "<div class=''>$user_name1 $infos->and $user_name2 $infos->performance</div>";
+                    ?>
+                    </h4>
+                </div>
+                <?php 
+                    $link = "ranking_test.php?test_id=".$test_id;
+                ?>
+                <a href = '<?php echo $link?>' class='text-decoration-none ml-2 mb-2'>
+                    <i class="text-decoration-none fas fa-long-arrow-alt-left mr-2">  <?php echo $infos->back;?></i>
+                </a>
+                <div class="col-12 mx-3 p-0"></div>
+                <div class="col-12 mx-3 p-0"></div>
+            
+                
+                <table class= " my-3 text-center" id="bidding_desk">
+                    <td id="N" class="bidding_desk_column" style="padding: 3px; width: 150px;">N</td>
+                    <td id="E" class="bidding_desk_column" style="padding: 3px; width: 150px;">E</td>
+                    <td id="S" class="bidding_desk_column" style="padding: 3px; width: 150px;">S</td>
+                    <td id="W" class="bidding_desk_column" style="padding: 3px; width: 150px;">W</td>
 
-            </table>
-            <div id="bidding_string"><?php get_player_bidding($test_id, $id_first, $id_second); ?></div>
+                </table>
+                <div id="bidding_string"><?php get_player_bidding($test_id, $id_first, $id_second); ?></div>
+            </div>
         </div>
+        
+        
+        
 
         <div id="biddingbox" style="display: none;">
 
