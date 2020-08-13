@@ -1,7 +1,13 @@
 <?php
 
 session_start();
-include("lang/lang_eng.php");
+
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php"; 
+
+
 
 $infos = new Infos();
 
