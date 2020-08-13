@@ -69,7 +69,12 @@ class Infos
     public $comments = "Comments";
     public $send_comment = "Send comment";
     public $explanation = "Explanation";
-
+        //Help Section
+    public $formatting = "<b>Formatting:</b>";
+    public $comment_help_text1 = "</br>Two equal signs will make a new line.";
+    public $comment_help_text2 = "<b>Who can see your comments?</b></br>Your partner.</br>Your trainer (only if he exists on this platform).</br>The Admin (But he doesn't have time to read it).</br>Other users cannot see your comments!</br>";
+        
+    
     //Level Description
     public $level_description_header = "Description of levels";
     public $level = "Level";
@@ -81,6 +86,7 @@ class Infos
     public $find_problem = "Solve Problem";
     public $problem_turn = "Turn";
     public $problem = "Problem";
+    public $help = "Help";
 
     //Account Settings
     public $rename = "Rename";
