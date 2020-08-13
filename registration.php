@@ -1,4 +1,12 @@
 <?php
+
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = ['pl']; //space for future languages
+$lang = in_array($lang, $acceptLang) ? $lang : 'eng';
+require_once "lang/lang_{$lang}.php";
+
+$infos = new Infos();
+
 session_start();
 
 if (isset($_POST['user'])) {
@@ -8,12 +16,12 @@ if (isset($_POST['user'])) {
     $user = $_POST['user'];
     if ((strlen($user) < 3) || (strlen($user) > 20)) {
         $is_good = false;
-        $_SESSION['error_user'] = "The username must contain between 3 and 20 characters.";
+        $_SESSION['error_user'] = $infos->user_name_warning1;
     }
 
     if (ctype_alnum($user) == false) {
         $is_good = false;
-        $_SESSION['error_user'] = "The username can only contain letters (without non-english characters) and numbers.";
+        $_SESSION['error_user'] =  $infos->user_name_warning2;
     }
 
     //checking email
@@ -22,7 +30,7 @@ if (isset($_POST['user'])) {
 
     if ((filter_var($save_email, FILTER_VALIDATE_EMAIL) == false) || ($save_email != $email)) {
         $is_good = false;
-        $_SESSION['error_email'] = "Incorrect email address";
+        $_SESSION['error_email'] = $infos->incorrect_email;
     }
 
     //checking password
@@ -31,12 +39,12 @@ if (isset($_POST['user'])) {
 
     if ((strlen($password_one) < 8) || (strlen($password_one) > 60)) {
         $is_good = false;
-        $_SESSION['error_password'] = "The password must contain between 8 and 60 characters.";
+        $_SESSION['error_password'] =  $infos->password_warning1;
     }
 
     if ($password_one != $password_two) {
         $is_good = false;
-        $_SESSION['error_password'] = "Passwords must be identical.";
+        $_SESSION['error_password'] = $infos->password_warning2;
     }
 
     $hashed_password = password_hash($password_one, PASSWORD_DEFAULT);
@@ -44,7 +52,7 @@ if (isset($_POST['user'])) {
     //checking rules box
     if (!isset($_POST['rules'])) {
         $is_good = false;
-        $_SESSION['error_rules'] = "Accept the terms.";
+        $_SESSION['error_rules'] = $infos->term_acceptation;
     }
 
 
@@ -78,7 +86,7 @@ if (isset($_POST['user'])) {
             $same_email_counter = $result->num_rows;
             if ($same_email_counter > 0) {
                 $is_good = false;
-                $_SESSION['error_email'] = "Email zajęty!";
+                $_SESSION['error_email'] =  $infos->email_in_use;
             }
 
             //checking username in data base
@@ -90,7 +98,7 @@ if (isset($_POST['user'])) {
             $same_user_counter = $result->num_rows;
             if ($same_user_counter > 0) {
                 $is_good = false;
-                $_SESSION['error_user'] = "Login zajęty!";
+                $_SESSION['error_user'] = $infos->login_in_use;
             }
 
             //everything ok
@@ -149,7 +157,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" name="user" placeholder="Nickname" />
+                        <input class="form-control" type="text" id="nickname" name="user" placeholder="<?php echo $infos->nickname ?>"" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_user'])) {
@@ -158,11 +166,11 @@ if (isset($_POST['user'])) {
                     }
                     ?>
 
-                    <div class="input-group mb-3">
+                    <div class=" input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Email" />
+                        <input class="form-control" type="email" id="email" name="email" placeholder="<?php echo $infos->email ?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_email'])) {
@@ -175,7 +183,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="password" name="password1" placeholder="Password" />
+                        <input class="form-control" type="password" id="password" name="password1" placeholder="<?php echo $infos->password ?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_password'])) {
@@ -188,7 +196,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder="Repeat Password" />
+                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder="<?php echo $infos->password_repeat ?>" />
                     </div>
 
                     <div class="input-group mb-3">
@@ -204,9 +212,9 @@ if (isset($_POST['user'])) {
                     <div class="input-group mb-3">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="rules" id="gridCheck" />
-                            <label class="form-check-label" for="gridCheck">I accept the
-                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title="Have fun!">
-                                    terms
+                            <label class="form-check-label" for="gridCheck"><?php echo $infos->i_accept_the ?>
+                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title="<?php echo $infos->have_fun ?>">
+                                    <?php echo $infos->terms ?>
                                 </b>
                             </label>
                         </div>
@@ -233,12 +241,12 @@ if (isset($_POST['user'])) {
                     // }
                     ?> -->
 
-                    <button class="btn btn-secondary btn-block" type="submit" value="Submit">Start the adventure</button>
+                    <button class="btn btn-secondary btn-block" type="submit" value="Submit"><?php echo $infos->adventure_start ?></button>
 
                     <div class="mb-4 mt-4">
-                        <p class="text-center">OR</p>
+                        <p class="text-center"><?php echo $infos->or ?></p>
                     </div>
-                    <a class="btn btn-primary btn-block" href="index.php">I already have an account</a>
+                    <a class="btn btn-primary btn-block" href="index.php"><?php echo $infos->already_has_account ?></a>
                 </form>
             </div>
         </div>

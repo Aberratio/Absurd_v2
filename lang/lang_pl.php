@@ -80,6 +80,12 @@ class Infos
     public $send_comment = "Wyślij komentarz";
     public $explanation = "Wyjaśnienie";
 
+    //Help Section
+    public $formatting = "<b>Formatowanie:</b>";
+    public $comment_help_text1 = "</br>Dwa znaki równości następujące po sobie odpowiadają eneterowi.";
+    public $comment_help_text2 = "<b>Kto widzi Twóje komentarze?</b></br>Twój partner.</br>Twój trener (jeśli takiego na platformie posiadasz).</br>Administrator (ale ma za dużo roboty, żeby je czytać).</br>Pozostali użytkownicy nie mają dostępu do Twoich komentarzy!</br>";
+
+
     // Level Description
     public $level_description_header = "Opis poziomów";
     public $level = "Poziom";
@@ -91,6 +97,7 @@ class Infos
     public $find_problem = "Rozwiąż zadanie";
     public $problem_turn = "Kolej";
     public $problem = "Zadanie";
+    public $help = "Pomoc";
 
     //Account Settings
     public $rename = "Zmień nazwę";
@@ -104,7 +111,7 @@ class Infos
     public $update = "Zaktualizuj";
     public $old_password_didnt_match = "Błędnie wpisano stare hasło.";
     public $new_password_didnt_match = "Wpisano różne nowe hasła.";
-    public $characters_in_password = "Użyj od 9 do 19 znaków";
+    public $characters_in_password = "Użyj od 8 do 60 znaków";
     public $changed_password = "Twoje hasło zostało zmienione";
     public $profile_updated = "Profil został zaktualizowany!";
     public $select_profile_picture = "Wybierz zdjęcie profilowe!";
@@ -112,9 +119,9 @@ class Infos
     public $update_password = "Zaktualizuj Hasło!";
     public $language = "Zmień język";
     public $forgot_password = "Nie pamietam hasła";
-    public $settings ="Ustawienia";
-    public $show_profile ="Profil";      
-    public $points= "Punkty: ";
+    public $settings = "Ustawienia";
+    public $show_profile = "Profil";
+    public $points = "Punkty: ";
     public $login_amount = "Ilość zalogowań: ";
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
@@ -196,7 +203,9 @@ class Infos
     //Bidding
     public $send_bidding = "Zatwierdź licytację";
     public $check_proposed_bidding = "Sprawdź proponowaną licytację";
-    //Other
+
+    //Others
+    public $and = "i";
+    public $performance = "licytacja:";
     public $or = "lub";
-    }
-?>
+}

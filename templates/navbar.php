@@ -29,8 +29,6 @@
                             <a class="dropdown-item" href="account_settings.php"><?php echo $infos->settings; ?></a>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="nav-item mt-3 mb-2 mx-2 p-0">
                     <a class="text-decoration-none text-light" href="logout.php"><?php echo $infos->logout; ?></a>
