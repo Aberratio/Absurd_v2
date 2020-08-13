@@ -45,7 +45,16 @@ class Infos
     public $analyse_tests_header = "Analyse tests with your partner";
     public $analyse_tests_description = "Did you finish the test? Congratulations! However, remember that this is only half the battle. To improve your skills, you should discuss each hand with your partner.";
 
+    public $about_us = "About us";
+    public $about_us_description = "Click here to find out more about this website!";
+
     public $good_luck_header = "Good luck and have fun! ♥ ♥ ♥";
+
+    //About us
+    public $who_are_we = "Who are we?";
+    public $inspiration = "What inspires us?";
+    public $target = "What is our target?";
+    public $support_us = "Support us!";
 
     //Find Player
     public $find_player = "My Partners";

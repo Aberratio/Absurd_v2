@@ -305,7 +305,30 @@ $steps = 0;
                                     </a>";
                                 }
                                 ?>
-
+                                <!-- ABOUT US-->
+                                <?php if ($_SESSION['role'] != null) {
+                                    echo "
+                                    <a href='about_us.php' class='text-decoration-none'>
+                                        <div class='card mb-4'>
+                                            <div class='row no-gutters mt-2'>
+                                                <div class='col-auto'>
+                                                        <i class='fas fa-user-graduate fa-6x m-3'></i>
+                                                </div>
+                                                <div class='col ml-1'>
+                                                    <div class='card-block px-2'>
+                                                        <h4 class='card-title font-weight-bold text-capitalize'>
+                                                        " .$infos->about_us.  "
+                                                        </h4>
+                                                        <p class='card-text'>
+                                                        " .$infos->about_us_description . "
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>";
+                                }
+                                ?>
 
                                 <!-- <?php
                                         if ($_SESSION['role'] == 1) {
