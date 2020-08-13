@@ -122,7 +122,7 @@ class Infos
     public $password_warning1 = "The password must contain between 8 and 60 characters.";
     public $password_warning2 = "Passwords must be identical.";
     public $term_acceptaion = "Accept the terms.";
-    public $email_in_use =  "Email zajęty!";
+    public $email_in_use =  "Email already in use!";
     public $adventure_start = "Start the adventure";
     public $already_has_account = "I already have an account";
     public $i_accept_the = "I accept the";
