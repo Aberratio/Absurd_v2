@@ -3,7 +3,7 @@
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 $acceptLang = ['pl']; //space for future languages
 $lang = in_array($lang, $acceptLang) ? $lang : 'eng';
-require_once "lang/lang_{$lang}.php"; 
+require_once "lang/lang_{$lang}.php";
 
 $infos = new Infos();
 
@@ -16,13 +16,12 @@ if (isset($_POST['user'])) {
     $user = $_POST['user'];
     if ((strlen($user) < 3) || (strlen($user) > 20)) {
         $is_good = false;
-        $_SESSION['error_user'] = $infos -> user_name_warning1;
+        $_SESSION['error_user'] = $infos->user_name_warning1;
     }
 
     if (ctype_alnum($user) == false) {
         $is_good = false;
-        $_SESSION['error_user'] =  $infos -> user_name_warning2;
-    
+        $_SESSION['error_user'] =  $infos->user_name_warning2;
     }
 
     //checking email
@@ -31,15 +30,14 @@ if (isset($_POST['user'])) {
 
     if ((filter_var($save_email, FILTER_VALIDATE_EMAIL) == false) || ($save_email != $email)) {
         $is_good = false;
-        $_SESSION['error_email'] = $infos -> incorrect_email;
-    
+        $_SESSION['error_email'] = $infos->incorrect_email;
     }
 
     //checking password
     $password_one = $_POST['password1'];
     $password_two = $_POST['password2'];
 
-    if ((strlen($password_one) < 8) || (strlen($password_one) > 20)) {
+    if ((strlen($password_one) < 8) || (strlen($password_one) > 60)) {
         $is_good = false;
         $_SESSION['error_password'] =  $infos->password_warning1;
     }
@@ -54,7 +52,7 @@ if (isset($_POST['user'])) {
     //checking rules box
     if (!isset($_POST['rules'])) {
         $is_good = false;
-        $_SESSION['error_rules'] = $infos-> term_acceptation;
+        $_SESSION['error_rules'] = $infos->term_acceptation;
     }
 
 
@@ -159,7 +157,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="text" id="nickname" name="user" placeholder="<?php echo $infos->nickname?>"" />
+                        <input class="form-control" type="text" id="nickname" name="user" placeholder="<?php echo $infos->nickname ?>"" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_user'])) {
@@ -168,11 +166,11 @@ if (isset($_POST['user'])) {
                     }
                     ?>
 
-                    <div class="input-group mb-3">
+                    <div class=" input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="<?php echo $infos->email?>" />
+                        <input class="form-control" type="email" id="email" name="email" placeholder="<?php echo $infos->email ?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_email'])) {
@@ -185,7 +183,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="password" name="password1" placeholder="<?php echo $infos->password?>" />
+                        <input class="form-control" type="password" id="password" name="password1" placeholder="<?php echo $infos->password ?>" />
                     </div>
                     <?php
                     if (isset($_SESSION['error_password'])) {
@@ -198,7 +196,7 @@ if (isset($_POST['user'])) {
                         <div class="input-group-prepend">
                             <span class="input-group-text "><i class="fas fa-unlock-alt"></i></span>
                         </div>
-                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder="<?php echo $infos->password_repeat?>" />
+                        <input class="form-control" type="password" id="repeat_password" name="password2" placeholder="<?php echo $infos->password_repeat ?>" />
                     </div>
 
                     <div class="input-group mb-3">
@@ -214,9 +212,9 @@ if (isset($_POST['user'])) {
                     <div class="input-group mb-3">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="rules" id="gridCheck" />
-                            <label class="form-check-label" for="gridCheck"><?php echo $infos->i_accept_the?>
-                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title="<?php echo $infos->have_fun?>">
-                                <?php echo $infos->terms?>
+                            <label class="form-check-label" for="gridCheck"><?php echo $infos->i_accept_the ?>
+                                <b style="cursor: pointer" data-toggle="tooltip" data-placement="top" title="<?php echo $infos->have_fun ?>">
+                                    <?php echo $infos->terms ?>
                                 </b>
                             </label>
                         </div>
@@ -243,12 +241,12 @@ if (isset($_POST['user'])) {
                     // }
                     ?> -->
 
-                    <button class="btn btn-secondary btn-block" type="submit" value="Submit"><?php echo $infos->adventure_start?></button>
+                    <button class="btn btn-secondary btn-block" type="submit" value="Submit"><?php echo $infos->adventure_start ?></button>
 
                     <div class="mb-4 mt-4">
-                        <p class="text-center"><?php echo $infos->or?></p>
+                        <p class="text-center"><?php echo $infos->or ?></p>
                     </div>
-                    <a class="btn btn-primary btn-block" href="index.php"><?php echo $infos->already_has_account?></a>
+                    <a class="btn btn-primary btn-block" href="index.php"><?php echo $infos->already_has_account ?></a>
                 </form>
             </div>
         </div>

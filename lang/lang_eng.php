@@ -69,12 +69,12 @@ class Infos
     public $comments = "Comments";
     public $send_comment = "Send comment";
     public $explanation = "Explanation";
-        //Help Section
+    //Help Section
     public $formatting = "<b>Formatting:</b>";
     public $comment_help_text1 = "</br>Two equal signs will make a new line.";
     public $comment_help_text2 = "<b>Who can see your comments?</b></br>Your partner.</br>Your trainer (only if he exists on this platform).</br>The Admin (But he doesn't have time to read it).</br>Other users cannot see your comments!</br>";
-        
-    
+
+
     //Level Description
     public $level_description_header = "Description of levels";
     public $level = "Level";
@@ -100,7 +100,7 @@ class Infos
     public $update = "Update";
     public $old_password_didnt_match = "Your old password didn't match";
     public $new_password_didnt_match = "Your new password did't match with each other";
-    public $characters_in_password = "Use 9 to 19 characters";
+    public $characters_in_password = "Use 8 to 60 characters";
     public $changed_password = "Your password is changed";
     public $profile_updated = "Profile updated!";
     public $select_profile_picture = "Select a profile picture!";

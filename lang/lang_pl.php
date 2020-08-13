@@ -102,7 +102,7 @@ class Infos
     public $update = "Zaktualizuj";
     public $old_password_didnt_match = "Błędnie wpisano stare hasło.";
     public $new_password_didnt_match = "Wpisano różne nowe hasła.";
-    public $characters_in_password = "Użyj od 9 do 19 znaków";
+    public $characters_in_password = "Użyj od 8 do 60 znaków";
     public $changed_password = "Twoje hasło zostało zmienione";
     public $profile_updated = "Profil został zaktualizowany!";
     public $select_profile_picture = "Wybierz zdjęcie profilowe!";
@@ -116,6 +116,13 @@ class Infos
     public $login_amount = "Ilość zalogowań: ";
     public $permitions = "Rola: ";
     public $comment_amount = "Napisane komentarze: ";
+    public $user_name_in_use = "Ta nazwa jest już w użyciu!";
+    public $user_email_in_use = "Ten email jest już w użyciu!";
+    public $user_name_changed = "Sukces! Twoja nazwa użytkownika została zmieniona!";
+    public $user_email_changed = "Sukces! Twój adres email został zmieniony!";
+    public $user_name_incorrect_length = "Nazwa użytkownika może mięć między 3 a 20 znaków!";
+    public $user_name_incorrect_signs = "Nazwa użytkownika nie może zawierać polskich znaków, ani znaków specjalnych!";
+    public $user_email_incorrect = "Nieprawidłowy email!";
 
     //Registration 
     public $user_name_warning1 =  "Nazwa użytkownika powinna zawierać między 8 a 20 znaków.";
