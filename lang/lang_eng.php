@@ -4,6 +4,9 @@ class Infos
 {
     //Login
     public $invalid_login_or_password = "Incorrect login or password!";
+    public $log_in = "Log in";
+    public $log_out = "Log out";
+    public $create_account = "Create Account";
 
     //Menu Options
     public $player_menu_panel = "Player Menu Panel";
@@ -66,6 +69,11 @@ class Infos
     public $comments = "Comments";
     public $send_comment = "Send comment";
     public $explanation = "Explanation";
+    //Help Section
+    public $formatting = "<b>Formatting:</b>";
+    public $comment_help_text1 = "</br>Two equal signs will make a new line.";
+    public $comment_help_text2 = "<b>Who can see your comments?</b></br>Your partner.</br>Your trainer (only if he exists on this platform).</br>The Admin (But he doesn't have time to read it).</br>Other users cannot see your comments!</br>";
+
 
     //Level Description
     public $level_description_header = "Description of levels";
@@ -78,6 +86,7 @@ class Infos
     public $find_problem = "Solve Problem";
     public $problem_turn = "Turn";
     public $problem = "Problem";
+    public $help = "Help";
 
     //Account Settings
     public $rename = "Rename";
@@ -91,19 +100,20 @@ class Infos
     public $update = "Update";
     public $old_password_didnt_match = "Your old password didn't match";
     public $new_password_didnt_match = "Your new password did't match with each other";
-    public $characters_in_password = "Use 9 to 19 characters";
+    public $characters_in_password = "Use 8 to 60 characters";
     public $changed_password = "Your password is changed";
     public $profile_updated = "Profile updated!";
     public $select_profile_picture = "Select a profile picture!";
     public $update_profile = "Update Profile!";
     public $update_password = "Update Password!";
     public $language = "Change language";
-    public $forgot_password = "Forgot password?";      
-    public $settings ="Settings";
-    public $show_profile ="Show Profile";    
-    public $points="Points: ";
+    public $forgot_password = "Forgot password?";
+    public $settings = "Settings";
+    public $show_profile = "Show Profile";
+    public $points = "Points: ";
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
+<<<<<<< HEAD
     public $comment_amount = "Comments Quantity: ";          
     public $user_name_in_use = "This user name is already in use!";
     public $user_email_in_use = "This email is already in use!";   
@@ -113,6 +123,31 @@ class Infos
     public $user_name_incorrect_signs = "The username can only contain letters (without non-english characters) and numbers.";
     public $user_email_incorrect = "Incorrect email address";
 
+=======
+    public $comment_amount = "Comments Quantity: ";
+    public $incorrect_email = "Incorrect email adress";
+
+    //Registration 
+    public $user_name_warning1 =  "The username must contain between 3 and 20 characters.";
+    public $user_name_warning2 = "The username can only contain letters (without non-english characters) and numbers.";
+    public $password_warning1 = "The password must contain between 8 and 60 characters.";
+    public $password_warning2 = "Passwords must be identical.";
+    public $term_acceptaion = "Accept the terms.";
+    public $email_in_use =  "Email zajęty!";
+    public $adventure_start = "Start the adventure";
+    public $already_has_account = "I already have an account";
+    public $i_accept_the = "I accept the";
+    public $terms = "terms";
+    public $nickname = "Nickname";
+    public $email = "Email";
+    public $password = "Password";
+    public $password_repeat = "Repeat password";
+    public $have_fun = "Have Fun!";
+
+    //Forgotten password
+    public $password_still_remember = "However I still remember";
+    public $password_reset = "Reset my password";
+>>>>>>> master
 
     //Points Table
     public $user = "Player";
@@ -134,7 +169,7 @@ class Infos
     public $add = "Add";
     public $group_added = "Group added!";
     public $add_group = "Add new group";
-    public $already_have_folder = "Player already have this folder!";
+    public $already_have_folder = "Player already has this folder!"; // :)
     public $folder_added = "Folder added!";
 
     //Navigation
@@ -161,4 +196,10 @@ class Infos
     //Bidding 
     public $send_bidding = "Send bidding";
     public $check_proposed_bidding = "Check proposed bidding";
+
+
+    //Others
+    public $and = "and";
+    public $performance = "performance:";
+    public $or = "or";
 }
