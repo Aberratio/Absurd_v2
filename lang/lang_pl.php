@@ -31,6 +31,11 @@ class Infos
     public $competition_header = "Konkurs";
     public $competition_description = "Do końca sierpnia możesz wziąć udział w konkursie z nagrodami!";
 
+    
+    public $about_us_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere magna sit amet scelerisque egestas. Donec tristique turpis neque, ut aliquet metus lobortis ac. Praesent imperdiet bibendum scelerisque. Aliquam tincidunt, lacus vel ultricies vulputate, est leo mattis arcu, nec porta tortor mauris vel eros. Donec id ex auctor, sollicitudin felis at, vestibulum ante. Duis posuere arcu nulla, quis cursus ligula viverra at. Sed volutpat at justo ac mattis.";
+
+    public $about_us_header = "O nas";
+
     // What you have to do?
     public $what_you_have_to_do = "Co musisz zrobić?";
 

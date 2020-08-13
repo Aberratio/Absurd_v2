@@ -305,6 +305,30 @@ $steps = 0;
                                     </a>";
                                 }
                                 ?>
+                                <!-- About us-->
+                                <?php if (true) {
+                                    echo "
+                                    <a href='about_us.php' class='text-decoration-none'>
+                                        <div class='card mb-4'>
+                                            <div class='row no-gutters mt-2'>
+                                                <div class='col-auto'>
+                                                        <i class='fas fa-user-graduate fa-6x m-3'></i>
+                                                </div>
+                                                <div class='col ml-1'>
+                                                    <div class='card-block px-2'>
+                                                        <h4 class='card-title font-weight-bold text-capitalize'>
+                                                        " . $infos->about_us_header . "
+                                                        </h4>
+                                                        <p class='card-text'>
+                                                        " . $infos->about_us_description . "
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>";
+                                }
+                                ?>
 
 
                                 <!-- <?php
@@ -394,6 +418,7 @@ $steps = 0;
                         </div>";
                         }
                         ?>
+                        
 
                         <div class="mx-auto mb-3" style="max-width: 18rem;">
                             <a class="text-decoration-none d-block" href="ranking.php">
