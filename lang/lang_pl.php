@@ -36,6 +36,14 @@ class Infos
 
     public $about_us_header = "O nas";
 
+    
+    //about us
+    public $who_are_we = "Kim jesteśmy?";
+    public $inspiration = "Co nas inspiruje?";
+    public $target= "Jaki jest nasz cel?";
+    public $support_us = "Wesprzyj nas!";
+
+
     // What you have to do?
     public $what_you_have_to_do = "Co musisz zrobić?";
 

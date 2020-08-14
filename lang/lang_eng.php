@@ -31,7 +31,14 @@ class Infos
     public $competition_description = "You can take part in the prize competition until the end of August!";
 
     public $about_us_description = "";
-    public $about_us_header = "";
+    public $about_us_header = "About us";
+
+    //about us
+    
+    public $who_are_we = "Who are we?";
+    public $inspiration = "What inspires us";
+    public $target= "What is our target?";
+    public $support_us = "Support us!";
 
     //What you have to do?
     public $what_you_have_to_do = "What You Have To Do?";
