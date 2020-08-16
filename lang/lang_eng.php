@@ -113,17 +113,6 @@ class Infos
     public $points = "Points: ";
     public $login_amount = "Login Quantity: ";
     public $permitions = "Permitions: ";
-<<<<<<< HEAD
-    public $comment_amount = "Comments Quantity: ";          
-    public $user_name_in_use = "This user name is already in use!";
-    public $user_email_in_use = "This email is already in use!";   
-    public $user_name_changed = "Succes! Your user name has been succesfully changed!";
-    public $user_email_changed = "Succes! Your email has been succesfully changed!";
-    public $user_name_incorrect_length = "The username must contain between 3 and 20 characters. ";
-    public $user_name_incorrect_signs = "The username can only contain letters (without non-english characters) and numbers.";
-    public $user_email_incorrect = "Incorrect email address";
-
-=======
     public $comment_amount = "Comments Quantity: ";
     public $incorrect_email = "Incorrect email adress";
 
@@ -147,7 +136,6 @@ class Infos
     //Forgotten password
     public $password_still_remember = "However I still remember";
     public $password_reset = "Reset my password";
->>>>>>> master
 
     //Points Table
     public $user = "Player";
