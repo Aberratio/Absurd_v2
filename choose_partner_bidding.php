@@ -77,7 +77,7 @@ if (!isset($_SESSION['is_logged'])) {
 
                         <div class="mx-2 mb-2">
                             <h4 class="d-block text-center py-2 my-2 mx-3 text-capitalize">
-                                <?php echo $infos->sended_invitations ?>
+                                <?php echo $infos->sent_invitations ?>
                             </h4>
                             <div class="m-2" id="result3"></div>
                         </div>

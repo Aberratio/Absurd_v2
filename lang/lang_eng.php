@@ -171,7 +171,7 @@ class Infos
     //Invitations
     public $send_invite_to_user = "Invite user to pair";
     public $received_invitations = "Received invitations";
-    public $sended_invitations = "Sended invitations";
+    public $sent_invitations = "Sent invitations";
     public $invite = "Invite";
     public $search_player = "Search Player";
 
