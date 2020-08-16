@@ -7,6 +7,8 @@ class Infos
     public $log_in = "Log in";
     public $log_out = "Log out";
     public $create_account = "Create Account";
+    public $register = "Register now!";
+    public $sth = "SOME TEXT";
 
     //Menu Options
     public $player_menu_panel = "Player Menu Panel";

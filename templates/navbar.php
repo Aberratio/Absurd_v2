@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-
+ 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top py-1">
     <div class="container">
         <a class="navbar-brand" href="menu.php">
@@ -10,7 +10,7 @@
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+ 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <div class="nav-item mt-3 mx-2 p-0">
@@ -18,14 +18,14 @@
                 </div>
                 <div class="nav-item mt-2 p-0">
                     <div class="dropdown ">
-
+ 
                         <button class="btn btn-primary-no-focused-border dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class='profile_picture_nav' src='<?php echo $_SESSION['profile_picture']; ?>'>
                             <i style="color:white;"><?php echo $_SESSION['user']; ?></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" data-toggle="modal" data-target="#helperModal" href="#"><?php echo $infos->show_profile; ?></a>
-
+                            <a class="dropdown-item" data-toggle="modal" data-target="#itsMeModal" href="#"><?php echo $infos->show_profile; ?></a>
+ 
                             <a class="dropdown-item" href="account_settings.php"><?php echo $infos->settings; ?></a>
                         </div>
                     </div>
@@ -43,11 +43,11 @@ $user_id = $_SESSION['id'];
 $get_user = "select * from bridgeplayers where id='$user_id'";
 $run_user = mysqli_query($con, $get_user);
 $row = mysqli_fetch_array($run_user);
-
+ 
 $get_comments = "select COUNT(*) from comments where id_player=" . $_SESSION['id'];
 $run_comments = mysqli_query($con, $get_comments);
 $row_comments = mysqli_fetch_array($run_comments);
-
+ 
 $user_name = $row['user'];
 $user_pass = $row['pass'];
 $user_email = $row['email'];
@@ -55,16 +55,16 @@ $user_visits = $row['visits'];
 $profile_picture = $row['profile_picture'];
 $role = $row['role'];
 if ($role == 1) {
-    $function = $infos->admin;
+   $function = $infos->admin;
 } else if ($role  == 2) {
     $function =  $infos->trainer;
 } else if ($role  == 3) {
     $function = $infos->user;
 }
-
+ 
 ?>
 <!-- MODAL -->
-<div class="modal fade" id="helperModal" tabindex="-1" role="dialog" aria-labelledby="helperModalTitle" aria-hidden="true">
+<div class="modal fade" id="itsMeModal" tabindex="-1" role="dialog" aria-labelledby="itsMeModalModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="row mx-0">
@@ -82,7 +82,7 @@ if ($role == 1) {
                 </div>
             </div>
             <div class="row mx-0 my-4">
-
+ 
                 <div class=" ml-3 mr-2  d-block">
                     <img src="<?php echo $profile_picture; ?>" class=" profile_picture rounded mx-auto d-block float-left" alt="Responsive image">
                 </div>

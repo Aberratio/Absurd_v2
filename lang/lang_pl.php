@@ -7,6 +7,8 @@ class Infos
     public $log_in = "Zaloguj się";
     public $log_out = "Wyloguj się";
     public $create_account = "Stwórz konto!";
+    public $register = "Zarejestruj się!";
+    public $sth = "SOME TEXT";
 
 
     // Menu Options

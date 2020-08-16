@@ -43,7 +43,6 @@ $infos = new Infos();
                             </div>
                         </div>
                         <div class="row m-0">
-                        
                             <div class="col-12 "id="view-panel" style="float: left">
                     
                                 <?php
@@ -142,9 +141,7 @@ $infos = new Infos();
                             </div>
 
                         </div>
-                        
-                           
-                            
+
                             <?php
                             
                             if (isset($_POST['add_test'])) {
@@ -311,36 +308,171 @@ $infos = new Infos();
                             }
                             ?>
                             </form>
-                    
                     </div>
-                </div>    
-                
+                </div>      
                 <div class="col-sm-12 col-md-8 col-lg-4 my-5 mx-5 p-0">
                     <div class=" bg-white rounded p-0 mt-3 mx-auto">
-                            <div class = "row p-0 m-0">
-                                <div class = "col-1"></div>
-                                    <div class = "col-10 my-2 p-0 text-left">
-                                        <button class=" btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Set
-                                        </button>
-                                        <hr>
-                                    </div>
+                        <div class = "row p-0 m-0">
+                            <div class = "col-1"></div>
+                                <div class = "col-10 my-4 p-0 text-left">
+                                    <button class=" btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Set
+                                    </button>
+                                    <hr>
                                 </div>
-                                <div class="scrollbar scrollbar-primary">
-                                    <div class="force-overflow">
-                                       
-                                    </div>    
-                                </div>
+                                <div class = "col-12 scrollbar scrollbar-secondary m-0 p-0" style="width: 100%; height: 420px">
+                                    <div class= "force-overflow">
+                                    <div class ="test  mx-5 mb-5">
+                                        <div class ="test-border">
+                                            <div class=" standard-title-sec p-0 mx-5 my-2 " >
+                                                <div class = " p-0">
+                                                    TEST 0
+                                                </div>
+                                                
 
+                                            </div>
+                                            <div class="row text-center ">
+                                                <div class="col-6 p-0">
+                                                        <div class="h5"> RĘKA S </br></div>
+                                                        <b style="color:blue">♠</b>AQDJ</br>
+                                                        <b style="color:red">♥</b>AQD</br>
+                                                        <b style="color:orange">♦</b>AQD</br>
+                                                        <b style="color:green">♣</b>AQD</br>
+                                                    
+                                                </div>
+                                                <div class="col-6 p-0">
+                                                    <div class="h5"> RĘKA N </br></div>
+                                                    <b style="color:blue">♠</b>10987</br>
+                                                    <b style="color:red">♥</b>1098</br>
+                                                    <b style="color:orange">♦</b>1098</br>
+                                                    <b style="color:green">♣</b>1098</br>
+                                                </div>
+                                            </div>    
+                                            <div class = "col-12 text-right">
+                                                <small >
+                                                        <i class="fas fa-trash-alt ml-2 " ></i>
+                                                        <i class="fas fa-edit ml-2 " ></i>
+                                                </small>
+
+                                            </div>    
+                                        </div>  
+                                    </div>
+                                    <div class ="test  mx-5 mb-5">
+                                        <div class ="test-border">
+                                            <div class=" standard-title-sec p-0 mx-5 my-2 " >
+                                                <div class = " p-0">
+                                                    TEST 1
+                                                </div>
+                                                
+
+                                            </div>
+                                            <div class="row text-center ">
+                                                <div class="col-6 p-0">
+                                                        <div class="h5"> RĘKA S </br></div>
+                                                        <b style="color:blue">♠</b>AQDJ</br>
+                                                        <b style="color:red">♥</b>AQD</br>
+                                                        <b style="color:orange">♦</b>AQD</br>
+                                                        <b style="color:green">♣</b>AQD</br>
+                                                        
+
+                                                </div>
+                                                <div class="col-6 p-0">
+                                                    <div class="h5"> RĘKA N </br></div>
+                                                    <b style="color:blue">♠</b>10987</br>
+                                                    <b style="color:red">♥</b>1098</br>
+                                                    <b style="color:orange">♦</b>1098</br>
+                                                    <b style="color:green">♣</b>1098</br>
+                                                </div>
+                                            </div>        
+                                            <div class = "col-12 text-right">
+                                                <small >
+                                                        <i class="fas fa-trash-alt ml-2 " ></i>
+                                                        <i class="fas fa-edit ml-2 " ></i>
+                                                </small>
+
+                                            </div>    
+                                        </div>  
+                                    </div>
+                                    <div class ="test  mx-5 mb-5">
+                                        <div class ="test-border">
+                                            <div class=" standard-title-sec p-0 mx-5 my-2 " >
+                                                <div class = " p-0">
+                                                    TEST 2
+                                                </div>
+                                                
+
+                                            </div>
+                                            <div class="row text-center ">
+                                                <div class="col-6 p-0">
+                                                        <div class="h5"> RĘKA S </br></div>
+                                                        <b style="color:blue">♠</b>AQDJ</br>
+                                                        <b style="color:red">♥</b>AQD</br>
+                                                        <b style="color:orange">♦</b>AQD</br>
+                                                        <b style="color:green">♣</b>AQD</br>
+                                                        
+
+                                                </div>
+                                                <div class="col-6 p-0">
+                                                    <div class="h5"> RĘKA N </br></div>
+                                                    <b style="color:blue">♠</b>10987</br>
+                                                    <b style="color:red">♥</b>1098</br>
+                                                    <b style="color:orange">♦</b>1098</br>
+                                                    <b style="color:green">♣</b>1098</br>
+                                                </div>
+                                            </div>  
+                                            <div class = "col-12 text-right">
+                                                <small >
+                                                        <i class="fas fa-trash-alt ml-2 " ></i>
+                                                        <i class="fas fa-edit ml-2 " ></i>
+                                                </small>
+
+                                            </div>          
+                                        </div>  
+                                    </div>
+                                    <div class ="test  mx-5 mb-5">
+                                        <div class ="test-border">
+                                            <div class=" standard-title-sec p-0 mx-5 my-2 " >
+                                                <div class = " p-0">
+                                                    TEST 3
+                                                </div>
+                                                
+
+                                            </div>
+                                            <div class="row text-center ">
+                                                <div class="col-6 p-0">
+                                                        <div class="h5"> RĘKA S </br></div>
+                                                        <b style="color:blue">♠</b>AQDJ</br>
+                                                        <b style="color:red">♥</b>AQD</br>
+                                                        <b style="color:orange">♦</b>AQD</br>
+                                                        <b style="color:green">♣</b>AQD</br>
+                                                        
+
+                                                </div>
+                                                <div class="col-6 p-0">
+                                                    <div class="h5"> RĘKA N </br></div>
+                                                    <b style="color:blue">♠</b>10987</br>
+                                                    <b style="color:red">♥</b>1098</br>
+                                                    <b style="color:orange">♦</b>1098</br>
+                                                    <b style="color:green">♣</b>1098</br>
+                                                </div>
+                                            </div>    
+                                            <div class = "col-12 text-right">
+                                                <small >
+                                                        <i class="fas fa-trash-alt ml-2 " ></i>
+                                                        <i class="fas fa-edit ml-2 " ></i>
+                                                </small>
+
+                                            </div>        
+                                        </div>  
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
                         
-                                        
-                
-                
-                
                     </div>
                 </div>
-                 <!-- buttons :) 
-                <div class="col-lg-6 my-5 ">
+                    <!-- buttons :) 
+                    <div class="col-lg-6 my-5 ">
                    
                     <div id="brigde_table" >
                         <div id="biddingbox">
@@ -357,45 +489,39 @@ $infos = new Infos();
                     
                     -->
                     
-                </div>
+                
             </div>
         </div>
-       
-    <!--
-       
-    -->
-            <div>
-                <div id="aha"> </div>
-                <script type="text/javascript" language="javascript">
-                    $(function() {
-                        $("#sets").change(function() {
-                            var studentName = $('option:selected', this).attr('set_name');
-                            $('#name').val(studentName);
-                            var xd = $('#name').val();
-                            document.getElementById("aha").innerHTML = xd;
+        <div>
+            <div id="aha">
+            </div>
+            <script type="text/javascript" language="javascript">
+                $(function() {
+                    $("#sets").change(function() {
+                        var studentName = $('option:selected', this).attr('set_name');
+                        $('#name').val(studentName);
+                        var xd = $('#name').val();
+                        document.getElementById("aha").innerHTML = xd;
 
-                            <?php
-                            $cos = '<script type="text/javascript">document.write(xd)</script>';
-                            $get_set_query = "SELECT * from bidding_tests where id_set = " . $cos . ";";
+                        <?php
+                        $cos = '<script type="text/javascript">document.write(xd)</script>';
+                        $get_set_query = "SELECT * from bidding_tests where id_set = " . $cos . ";";
 
-                            $run_sets = mysqli_query($con, $get_set_query);
+                        $run_sets = mysqli_query($con, $get_set_query);
 
-                            while ($row_comparetest = mysqli_fetch_array($run_sets)) {
-                                $set_name = $row_comparetest['set_name'];
-                                $set_id = $row_comparetest['id_set'];
+                        while ($row_comparetest = mysqli_fetch_array($run_sets)) {
+                            $set_name = $row_comparetest['set_name'];
+                            $set_id = $row_comparetest['id_set'];
 
-                                echo '
-                            <option value="' . $set_id . '" set_name="' . $set_id . '">' . $set_name . '</option>';
-                            }
-                            ?>
+                            echo '
+                        <option value="' . $set_id . '" set_name="' . $set_id . '">' . $set_name . '</option>';
+                        }
+                        ?>
 
-                        });
                     });
-                </script>
-            </div>
-
+                });
+            </script>
         </div>
-
     </main>
 
     <footer>
