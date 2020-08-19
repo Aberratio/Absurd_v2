@@ -30,7 +30,13 @@ class Infos
 
     public $competition_header = "Konkurs";
     public $competition_description = "Do końca sierpnia możesz wziąć udział w konkursie z nagrodami!";
-
+    
+    //Community
+    public $meritorious = "Zasłużeni";
+    public $experts = "Eksperci";
+    public $consultants ="Konsultanci";
+    public $sponsors ="Sponsorzy";
+    
     // What you have to do?
     public $what_you_have_to_do = "Co musisz zrobić?";
 

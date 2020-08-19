@@ -30,6 +30,12 @@ class Infos
     public $competition_header = "Competition (only PL)";
     public $competition_description = "You can take part in the prize competition until the end of August!";
 
+    //Community
+    public $meritorious = "Meritorious";
+    public $experts = "Experts";
+    public $consultants ="Consultants";
+    public $sponsors ="Sponsors";
+    
     //What you have to do?
     public $what_you_have_to_do = "What You Have To Do?";
 
